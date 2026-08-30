@@ -66,7 +66,7 @@ export default function Navbar() {
                 className={`transition-colors py-1 ${
                   isActive
                     ? "text-[#f26522] font-medium"
-                    : "text-white hover:text-[#f26522]"
+                    : "text-[#ffffff] hover:text-[#f26522]"
                 }`}
               >
                 {link.label}
@@ -105,7 +105,7 @@ export default function Navbar() {
                 className={`py-1 transition-colors ${
                   pathname === link.href
                     ? "text-[#f26522] font-semibold"
-                    : "text-white hover:text-[#f26522]"
+                    : "text-[#ffffff] hover:text-[#f26522]"
                 }`}
               >
                 {link.label}

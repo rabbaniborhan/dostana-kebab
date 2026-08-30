@@ -54,7 +54,7 @@ export default function Hero({ currentLocation }: HeroProps) {
           alt="Dostana Kebab Hero Cover"
           className="w-full h-full object-cover object-center filter brightness-80 contrast-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-[#121212]" />
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 <div className="relative z-10 max-w-4xl mx-auto px-4 text-center space-y-8">
 <div key={slide.id} className="space-y-4 animate-in fade-in duration-500">
