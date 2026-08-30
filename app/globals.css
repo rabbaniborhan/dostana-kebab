@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-white: #d4d4d4;
+  --color-white: #f3f3f3;
 }
 
 @layer base {
   :root {
     --background: 18 18 18;
-    --foreground: 212 212 212;
+    --foreground: 243 243 243;
   }
 }
 

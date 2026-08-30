@@ -47,7 +47,7 @@ export default function Hero({ currentLocation }: HeroProps) {
   const branchSlug = currentLocation?.id || "dostana-kebab-lipowa";
 
   return (
-    <section id="hero" className="relative min-h-[82vh] flex items-center justify-center overflow-hidden pt-32 sm:pt-40 pb-20 bg-[#121212]">
+    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden pt-32 sm:pt-40 pb-20 bg-[#121212]">
 <div className="absolute inset-0 z-0">
         <img
           src="https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/d605db37-0ee9-4cff-be61-3d8645a7553c.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=max&fp-x=0.5&fp-y=0.5&h=1080&w=1920"

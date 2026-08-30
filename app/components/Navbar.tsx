@@ -36,21 +36,27 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 font-lato ${
+      className={`fixed left-0 right-0 z-40 transition-all duration-300 font-lato ${
         isScrolled
-          ? "glass-nav border-b border-white/10"
-          : "bg-transparent border-b border-transparent"
+          ? "top-0 bg-black/95 border-b border-white/10 shadow-lg backdrop-blur-md"
+          : "top-4 sm:top-6 bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between">
+      <div
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-300 ${
+          isScrolled ? "h-16 sm:h-20" : "h-24 sm:h-28"
+        }`}
+      >
         <Link href="/" className="flex items-center shrink-0 py-1">
           <img
             src="https://restaumatic-production.imgix.net/uploads/restaurants/347020/logo/1733232577.png?auto=compress%2Cformat&crop=focalpoint&fit=clip&h=300&w=800"
             alt="Dostana Kebab Logo"
-            className="h-14 sm:h-16 md:h-20 w-auto object-contain hover:scale-105 transition-transform duration-300"
+            className={`w-auto object-contain hover:scale-105 transition-all duration-300 ${
+              isScrolled ? "h-12 sm:h-14 md:h-16" : "h-20 sm:h-24 md:h-28"
+            }`}
           />
         </Link>
-<nav className="hidden lg:flex items-center gap-5 sm:gap-6 text-xs sm:text-sm font-normal tracking-wide">
+        <nav className="hidden lg:flex items-center gap-7 lg:gap-9 text-sm lg:text-[15px] font-normal tracking-wide">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -60,7 +66,7 @@ export default function Navbar() {
                 className={`transition-colors py-1 ${
                   isActive
                     ? "text-[#f26522] font-medium"
-                    : "text-white/75 hover:text-[#f26522]"
+                    : "text-white hover:text-[#f26522]"
                 }`}
               >
                 {link.label}
@@ -68,15 +74,14 @@ export default function Navbar() {
             );
           })}
         </nav>
-<div className="flex items-center gap-2.5 font-lato">
+        <div className="flex items-center gap-2.5 font-lato">
           <Link
             href={`/menu/${branchSlug}`}
-            className="hidden lg:flex relative flame-btn-gradient text-white font-bold text-xs uppercase px-4 py-2.5 rounded-xl items-center gap-1.5 shadow-md transition-all shrink-0"
+            className="hidden lg:flex relative bg-transparent border border-[#f26522] hover:bg-[#f26522]/10 text-white font-bold text-xs uppercase px-5 py-2.5 rounded-xl items-center gap-1.5 transition-all shrink-0"
           >
-            <ShoppingBag className="w-4 h-4" />
             <span>Order Online</span>
             {cartCount > 0 && (
-              <span className="bg-white text-[#d9531e] font-black text-xs w-4.5 h-4.5 rounded-full flex items-center justify-center ml-0.5">
+              <span className="bg-[#f26522] text-white font-black text-xs w-4.5 h-4.5 rounded-full flex items-center justify-center ml-0.5">
                 {cartCount}
               </span>
             )}
@@ -100,7 +105,7 @@ export default function Navbar() {
                 className={`py-1 transition-colors ${
                   pathname === link.href
                     ? "text-[#f26522] font-semibold"
-                    : "text-white/75 hover:text-[#f26522]"
+                    : "text-white hover:text-[#f26522]"
                 }`}
               >
                 {link.label}
@@ -111,12 +116,11 @@ export default function Navbar() {
           <Link
             href={`/menu/${branchSlug}`}
             onClick={() => setMobileMenuOpen(false)}
-            className="w-full flame-btn-gradient text-white font-bold text-xs uppercase py-2.5 rounded-xl flex items-center justify-center gap-2"
+            className="w-full bg-transparent border border-[#f26522] hover:bg-[#f26522]/10 text-white font-bold text-xs uppercase py-2.5 rounded-xl flex items-center justify-center gap-2 transition-all"
           >
-            <ShoppingBag className="w-4 h-4" />
             <span>Order Online Now</span>
             {cartCount > 0 && (
-              <span className="bg-white text-[#d9531e] font-black text-xs w-4.5 h-4.5 rounded-full flex items-center justify-center ml-0.5">
+              <span className="bg-[#f26522] text-white font-black text-xs w-4.5 h-4.5 rounded-full flex items-center justify-center ml-0.5">
                 {cartCount}
               </span>
             )}
