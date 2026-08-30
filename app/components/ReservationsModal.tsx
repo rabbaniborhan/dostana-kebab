@@ -111,7 +111,7 @@ export default function ReservationsModal({
                           : `${time} AM`
                       }
                     </span>
-                    <span className="text-neutral-400 text-[10px]">▼</span>
+                    <span className="text-[#f26522] text-[10px]">▼</span>
                   </button>
 
                   {timeDropdownOpen && (
@@ -170,7 +170,7 @@ export default function ReservationsModal({
                   <span>
                     {guests === "1" ? "1 Person" : guests === "8+" ? "8+ Large Party" : `${guests} Persons`}
                   </span>
-                  <span className="text-neutral-400 text-[10px]">▼</span>
+                  <span className="text-[#f26522] text-[10px]">▼</span>
                 </button>
 
                 {guestsDropdownOpen && (

@@ -91,13 +91,13 @@ export default function ReservationsPage() {
                       setGuestsDropdownOpen(false);
                     }}
                     className={`w-full bg-[#161616] border rounded-xl px-4 py-3.5 text-xs sm:text-sm text-white font-bold focus:outline-none cursor-pointer flex items-center justify-between transition-colors ${
-                      branchDropdownOpen ? "border-[#f26522]" : "border-white/20 hover:border-white/45"
+                      branchDropdownOpen ? "border-[#f26522]" : "border-white/20 hover:border-[#f26522]"
                     }`}
                   >
                     <span className="truncate mr-2 text-left">
                       {activeBranch.name} ({activeBranch.street})
                     </span>
-                    <span className="text-neutral-400 text-[10px]">▼</span>
+                    <span className="text-[#f26522] text-[10px]">▼</span>
                   </button>
 
                   {branchDropdownOpen && (
@@ -146,7 +146,7 @@ export default function ReservationsPage() {
                         setGuestsDropdownOpen(false);
                       }}
                       className={`w-full bg-[#161616] border rounded-xl px-4 py-3 text-xs sm:text-sm text-white font-medium focus:outline-none cursor-pointer flex items-center justify-between transition-colors ${
-                        datePickerOpen ? "border-[#f26522]" : "border-white/20 hover:border-white/45"
+                        datePickerOpen ? "border-[#f26522]" : "border-white/20 hover:border-[#f26522]"
                       }`}
                     >
                       <span>{date ? date : "Select Date"}</span>
@@ -246,7 +246,7 @@ export default function ReservationsPage() {
                         setGuestsDropdownOpen(false);
                       }}
                       className={`w-full bg-[#161616] border rounded-xl px-4 py-3 text-xs sm:text-sm text-white font-medium focus:outline-none cursor-pointer flex items-center justify-between transition-colors ${
-                        timeDropdownOpen ? "border-[#f26522]" : "border-white/20 hover:border-white/45"
+                        timeDropdownOpen ? "border-[#f26522]" : "border-white/20 hover:border-[#f26522]"
                       }`}
                     >
                       <span>
@@ -256,7 +256,7 @@ export default function ReservationsPage() {
                             : `${time} AM`
                         }
                       </span>
-                      <span className="text-neutral-400 text-[10px]">▼</span>
+                      <span className="text-[#f26522] text-[10px]">▼</span>
                     </button>
 
                     {timeDropdownOpen && (
@@ -312,13 +312,13 @@ export default function ReservationsPage() {
                         setTimeDropdownOpen(false);
                       }}
                       className={`w-full bg-[#161616] border rounded-xl px-4 py-3 text-xs sm:text-sm text-white font-medium focus:outline-none cursor-pointer flex items-center justify-between transition-colors ${
-                        guestsDropdownOpen ? "border-[#f26522]" : "border-white/20 hover:border-white/45"
+                        guestsDropdownOpen ? "border-[#f26522]" : "border-white/20 hover:border-[#f26522]"
                       }`}
                     >
                       <span>
                         {guests === "1" ? "1 Person" : guests === "8+" ? "8+ Group Party" : `${guests} Persons`}
                       </span>
-                      <span className="text-neutral-400 text-[10px]">▼</span>
+                      <span className="text-[#f26522] text-[10px]">▼</span>
                     </button>
 
                     {guestsDropdownOpen && (

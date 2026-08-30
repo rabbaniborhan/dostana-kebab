@@ -60,7 +60,7 @@ export default function ContactSection() {
                 <span className="truncate mr-2 text-left">
                   {selectedVenue.name} - {selectedVenue.street}
                 </span>
-                <span className="text-neutral-400 text-[10px]">▼</span>
+                <span className="text-[#f26522] text-[10px]">▼</span>
               </button>
 
               {dropdownOpen && (
