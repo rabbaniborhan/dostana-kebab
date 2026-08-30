@@ -13,7 +13,7 @@ export default function SubpageHero({
   subtitle,
 }: SubpageHeroProps) {
   return (
-    <div className="relative py-16 sm:py-20 overflow-hidden bg-[#121212] border-b border-white/10">
+    <div className="relative pt-32 sm:pt-40 pb-16 sm:pb-20 overflow-hidden bg-[#121212] border-b border-white/10">
 <div className="absolute inset-0 z-0">
         <img
           src="https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/0c8b0ea5-d1ac-443f-86c9-0422c585baa3.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=max&fp-x=0.5&fp-y=0.5&h=768&rect=0%2C0%2C2000%2C1124&w=1920"

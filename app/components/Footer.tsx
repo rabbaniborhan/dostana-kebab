@@ -82,10 +82,10 @@ export default function Footer() {
               <MapPin className="w-4 h-4 text-[#f26522]" />
               Lublin Branches
             </h4>
-            <ul className="space-y-2.5 text-xs font-lato">
+            <ul className="space-y-2 text-xs font-lato">
               {LOCATIONS.map((loc) => (
-                <li key={loc.id} className="flex justify-between items-center border-b border-white/5 pb-1.5">
-                  <span className="text-neutral-300 font-medium">{loc.street}</span>
+                <li key={loc.id} className="flex justify-between items-center py-1">
+                  <span className="text-neutral-400 font-medium">{loc.street}</span>
                   <a
                     href={`tel:${loc.phone.replace(/\s+/g, "")}`}
                     className="text-[#f26522] font-bold hover:underline flex items-center gap-1 shrink-0 ml-2"
