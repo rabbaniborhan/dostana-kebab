@@ -52,6 +52,11 @@ body {
 }
 
 /* Custom Scrollbars */
+html {
+  scrollbar-color: #f26522 #121212;
+  scrollbar-width: thin;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -62,12 +67,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: #f26522;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #f26522;
+  background: #d9531e;
 }
 
 /* Food Doodle Background Pattern (matching 657px x 656px scale) */
