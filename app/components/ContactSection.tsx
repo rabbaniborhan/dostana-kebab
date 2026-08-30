@@ -53,7 +53,9 @@ export default function ContactSection() {
               <button
                 type="button"
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="w-full bg-[#161616] border border-white/20 rounded-xl px-4 py-3.5 text-xs sm:text-sm text-white font-bold focus:outline-none focus:border-[#f26522] cursor-pointer flex items-center justify-between transition-colors"
+                className={`w-full bg-[#161616] border rounded-xl px-4 py-3.5 text-xs sm:text-sm text-white font-bold focus:outline-none cursor-pointer flex items-center justify-between transition-colors ${
+                  dropdownOpen ? "border-[#f26522]" : "border-white/20 hover:border-white/45"
+                }`}
               >
                 <span className="truncate mr-2 text-left">
                   {selectedVenue.name} - {selectedVenue.street}
@@ -64,7 +66,7 @@ export default function ContactSection() {
               {dropdownOpen && (
                 <>
                   <div className="fixed inset-0 z-40" onClick={() => setDropdownOpen(false)} />
-                  <div className="absolute right-0 left-0 mt-1.5 bg-[#161616] border border-white/10 rounded-xl overflow-hidden shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-100 max-h-60 overflow-y-auto">
+                  <div className="absolute right-0 left-0 mt-1.5 bg-[#161616] border border-[#f26522] rounded-xl overflow-hidden shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-100 max-h-60 overflow-y-auto">
                     {LOCATIONS.map((loc) => {
                       const isSelected = selectedVenue.id === loc.id;
                       return (

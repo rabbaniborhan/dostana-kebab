@@ -18,6 +18,20 @@ export default function ReservationsPage() {
   const [notes, setNotes] = useState("");
   const [confirmed, setConfirmed] = useState(false);
 
+  const [branchDropdownOpen, setBranchDropdownOpen] = useState(false);
+  const [timeDropdownOpen, setTimeDropdownOpen] = useState(false);
+  const [guestsDropdownOpen, setGuestsDropdownOpen] = useState(false);
+  const [datePickerOpen, setDatePickerOpen] = useState(false);
+  const [viewDate, setViewDate] = useState(new Date());
+
+  const getDaysInMonth = (year: number, month: number) => {
+    return new Date(year, month + 1, 0).getDate();
+  };
+
+  const getFirstDayOfMonth = (year: number, month: number) => {
+    return new Date(year, month, 1).getDay();
+  };
+
   const activeBranch = LOCATIONS.find((loc) => loc.id === selectedLocationId) || currentLocation;
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -65,80 +79,283 @@ export default function ReservationsPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-<div>
+                <div className="relative">
                   <label className="block text-xs font-bold text-neutral-200 mb-2 flex items-center gap-1.5">
                     <MapPin className="w-4 h-4 text-[#f26522]" /> Restaurant Location / Branch *
                   </label>
-                  <select
-                    value={selectedLocationId}
-                    onChange={(e) => {
-                      setSelectedLocationId(e.target.value);
-                      const found = LOCATIONS.find((l) => l.id === e.target.value);
-                      if (found) setCurrentLocation(found);
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setBranchDropdownOpen(!branchDropdownOpen);
+                      setTimeDropdownOpen(false);
+                      setGuestsDropdownOpen(false);
                     }}
-                    className="w-full bg-[#161616] border border-white/20 rounded-xl px-4 py-3.5 text-xs sm:text-sm text-white font-bold focus:outline-none focus:border-[#f26522]"
+                    className={`w-full bg-[#161616] border rounded-xl px-4 py-3.5 text-xs sm:text-sm text-white font-bold focus:outline-none cursor-pointer flex items-center justify-between transition-colors ${
+                      branchDropdownOpen ? "border-[#f26522]" : "border-white/20 hover:border-white/45"
+                    }`}
                   >
-                    {LOCATIONS.map((loc) => (
-                      <option key={loc.id} value={loc.id} className="bg-[#161616] text-white">
-                        {loc.name} ({loc.street}) - Tel: {loc.phone}
-                      </option>
-                    ))}
-                  </select>
+                    <span className="truncate mr-2 text-left">
+                      {activeBranch.name} ({activeBranch.street})
+                    </span>
+                    <span className="text-neutral-400 text-[10px]">▼</span>
+                  </button>
+
+                  {branchDropdownOpen && (
+                    <>
+                      <div className="fixed inset-0 z-40" onClick={() => setBranchDropdownOpen(false)} />
+                      <div className="absolute right-0 left-0 mt-1.5 bg-[#161616] border border-[#f26522] rounded-xl overflow-hidden shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-100 max-h-60 overflow-y-auto">
+                        {LOCATIONS.map((loc) => {
+                          const isSelected = selectedLocationId === loc.id;
+                          return (
+                            <button
+                              key={loc.id}
+                              type="button"
+                              onClick={() => {
+                                setSelectedLocationId(loc.id);
+                                setCurrentLocation(loc);
+                                setBranchDropdownOpen(false);
+                              }}
+                              className={`w-full text-left px-4 py-3.5 text-xs sm:text-sm font-bold transition-all flex items-center justify-between ${
+                                isSelected 
+                                  ? "bg-[#f26522] text-white" 
+                                  : "text-neutral-300 hover:bg-[#f26522] hover:text-white"
+                              }`}
+                            >
+                              <span className="truncate mr-2">
+                                {loc.name} ({loc.street})
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </>
+                  )}
                 </div>
-<div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                  <div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                  <div className="relative">
                     <label className="block text-xs font-bold text-neutral-200 mb-2 flex items-center gap-1.5">
                       <Calendar className="w-4 h-4 text-[#f26522]" /> Reservation Date *
                     </label>
-                    <input
-                      type="date"
-                      required
-                      value={date}
-                      onChange={(e) => setDate(e.target.value)}
-                      className="w-full bg-[#161616] border border-white/20 rounded-xl px-4 py-3 text-xs sm:text-sm text-white font-medium focus:outline-none focus:border-[#f26522]"
-                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setDatePickerOpen(!datePickerOpen);
+                        setBranchDropdownOpen(false);
+                        setTimeDropdownOpen(false);
+                        setGuestsDropdownOpen(false);
+                      }}
+                      className={`w-full bg-[#161616] border rounded-xl px-4 py-3 text-xs sm:text-sm text-white font-medium focus:outline-none cursor-pointer flex items-center justify-between transition-colors ${
+                        datePickerOpen ? "border-[#f26522]" : "border-white/20 hover:border-white/45"
+                      }`}
+                    >
+                      <span>{date ? date : "Select Date"}</span>
+                      <Calendar className="w-4 h-4 text-[#f26522]" />
+                    </button>
+
+                    {datePickerOpen && (
+                      <>
+                        <div className="fixed inset-0 z-40" onClick={() => setDatePickerOpen(false)} />
+                        <div className="absolute left-0 mt-1.5 bg-[#161616] border border-[#f26522] rounded-xl p-4 shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-100 w-72">
+                          <div className="flex items-center justify-between mb-3">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const newDate = new Date(viewDate.getFullYear(), viewDate.getMonth() - 1, 1);
+                                setViewDate(newDate);
+                              }}
+                              className="p-1 text-neutral-400 hover:text-white font-bold"
+                            >
+                              ◀
+                            </button>
+                            <span className="text-xs font-bold text-white uppercase">
+                              {viewDate.toLocaleString("default", { month: "long", year: "numeric" })}
+                            </span>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const newDate = new Date(viewDate.getFullYear(), viewDate.getMonth() + 1, 1);
+                                setViewDate(newDate);
+                              }}
+                              className="p-1 text-neutral-400 hover:text-white font-bold"
+                            >
+                              ▶
+                            </button>
+                          </div>
+
+                          <div className="grid grid-cols-7 gap-1 text-center text-[10px] font-black text-neutral-500 mb-2 uppercase">
+                            <span>Su</span>
+                            <span>Mo</span>
+                            <span>Tu</span>
+                            <span>We</span>
+                            <span>Th</span>
+                            <span>Fr</span>
+                            <span>Sa</span>
+                          </div>
+
+                          <div className="grid grid-cols-7 gap-1">
+                            {(() => {
+                              const year = viewDate.getFullYear();
+                              const month = viewDate.getMonth();
+                              const daysCount = getDaysInMonth(year, month);
+                              const firstDay = getFirstDayOfMonth(year, month);
+                              const days = [];
+
+                              for (let i = 0; i < firstDay; i++) {
+                                days.push(<div key={`empty-${i}`} />);
+                              }
+
+                              for (let day = 1; day <= daysCount; day++) {
+                                const formattedDate = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+                                const isSelected = date === formattedDate;
+                                days.push(
+                                  <button
+                                    key={day}
+                                    type="button"
+                                    onClick={() => {
+                                      setDate(formattedDate);
+                                      setDatePickerOpen(false);
+                                    }}
+                                    className={`w-7 h-7 text-[11px] font-bold rounded-lg flex items-center justify-center transition-colors ${
+                                      isSelected
+                                        ? "bg-[#f26522] text-white"
+                                        : "text-neutral-300 hover:bg-[#f26522] hover:text-white"
+                                    }`}
+                                  >
+                                    {day}
+                                  </button>
+                                );
+                              }
+                              return days;
+                            })()}
+                          </div>
+                        </div>
+                      </>
+                    )}
                   </div>
 
-                  <div>
+                  <div className="relative">
                     <label className="block text-xs font-bold text-neutral-200 mb-2 flex items-center gap-1.5">
                       <Clock className="w-4 h-4 text-[#e5a93c]" /> Reservation Time *
                     </label>
-                    <select
-                      value={time}
-                      onChange={(e) => setTime(e.target.value)}
-                      className="w-full bg-[#161616] border border-white/20 rounded-xl px-4 py-3 text-xs sm:text-sm text-white font-medium focus:outline-none focus:border-[#f26522]"
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setTimeDropdownOpen(!timeDropdownOpen);
+                        setBranchDropdownOpen(false);
+                        setGuestsDropdownOpen(false);
+                      }}
+                      className={`w-full bg-[#161616] border rounded-xl px-4 py-3 text-xs sm:text-sm text-white font-medium focus:outline-none cursor-pointer flex items-center justify-between transition-colors ${
+                        timeDropdownOpen ? "border-[#f26522]" : "border-white/20 hover:border-white/45"
+                      }`}
                     >
-                      <option value="11:30">11:30 AM</option>
-                      <option value="12:00">12:00 PM</option>
-                      <option value="13:00">1:00 PM</option>
-                      <option value="14:00">2:00 PM</option>
-                      <option value="15:00">3:00 PM</option>
-                      <option value="16:00">4:00 PM</option>
-                      <option value="17:00">5:00 PM</option>
-                      <option value="18:00">6:00 PM</option>
-                      <option value="19:00">7:00 PM</option>
-                      <option value="20:00">8:00 PM</option>
-                      <option value="21:00">9:00 PM</option>
-                    </select>
+                      <span>
+                        {time.includes("AM") || time.includes("PM") ? time : 
+                          parseInt(time.split(":")[0]) >= 12 
+                            ? `${parseInt(time.split(":")[0]) === 12 ? 12 : parseInt(time.split(":")[0]) - 12}:${time.split(":")[1]} PM`
+                            : `${time} AM`
+                        }
+                      </span>
+                      <span className="text-neutral-400 text-[10px]">▼</span>
+                    </button>
+
+                    {timeDropdownOpen && (
+                      <>
+                        <div className="fixed inset-0 z-40" onClick={() => setTimeDropdownOpen(false)} />
+                        <div className="absolute right-0 left-0 mt-1.5 bg-[#161616] border border-[#f26522] rounded-xl overflow-hidden shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-100 max-h-60 overflow-y-auto">
+                          {[
+                            { value: "11:30", label: "11:30 AM" },
+                            { value: "12:00", label: "12:00 PM" },
+                            { value: "13:00", label: "1:00 PM" },
+                            { value: "14:00", label: "2:00 PM" },
+                            { value: "15:00", label: "3:00 PM" },
+                            { value: "16:00", label: "4:00 PM" },
+                            { value: "17:00", label: "5:00 PM" },
+                            { value: "18:00", label: "6:00 PM" },
+                            { value: "19:00", label: "7:00 PM" },
+                            { value: "20:00", label: "8:00 PM" },
+                            { value: "21:00", label: "9:00 PM" },
+                          ].map((item) => {
+                            const isSelected = time === item.value;
+                            return (
+                              <button
+                                key={item.value}
+                                type="button"
+                                onClick={() => {
+                                  setTime(item.value);
+                                  setTimeDropdownOpen(false);
+                                }}
+                                className={`w-full text-left px-4 py-2.5 text-xs sm:text-sm font-bold transition-all flex items-center justify-between ${
+                                  isSelected 
+                                    ? "bg-[#f26522] text-white" 
+                                    : "text-neutral-300 hover:bg-[#f26522] hover:text-white"
+                                }`}
+                              >
+                                <span>{item.label}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </>
+                    )}
                   </div>
 
-                  <div>
+                  <div className="relative">
                     <label className="block text-xs font-bold text-neutral-200 mb-2 flex items-center gap-1.5">
                       <Users className="w-4 h-4 text-emerald-400" /> Number of Guests *
                     </label>
-                    <select
-                      value={guests}
-                      onChange={(e) => setGuests(e.target.value)}
-                      className="w-full bg-[#161616] border border-white/20 rounded-xl px-4 py-3 text-xs sm:text-sm text-white font-medium focus:outline-none focus:border-[#f26522]"
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setGuestsDropdownOpen(!guestsDropdownOpen);
+                        setBranchDropdownOpen(false);
+                        setTimeDropdownOpen(false);
+                      }}
+                      className={`w-full bg-[#161616] border rounded-xl px-4 py-3 text-xs sm:text-sm text-white font-medium focus:outline-none cursor-pointer flex items-center justify-between transition-colors ${
+                        guestsDropdownOpen ? "border-[#f26522]" : "border-white/20 hover:border-white/45"
+                      }`}
                     >
-                      <option value="1">1 Person</option>
-                      <option value="2">2 Persons</option>
-                      <option value="3">3 Persons</option>
-                      <option value="4">4 Persons</option>
-                      <option value="5">5 Persons</option>
-                      <option value="6">6 Persons</option>
-                      <option value="8+">8+ Group Party</option>
-                    </select>
+                      <span>
+                        {guests === "1" ? "1 Person" : guests === "8+" ? "8+ Group Party" : `${guests} Persons`}
+                      </span>
+                      <span className="text-neutral-400 text-[10px]">▼</span>
+                    </button>
+
+                    {guestsDropdownOpen && (
+                      <>
+                        <div className="fixed inset-0 z-40" onClick={() => setGuestsDropdownOpen(false)} />
+                        <div className="absolute right-0 left-0 mt-1.5 bg-[#161616] border border-[#f26522] rounded-xl overflow-hidden shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-100 max-h-60 overflow-y-auto">
+                          {[
+                            { value: "1", label: "1 Person" },
+                            { value: "2", label: "2 Persons" },
+                            { value: "3", label: "3 Persons" },
+                            { value: "4", label: "4 Persons" },
+                            { value: "5", label: "5 Persons" },
+                            { value: "6", label: "6 Persons" },
+                            { value: "8+", label: "8+ Group Party" },
+                          ].map((item) => {
+                            const isSelected = guests === item.value;
+                            return (
+                              <button
+                                key={item.value}
+                                type="button"
+                                onClick={() => {
+                                  setGuests(item.value);
+                                  setGuestsDropdownOpen(false);
+                                }}
+                                className={`w-full text-left px-4 py-2.5 text-xs sm:text-sm font-bold transition-all flex items-center justify-between ${
+                                  isSelected 
+                                    ? "bg-[#f26522] text-white" 
+                                    : "text-neutral-300 hover:bg-[#f26522] hover:text-white"
+                                }`}
+                              >
+                                <span>{item.label}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">

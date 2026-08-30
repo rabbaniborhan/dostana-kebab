@@ -103,23 +103,23 @@ export default function ItemCustomizerModal({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200 font-lato">
       <div className="bg-[#161616] border border-white/10 w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh] glow-box-orange">
-<div className="relative p-6 border-b border-white/10 flex items-center justify-between bg-[#121212]">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#d9531e]/20 border border-[#d9531e]/50 flex items-center justify-center text-[#f26522]">
-              <Flame className="w-5 h-5 fill-[#f26522]" />
+        <div className="relative p-6 border-b border-white/10 flex items-center bg-[#121212]">
+          <div className="flex items-start gap-3 pr-10">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#d9531e]/20 border border-[#d9531e]/50 flex items-center justify-center text-[#f26522] shrink-0 mt-0.5">
+              <Flame className="w-4 h-4 sm:w-5 sm:h-5 fill-[#f26522]" />
             </div>
             <div>
-              <h3 className="font-judson font-bold text-2xl text-white">{item.name}</h3>
-              <p className="text-xs text-[#f26522] font-bold">
+              <h3 className="font-judson font-bold text-xl sm:text-2xl text-white leading-tight">{item.name}</h3>
+              <p className="text-[10px] sm:text-xs text-[#f26522] font-bold mt-1">
                 Customize your flavor, meats & signature sauces
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-neutral-400 hover:text-white rounded-full bg-[#1c1c1c] border border-white/10"
+            className="absolute top-3 right-3 p-1.5 text-neutral-400 hover:text-white rounded-full bg-[#1c1c1c] border border-white/10 z-10"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         </div>
 <div className="p-6 overflow-y-auto space-y-6 flex-1 text-xs">
@@ -253,8 +253,8 @@ export default function ItemCustomizerModal({
             </div>
           </div>
 <div className="space-y-2">
-            <label className="text-xs uppercase font-extrabold text-white tracking-wider flex items-center gap-1.5">
-              <MessageSquare className="w-3.5 h-3.5 text-[#f26522]" />
+            <label className="text-xs uppercase font-extrabold text-white tracking-wider flex items-start gap-1.5">
+              <MessageSquare className="w-3.5 h-3.5 text-[#f26522] shrink-0 mt-0.5" />
               <span>5. Kitchen Special Instructions (Optional)</span>
             </label>
             <textarea
@@ -267,29 +267,29 @@ export default function ItemCustomizerModal({
           </div>
 
         </div>
-<div className="p-6 border-t border-white/10 bg-[#121212] flex items-center justify-between gap-4">
-<div className="flex items-center gap-3 bg-[#1c1c1c] border border-white/10 p-1.5 rounded-full shrink-0">
+        <div className="p-3 sm:p-6 border-t border-white/10 bg-[#121212] flex items-center justify-between gap-2 sm:gap-4">
+          <div className="flex items-center gap-2 bg-[#1c1c1c] border border-white/10 p-1 rounded-full shrink-0">
             <button
               onClick={() => setQuantity(Math.max(1, quantity - 1))}
-              className="w-8 h-8 rounded-full bg-[#242424] hover:bg-neutral-700 text-white flex items-center justify-center font-bold"
+              className="w-7 h-7 rounded-full bg-[#242424] hover:bg-neutral-700 text-white flex items-center justify-center font-bold"
             >
-              <Minus className="w-4 h-4" />
+              <Minus className="w-3.5 h-3.5" />
             </button>
-            <span className="font-extrabold text-sm text-white w-6 text-center">
+            <span className="font-extrabold text-xs text-white w-5 text-center">
               {quantity}
             </span>
             <button
               onClick={() => setQuantity(quantity + 1)}
-              className="w-8 h-8 rounded-full bg-[#d9531e] hover:bg-[#f26522] text-white flex items-center justify-center font-bold"
+              className="w-7 h-7 rounded-full bg-[#d9531e] hover:bg-[#f26522] text-white flex items-center justify-center font-bold"
             >
-              <Plus className="w-4 h-4" />
+              <Plus className="w-3.5 h-3.5" />
             </button>
           </div>
-<button
+          <button
             onClick={handleAdd}
-            className="flex-1 flame-btn-gradient text-white font-black text-xs uppercase py-3.5 rounded-2xl flex items-center justify-center gap-2 shadow-xl"
+            className="flex-1 flame-btn-gradient text-white font-black text-[10px] xs:text-xs sm:text-sm md:text-base uppercase py-3 px-2 sm:px-4 rounded-2xl flex items-center justify-center gap-1.5 sm:gap-2 shadow-xl whitespace-nowrap"
           >
-            <ShoppingBag className="w-4 h-4" />
+            <ShoppingBag className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 shrink-0" />
             <span>ADD TO ORDER ({totalPrice.toFixed(2)} PLN)</span>
           </button>
         </div>

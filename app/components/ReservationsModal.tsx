@@ -23,6 +23,9 @@ export default function ReservationsModal({
   const [notes, setNotes] = useState("");
   const [confirmed, setConfirmed] = useState(false);
 
+  const [timeDropdownOpen, setTimeDropdownOpen] = useState(false);
+  const [guestsDropdownOpen, setGuestsDropdownOpen] = useState(false);
+
   if (!isOpen) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -87,42 +90,122 @@ export default function ReservationsModal({
                   />
                 </div>
 
-                <div>
+                <div className="relative">
                   <label className="block text-xs font-bold text-neutral-300 mb-1">
                     Time *
                   </label>
-                  <select
-                    value={time}
-                    onChange={(e) => setTime(e.target.value)}
-                    className="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-orange-500"
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setTimeDropdownOpen(!timeDropdownOpen);
+                      setGuestsDropdownOpen(false);
+                    }}
+                    className={`w-full bg-neutral-950 border rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none cursor-pointer flex items-center justify-between transition-colors ${
+                      timeDropdownOpen ? "border-[#f26522]" : "border-neutral-800 hover:border-neutral-700"
+                    }`}
                   >
-                    <option value="12:00">12:00 PM</option>
-                    <option value="13:00">1:00 PM</option>
-                    <option value="14:00">2:00 PM</option>
-                    <option value="15:00">3:00 PM</option>
-                    <option value="17:00">5:00 PM</option>
-                    <option value="18:00">6:00 PM</option>
-                    <option value="19:00">7:00 PM</option>
-                    <option value="20:00">8:00 PM</option>
-                  </select>
+                    <span>
+                      {time.includes("AM") || time.includes("PM") ? time : 
+                        parseInt(time.split(":")[0]) >= 12 
+                          ? `${parseInt(time.split(":")[0]) === 12 ? 12 : parseInt(time.split(":")[0]) - 12}:${time.split(":")[1]} PM`
+                          : `${time} AM`
+                      }
+                    </span>
+                    <span className="text-neutral-400 text-[10px]">▼</span>
+                  </button>
+
+                  {timeDropdownOpen && (
+                    <>
+                      <div className="fixed inset-0 z-40" onClick={() => setTimeDropdownOpen(false)} />
+                      <div className="absolute right-0 left-0 mt-1 bg-neutral-950 border border-[#f26522] rounded-xl overflow-hidden shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-100 max-h-48 overflow-y-auto">
+                        {[
+                          { value: "12:00", label: "12:00 PM" },
+                          { value: "13:00", label: "1:00 PM" },
+                          { value: "14:00", label: "2:00 PM" },
+                          { value: "15:00", label: "3:00 PM" },
+                          { value: "17:00", label: "5:00 PM" },
+                          { value: "18:00", label: "6:00 PM" },
+                          { value: "19:00", label: "7:00 PM" },
+                          { value: "20:00", label: "8:00 PM" },
+                        ].map((item) => {
+                          const isSelected = time === item.value;
+                          return (
+                            <button
+                              key={item.value}
+                              type="button"
+                              onClick={() => {
+                                setTime(item.value);
+                                setTimeDropdownOpen(false);
+                              }}
+                              className={`w-full text-left px-4 py-2 text-xs font-bold transition-all flex items-center justify-between ${
+                                isSelected 
+                                  ? "bg-[#f26522] text-white" 
+                                  : "text-neutral-300 hover:bg-[#f26522] hover:text-white"
+                              }`}
+                            >
+                              <span>{item.label}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
 
-              <div>
+              <div className="relative">
                 <label className="block text-xs font-bold text-neutral-300 mb-1">
                   Number of Guests *
                 </label>
-                <select
-                  value={guests}
-                  onChange={(e) => setGuests(e.target.value)}
-                  className="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-orange-500"
+                <button
+                  type="button"
+                  onClick={() => {
+                    setGuestsDropdownOpen(!guestsDropdownOpen);
+                    setTimeDropdownOpen(false);
+                  }}
+                  className={`w-full bg-neutral-950 border rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none cursor-pointer flex items-center justify-between transition-colors ${
+                    guestsDropdownOpen ? "border-[#f26522]" : "border-neutral-800 hover:border-neutral-700"
+                  }`}
                 >
-                  <option value="1">1 Person</option>
-                  <option value="2">2 Persons</option>
-                  <option value="4">4 Persons</option>
-                  <option value="6">6 Persons</option>
-                  <option value="8+">8+ Large Party</option>
-                </select>
+                  <span>
+                    {guests === "1" ? "1 Person" : guests === "8+" ? "8+ Large Party" : `${guests} Persons`}
+                  </span>
+                  <span className="text-neutral-400 text-[10px]">▼</span>
+                </button>
+
+                {guestsDropdownOpen && (
+                  <>
+                    <div className="fixed inset-0 z-40" onClick={() => setGuestsDropdownOpen(false)} />
+                    <div className="absolute right-0 left-0 mt-1 bg-neutral-950 border border-[#f26522] rounded-xl overflow-hidden shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-100 max-h-48 overflow-y-auto">
+                      {[
+                        { value: "1", label: "1 Person" },
+                        { value: "2", label: "2 Persons" },
+                        { value: "4", label: "4 Persons" },
+                        { value: "6", label: "6 Persons" },
+                        { value: "8+", label: "8+ Large Party" },
+                      ].map((item) => {
+                        const isSelected = guests === item.value;
+                        return (
+                          <button
+                            key={item.value}
+                            type="button"
+                            onClick={() => {
+                              setGuests(item.value);
+                              setGuestsDropdownOpen(false);
+                            }}
+                            className={`w-full text-left px-4 py-2 text-xs font-bold transition-all flex items-center justify-between ${
+                              isSelected 
+                                ? "bg-[#f26522] text-white" 
+                                : "text-neutral-300 hover:bg-[#f26522] hover:text-white"
+                            }`}
+                          >
+                            <span>{item.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </>
+                )}
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
