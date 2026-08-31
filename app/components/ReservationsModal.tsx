@@ -257,7 +257,7 @@ export default function ReservationsModal({
               >
                 POTWIERDŹ REZERWACJĘ STOLIKA
               </button>
-            </form>orm>
+            </form>
           )}
         </div>
 
