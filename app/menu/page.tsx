@@ -30,27 +30,27 @@ export default function MenuPage() {
 
   return (
     <div className="font-lato">
-<SubpageHero
-        title="Menu & Premises"
+      <SubpageHero
+        title="Menu i Lokale"
         breadcrumb="Menu"
-        subtitle="Find a place that delivers to your address or explore our 6 restaurant premises in Lublin!"
+        subtitle="Znajdź lokal dostarczający pod Twój adres lub odwiedź jedną z naszych 6 restauracji w Lublinie!"
       />
 
       <div className="py-12 bg-[#121212] relative overflow-hidden space-y-16">
-<div className="absolute inset-0 z-0 bg-dostana-pattern opacity-25 filter contrast-110" />
+        <div className="absolute inset-0 z-0 bg-dostana-pattern opacity-25 filter contrast-110" />
         <div className="absolute inset-0 z-0 bg-[#121212]/85" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-<div className="max-w-4xl mx-auto glass-panel p-6 sm:p-10 rounded-3xl border border-white/10 space-y-6">
+          <div className="max-w-4xl mx-auto glass-panel p-6 sm:p-10 rounded-3xl border border-white/10 space-y-6">
             <div className="space-y-1">
               <div className="inline-flex items-center gap-2 text-[#f26522] text-xs font-bold uppercase tracking-wider bg-[#d9531e]/20 border border-[#d9531e]/40 px-3 py-1 rounded-full">
-                <MapPin className="w-4 h-4 text-[#f26522]" /> Delivery Coverage Search
+                <MapPin className="w-4 h-4 text-[#f26522]" /> Wyszukiwanie dostawy
               </div>
               <h2 className="font-judson font-bold text-3xl sm:text-4xl text-white">
-                Find a place that delivers to your address
+                Znajdź lokal dostarczający pod Twój adres
               </h2>
               <p className="text-neutral-300 text-xs sm:text-sm">
-                Enter your street address in Lublin to locate your assigned Dostana Kebab branch.
+                Wpisz swoją ulicę w Lublinie, aby znaleźć przypisany lokal Dostana Kebab.
               </p>
             </div>
 
@@ -62,7 +62,7 @@ export default function MenuPage() {
                     required
                     value={streetQuery}
                     onChange={(e) => setStreetQuery(e.target.value)}
-                    placeholder="e.g. Lipowa, Krakowskie Przedmieście, Turystyczna..."
+                    placeholder="np. Lipowa, Krakowskie Przedmieście, Turystyczna..."
                     className="w-full bg-[#161616] border border-white/20 rounded-xl pl-4 pr-4 py-3.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#f26522]"
                   />
                 </div>
@@ -71,18 +71,18 @@ export default function MenuPage() {
                   type="submit"
                   className="flame-btn-gradient text-white font-bold text-xs uppercase px-8 py-3.5 rounded-xl flex items-center justify-center gap-2 shrink-0"
                 >
-                  <Search className="w-4 h-4" /> Check Address
+                  <Search className="w-4 h-4" /> Sprawdź adres
                 </button>
               </div>
             </form>
-{addressChecked && (
+            {addressChecked && (
               <div className="bg-emerald-950/40 border border-emerald-500/40 p-5 rounded-2xl space-y-3 animate-in fade-in duration-300">
                 <div className="flex items-center gap-3 text-emerald-400 font-judson font-bold text-xl">
                   <CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0" />
-                  <span>Your Nearest Branch: {matchedBranch.name}</span>
+                  <span>Twój najbliższy lokal: {matchedBranch.name}</span>
                 </div>
                 <p className="text-xs text-neutral-300">
-                  Address: <strong className="text-white">{matchedBranch.street}, Lublin</strong> • Phone: <strong className="text-emerald-400">{matchedBranch.phone}</strong>
+                  Adres: <strong className="text-white">{matchedBranch.street}, Lublin</strong> • Telefon: <strong className="text-emerald-400">{matchedBranch.phone}</strong>
                 </p>
                 <div className="pt-2">
                   <Link
@@ -90,33 +90,33 @@ export default function MenuPage() {
                     onClick={() => setCurrentLocation(matchedBranch)}
                     className="flame-btn-gradient text-white font-bold text-xs uppercase px-6 py-2.5 rounded-lg inline-flex items-center gap-2"
                   >
-                    <span>See the offer</span>
+                    <span>Zobacz ofertę</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
             )}
           </div>
-<div className="space-y-8">
+          <div className="space-y-8">
             <div className="text-center max-w-3xl mx-auto space-y-2">
               <div className="inline-flex items-center gap-2 text-[#f26522] text-xs font-bold uppercase tracking-wider bg-[#d9531e]/20 border border-[#d9531e]/40 px-3.5 py-1 rounded-full">
-                <Store className="w-4 h-4 text-[#f26522]" /> Restaurant Locations
+                <Store className="w-4 h-4 text-[#f26522]" /> Lokalizacje restauracji
               </div>
               <h2 className="font-judson font-bold text-3xl sm:text-5xl text-white tracking-tight">
-                ALL <span className="text-[#f26522]">PREMISES</span>
+                WSZYSTKIE <span className="text-[#f26522]">LOKALE</span>
               </h2>
               <p className="text-neutral-300 text-xs sm:text-sm">
-                Pick your preferred Dostana Kebab branch to view its complete menu offer and place an online order!
+                Wybierz swój ulubiony lokal Dostana Kebab, aby zobaczyć pełne menu i złożyć zamówienie online!
               </p>
             </div>
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {LOCATIONS.map((loc: Location) => (
                 <div
                   key={loc.id}
                   className="glass-panel p-6 rounded-3xl border border-white/10 hover:border-[#f26522]/50 transition-all duration-300 flex flex-col justify-between space-y-6 group"
                 >
                   <div className="space-y-4">
-<div className="flex items-start justify-between gap-2 border-b border-white/10 pb-4">
+                    <div className="flex items-start justify-between gap-2 border-b border-white/10 pb-4">
                       <div>
                         <h3 className="font-judson font-bold text-2xl text-white group-hover:text-[#f26522] transition-colors leading-snug">
                           {loc.name}
@@ -130,17 +130,17 @@ export default function MenuPage() {
                         LUBLIN
                       </span>
                     </div>
-<div className="space-y-2 text-xs text-neutral-300">
+                    <div className="space-y-2 text-xs text-neutral-300">
                       <div className="flex items-center justify-between">
                         <span className="text-neutral-400 flex items-center gap-1.5">
-                          <Clock className="w-3.5 h-3.5 text-[#e5a93c]" /> Opening hours:
+                          <Clock className="w-3.5 h-3.5 text-[#e5a93c]" /> Godziny otwarcia:
                         </span>
                         <span className="font-bold text-white">{loc.hours}</span>
                       </div>
 
                       <div className="flex items-center justify-between">
                         <span className="text-neutral-400 flex items-center gap-1.5">
-                          <Phone className="w-3.5 h-3.5 text-emerald-400" /> Phone:
+                          <Phone className="w-3.5 h-3.5 text-emerald-400" /> Telefon:
                         </span>
                         <a
                           href={`tel:${loc.phone.replace(/\s+/g, "")}`}
@@ -151,13 +151,13 @@ export default function MenuPage() {
                       </div>
                     </div>
                   </div>
-<div className="pt-2">
+                  <div className="pt-2">
                     <Link
                       href={`/menu/${loc.id}`}
                       onClick={() => setCurrentLocation(loc)}
                       className="w-full flame-btn-gradient text-white font-bold text-xs uppercase py-3.5 rounded-xl flex items-center justify-center gap-2 tracking-wider"
                     >
-                      <span>SEE THE OFFER</span>
+                      <span>ZOBACZ OFERTĘ</span>
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
@@ -165,7 +165,7 @@ export default function MenuPage() {
               ))}
             </div>
           </div>
-<div className="pt-6 border-t border-white/10">
+          <div className="pt-6 border-t border-white/10">
             <MenuSection
               showPattern={false}
               onSelectItemToCustomize={(item) => setSelectedItemToCustomize(item)}

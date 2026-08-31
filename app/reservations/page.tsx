@@ -41,47 +41,47 @@ export default function ReservationsPage() {
 
   return (
     <div>
-<SubpageHero
-        title="Table Reservations"
-        breadcrumb="Reservations"
-        subtitle="Book a table online. Send your reservation and we will confirm it within 24 hours!"
+      <SubpageHero
+        title="Rezerwacja Stolika"
+        breadcrumb="Rezerwacje"
+        subtitle="Zarezerwuj stolik online. Wyślij rezerwację, a potwierdzimy ją w ciągu 24 godzin!"
       />
 
       <div className="py-12 bg-[#121212] min-h-[70vh] relative overflow-hidden font-lato">
-<div className="absolute inset-0 z-0 bg-dostana-pattern opacity-25 filter contrast-110" />
+        <div className="absolute inset-0 z-0 bg-dostana-pattern opacity-25 filter contrast-110" />
         <div className="absolute inset-0 z-0 bg-[#121212]/85" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-<div className="text-center space-y-2">
+          <div className="text-center space-y-2">
             <h2 className="font-judson font-bold text-3xl sm:text-5xl text-white">
-              Reserve Your Table Now!
+              Zarezerwuj stolik już teraz!
             </h2>
             <p className="text-neutral-300 text-xs sm:text-sm">
-              Send us your reservation request and we will confirm it within 24 hours.
+              Wyślij nam prośbę o rezerwację, a potwierdzimy ją w ciągu 24 godzin.
             </p>
           </div>
-<div className="glass-panel p-6 sm:p-10 rounded-3xl border border-white/10 shadow-2xl glow-box-orange">
+          <div className="glass-panel p-6 sm:p-10 rounded-3xl border border-white/10 shadow-2xl glow-box-orange">
             {confirmed ? (
               <div className="text-center py-12 space-y-6 animate-in zoom-in-95 duration-300">
                 <div className="w-20 h-20 bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 rounded-full flex items-center justify-center mx-auto text-4xl shadow-xl">
                   <CheckCircle2 className="w-12 h-12" />
                 </div>
-                <h3 className="font-judson font-bold text-3xl text-white">Reservation Submitted!</h3>
+                <h3 className="font-judson font-bold text-3xl text-white">Rezerwacja wysłana!</h3>
                 <p className="text-neutral-300 text-sm max-w-md mx-auto leading-relaxed">
-                  Thank you, <strong className="text-white">{name}</strong>! Your table reservation for <strong className="text-white">{guests} guests</strong> on <strong className="text-[#f26522]">{date} at {time}</strong> at <strong className="text-white">{activeBranch.name}</strong> has been submitted.
+                  Dziękujemy, <strong className="text-white">{name}</strong>! Twoja rezerwacja stolika dla <strong className="text-white">{guests === "1" ? "1 osoby" : guests === "8+" ? "Grupy 8+" : `${guests} osób`}</strong> na dzień <strong className="text-[#f26522]">{date} o godzinie {time}</strong> w lokalu <strong className="text-white">{activeBranch.name}</strong> została wysłana.
                 </p>
                 <button
                   onClick={() => setConfirmed(false)}
                   className="flame-btn-gradient text-white text-xs font-black px-8 py-3.5 rounded-full inline-block shadow-lg"
                 >
-                  Make Another Reservation
+                  Złóż kolejną rezerwację
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="relative">
                   <label className="block text-xs font-bold text-neutral-200 mb-2 flex items-center gap-1.5">
-                    <MapPin className="w-4 h-4 text-[#f26522]" /> Restaurant Location / Branch *
+                    <MapPin className="w-4 h-4 text-[#f26522]" /> Lokalizacja / Oddział restauracji *
                   </label>
                   <button
                     type="button"
@@ -135,7 +135,7 @@ export default function ReservationsPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                   <div className="relative">
                     <label className="block text-xs font-bold text-neutral-200 mb-2 flex items-center gap-1.5">
-                      <Calendar className="w-4 h-4 text-[#f26522]" /> Reservation Date *
+                      <Calendar className="w-4 h-4 text-[#f26522]" /> Data rezerwacji *
                     </label>
                     <button
                       type="button"
@@ -149,7 +149,7 @@ export default function ReservationsPage() {
                         datePickerOpen ? "border-[#f26522]" : "border-white/20 hover:border-[#f26522]"
                       }`}
                     >
-                      <span>{date ? date : "Select Date"}</span>
+                      <span>{date ? date : "Wybierz datę"}</span>
                       <Calendar className="w-4 h-4 text-[#f26522]" />
                     </button>
 
@@ -169,7 +169,7 @@ export default function ReservationsPage() {
                               ◀
                             </button>
                             <span className="text-xs font-bold text-white uppercase">
-                              {viewDate.toLocaleString("default", { month: "long", year: "numeric" })}
+                              {viewDate.toLocaleString("pl", { month: "long", year: "numeric" })}
                             </span>
                             <button
                               type="button"
@@ -184,13 +184,13 @@ export default function ReservationsPage() {
                           </div>
 
                           <div className="grid grid-cols-7 gap-1 text-center text-[10px] font-black text-neutral-500 mb-2 uppercase">
-                            <span>Su</span>
-                            <span>Mo</span>
-                            <span>Tu</span>
-                            <span>We</span>
-                            <span>Th</span>
-                            <span>Fr</span>
-                            <span>Sa</span>
+                            <span>Nd</span>
+                            <span>Pn</span>
+                            <span>Wt</span>
+                            <span>Śr</span>
+                            <span>Cz</span>
+                            <span>Pt</span>
+                            <span>So</span>
                           </div>
 
                           <div className="grid grid-cols-7 gap-1">
@@ -236,7 +236,7 @@ export default function ReservationsPage() {
 
                   <div className="relative">
                     <label className="block text-xs font-bold text-neutral-200 mb-2 flex items-center gap-1.5">
-                      <Clock className="w-4 h-4 text-[#e5a93c]" /> Reservation Time *
+                      <Clock className="w-4 h-4 text-[#e5a93c]" /> Godzina rezerwacji *
                     </label>
                     <button
                       type="button"
@@ -302,7 +302,7 @@ export default function ReservationsPage() {
 
                   <div className="relative">
                     <label className="block text-xs font-bold text-neutral-200 mb-2 flex items-center gap-1.5">
-                      <Users className="w-4 h-4 text-emerald-400" /> Number of Guests *
+                      <Users className="w-4 h-4 text-emerald-400" /> Liczba gości *
                     </label>
                     <button
                       type="button"
@@ -316,7 +316,7 @@ export default function ReservationsPage() {
                       }`}
                     >
                       <span>
-                        {guests === "1" ? "1 Person" : guests === "8+" ? "8+ Group Party" : `${guests} Persons`}
+                        {guests === "1" ? "1 osoba" : guests === "8+" ? "Grupa 8+" : `${guests} osób`}
                       </span>
                       <span className="text-[#f26522] text-[10px]">▼</span>
                     </button>
@@ -326,13 +326,13 @@ export default function ReservationsPage() {
                         <div className="fixed inset-0 z-40" onClick={() => setGuestsDropdownOpen(false)} />
                         <div className="absolute right-0 left-0 mt-1.5 bg-[#161616] border border-[#f26522] rounded-xl overflow-hidden shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-100 max-h-60 overflow-y-auto">
                           {[
-                            { value: "1", label: "1 Person" },
-                            { value: "2", label: "2 Persons" },
-                            { value: "3", label: "3 Persons" },
-                            { value: "4", label: "4 Persons" },
-                            { value: "5", label: "5 Persons" },
-                            { value: "6", label: "6 Persons" },
-                            { value: "8+", label: "8+ Group Party" },
+                            { value: "1", label: "1 osoba" },
+                            { value: "2", label: "2 osoby" },
+                            { value: "3", label: "3 osoby" },
+                            { value: "4", label: "4 osoby" },
+                            { value: "5", label: "5 osób" },
+                            { value: "6", label: "6 osób" },
+                            { value: "8+", label: "Grupa 8+" },
                           ].map((item) => {
                             const isSelected = guests === item.value;
                             return (
@@ -358,24 +358,24 @@ export default function ReservationsPage() {
                     )}
                   </div>
                 </div>
-<div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                   <div>
                     <label className="block text-xs font-bold text-neutral-200 mb-2 flex items-center gap-1.5">
-                      <User className="w-4 h-4 text-neutral-400" /> Full Name *
+                      <User className="w-4 h-4 text-neutral-400" /> Imię i nazwisko *
                     </label>
                     <input
                       type="text"
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      placeholder="John Doe"
+                      placeholder="Jan Kowalski"
                       className="w-full bg-[#161616] border border-white/20 rounded-xl px-4 py-3 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#f26522]"
                     />
                   </div>
 
                   <div>
                     <label className="block text-xs font-bold text-neutral-200 mb-2 flex items-center gap-1.5">
-                      <Phone className="w-4 h-4 text-emerald-400" /> Phone Number *
+                      <Phone className="w-4 h-4 text-emerald-400" /> Numer telefonu *
                     </label>
                     <input
                       type="tel"
@@ -389,35 +389,35 @@ export default function ReservationsPage() {
 
                   <div>
                     <label className="block text-xs font-bold text-neutral-200 mb-2 flex items-center gap-1.5">
-                      <Mail className="w-4 h-4 text-[#e5a93c]" /> Email Address *
+                      <Mail className="w-4 h-4 text-[#e5a93c]" /> Adres e-mail *
                     </label>
                     <input
                       type="email"
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="john@example.com"
+                      placeholder="jan.kowalski@example.com"
                       className="w-full bg-[#161616] border border-white/20 rounded-xl px-4 py-3 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#f26522]"
                     />
                   </div>
                 </div>
-<div>
+                <div>
                   <label className="block text-xs font-bold text-neutral-200 mb-2 flex items-center gap-1.5">
-                    <FileText className="w-4 h-4 text-neutral-400" /> Special Notes (Optional)
+                    <FileText className="w-4 h-4 text-neutral-400" /> Uwagi specjalne (Opcjonalnie)
                   </label>
                   <textarea
                     rows={3}
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
-                    placeholder="e.g. Window booth seat preference, birthday celebration..."
+                    placeholder="np. preferowane miejsce przy oknie, świętowanie urodzin..."
                     className="w-full bg-[#161616] border border-white/20 rounded-xl p-4 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#f26522]"
                   />
                 </div>
-<button
+                <button
                   type="submit"
                   className="w-full flame-btn-gradient text-white font-black text-sm uppercase py-4 rounded-xl flex items-center justify-center gap-2 shadow-xl"
                 >
-                  CONFIRM TABLE RESERVATION
+                  POTWIERDŹ REZERWACJĘ STOLIKA
                 </button>
 
               </form>

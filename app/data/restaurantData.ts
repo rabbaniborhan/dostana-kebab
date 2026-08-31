@@ -121,52 +121,52 @@ export const LOCATIONS: Location[] = [
 ];
 
 export const CATEGORIES = [
-  { id: "all", label: "🔥 All Menu" },
-  { id: "rollo", label: "🌯 Rollo Kebabs" },
-  { id: "box", label: "📦 Kebab Boxes" },
-  { id: "plates", label: "🍽️ Feast Plates" },
-  { id: "pita", label: "🥙 Pita & Buns" },
-  { id: "veggie", label: "🌱 Vegetarian" },
-  { id: "sides", label: "🍟 Sides & Drinks" },
+  { id: "all", label: "🔥 Wszystkie" },
+  { id: "rollo", label: "🌯 Rollo" },
+  { id: "box", label: "📦 Kebab Box" },
+  { id: "plates", label: "🍽️ Dania na talerzu" },
+  { id: "pita", label: "🥙 Pita i Bułka" },
+  { id: "veggie", label: "🌱 Wegetariańskie" },
+  { id: "sides", label: "🍟 Dodatki i Napoje" },
 ];
 
 export const MEAT_OPTIONS = [
-  "Chicken (100% Flame Grilled)",
-  "Seasoned Premium Beef",
-  "Mixed Meat (Beef & Chicken)",
-  "Crispy Falafel",
+  "Kurczak (100% z rożna)",
+  "Wołowina Premium",
+  "Mięso mieszane (Kurczak i Wołowina)",
+  "Chrupiący Falafel",
 ];
 
 export const SAUCE_OPTIONS = [
-  "Creamy Signature Garlic Dip",
-  "Fiery Harissa Chilli Dip",
-  "Mild Herb Yoghurt Dip",
-  "Mix Garlic & Harissa",
+  "Sos czosnkowy",
+  "Sos ostry (Harissa)",
+  "Sos łagodny (Ziołowy)",
+  "Sos mieszany (Czosnek & Harissa)",
 ];
 
 export const EXTRA_TOPPINGS = [
-  { id: "extra-meat", name: "Extra Meat portion (+50g)", price: 7.0 },
-  { id: "melted-cheese", name: "Double Melted Mozzarella", price: 4.5 },
-  { id: "jalapenos", name: "Spicy Pickled Jalapeños", price: 3.0 },
-  { id: "feta", name: "Crumbled Greek Feta", price: 4.0 },
-  { id: "fries-inside", name: "Golden Crispy Fries Inside", price: 5.0 },
+  { id: "extra-meat", name: "Dodatkowa porcja mięsa (+50g)", price: 7.0 },
+  { id: "melted-cheese", name: "Podwójna roztopiona mozzarella", price: 4.5 },
+  { id: "jalapenos", name: "Ostre papryczki jalapeño", price: 3.0 },
+  { id: "feta", name: "Grecka Feta", price: 4.0 },
+  { id: "fries-inside", name: "Złociste frytki w środku", price: 5.0 },
 ];
 
 export const MENU_ITEMS: MenuItem[] = [
   {
     id: "rollo-classic",
-    name: "Classic Rollo Kebab",
+    name: "Klasyczny Rollo Kebab",
     category: "rollo",
     price: 24.9,
     description:
-      "Charcoal-roasted succulent meat wrapped in a hot crispy tortilla lavash with iceberg lettuce, red cabbage, fresh cucumbers, ripe tomatoes & homemade sauce.",
+      "Soczyste mięso pieczone na wglu drzewnym, zawinięte w gorącą chrupiącą tortillę z sałatą lodową, czerwoną kapustą, świeżym ogórkiem, pomidorem i domowym sosem.",
     image:
       "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/b75529f5-94e3-4439-b736-d6a4e724895c.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=400&w=600",
     badge: "Bestseller ⭐",
     availableMeats: MEAT_OPTIONS,
     availableSizes: [
-      { name: "Regular (35cm)", extraPrice: 0 },
-      { name: "Large (+100g Meat)", extraPrice: 8 },
+      { name: "Standardowy (35cm)", extraPrice: 0 },
+      { name: "Duży (+100g mięsa)", extraPrice: 8 },
       { name: "Monster XL (50cm)", extraPrice: 18 },
     ],
     availableSauces: SAUCE_OPTIONS,
@@ -177,91 +177,90 @@ export const MENU_ITEMS: MenuItem[] = [
     category: "rollo",
     price: 42.9,
     description:
-      "The ultimate hunger destroyer! Huge 50cm toasted lavash loaded with 350g of meat, golden fries inside, melted double cheese, crisp veggies and double sauce dip.",
+      "Pogromca głodu! Ogromna 50-centymetrowa chrupiąca tortilla wypełniona 350g mięsa, frytkami w środku, podwójnym serem, świeżymi warzywami i sosem.",
     image:
       "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/8e6c32d9-d4ce-49a1-b51d-26394b3d128f.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=400&w=600",
-    badge: "Chef's Heavyweight 👑",
+    badge: "Specjalność Szefa 👑",
     spicyLevel: 2,
     availableMeats: MEAT_OPTIONS,
     availableSauces: SAUCE_OPTIONS,
   },
   {
     id: "rollo-cheese-melt",
-    name: "Triple Cheese Lovers Rollo",
+    name: "Potrójnie Serowy Rollo",
     category: "rollo",
     price: 29.9,
     description:
-      "Flame-broiled kebab meat smothered in melted cheddar, mozzarella, and creamy feta cheese, wrapped with crispy onions and house garlic sauce.",
+      "Mięso pieczone na rożnie zatopione w roztopionym serze cheddar, mozzarella oraz kremowej fecie, zawinięte z chrupiącą cebulką i sosem czosnkowym.",
     image:
       "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/aee8865c-3344-4fb8-93d1-e3661bf1072b.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=400&w=600",
-    badge: "Cheesy Goodness 🧀",
+    badge: "Dla Seromaniaków 🧀",
     availableMeats: MEAT_OPTIONS,
     availableSauces: SAUCE_OPTIONS,
   },
   {
     id: "box-classic",
-    name: "Kebab Box Classic",
+    name: "Klasyczny Kebab Box",
     category: "box",
     price: 26.9,
     description:
-      "Bed of salted crispy fries topped with a mountain of hot flame-grilled meat, fresh chopped veggies, and generous pour of signature dips.",
+      "Porcja chrupiących frytek z solidną ilością gorącego, soczystego mięsa z rożna, świeżymi warzywami i wybranym sosem.",
     image:
       "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/47d722b2-8df1-40db-b7c0-bc5c3f22f812.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=400&w=600",
-    badge: "Most Popular 📦",
+    badge: "Popularny 📦",
     availableMeats: MEAT_OPTIONS,
     availableSizes: [
-      { name: "Regular Box (450g)", extraPrice: 0 },
-      { name: "Large Box (650g)", extraPrice: 9 },
+      { name: "Średni Box (450g)", extraPrice: 0 },
+      { name: "Duży Box (650g)", extraPrice: 9 },
     ],
     availableSauces: SAUCE_OPTIONS,
   },
   {
     id: "box-deluxe-loaded",
-    name: "Loaded Jalapeño Cheese Box",
+    name: "Serowy Kubełek z Jalapeno",
     category: "box",
     price: 34.9,
     description:
-      "Double meat portion over golden fries, loaded with spicy jalapeno slices, melted cheddar cheese sauce, garlic drizzle, and fresh red onions.",
+      "Podwójna porcja mięsa na złocistych frytkach, z dodatkiem ostrych papryczek jalapeño, płynnego sosu serowego cheddar i świeżej czerwonej cebuli.",
     image:
       "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/e90c9620-1264-4dbf-a8b5-7ead9e945bdb.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=400&w=600",
-    badge: "Fiery Hot 🌶️",
+    badge: "Bardzo Ostry 🌶️",
     spicyLevel: 3,
     availableMeats: MEAT_OPTIONS,
     availableSauces: SAUCE_OPTIONS,
   },
   {
     id: "plate-dostana-royal",
-    name: "Dostana Royal Feast Plate",
+    name: "Królewski Talerz Dostana",
     category: "plates",
     price: 38.9,
     description:
-      "Full diner plate packed with generous seasoned grilled meat, crisp stealth-cut fries or aromatic rice, garden salad trio, and warm flatbread pita slices.",
+      "Pełny talerz z solidną porcją grillowanego mięsa kebab, podawany z frytkami lub aromatycznym ryżem, zestawem świeżych surówek oraz ciepłą pitą.",
     image:
       "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/6e38ccb3-b983-48aa-a3b0-81fe09721131.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=400&w=600",
-    badge: "Full Feast 🍽️",
+    badge: "Uczta 🍽️",
     availableMeats: MEAT_OPTIONS,
     availableSauces: SAUCE_OPTIONS,
   },
   {
     id: "plate-mix-grill",
-    name: "Supreme Mix Grill & Falafel Plate",
+    name: "Supreme Mix Grill i Talerz Falafel",
     category: "plates",
     price: 45.9,
     description:
-      "Combination of sliced beef, juicy chicken shish, 2 crispy falafels, fries, fresh parsley salad, warm toasted pita, and all 4 specialty dipping sauces.",
+      "Kompozycja soczystego mięsa wołowego i drobiowego, 2 chrupiące falafele, frytki, świeża sałatka, pita i 4 autorskie sosy.",
     image:
       "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/afde8b8a-9774-4745-8380-2f4df0139f65.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=400&w=600",
-    badge: "Meat Lover's Choice 🔥",
+    badge: "Wybór Smakoszy 🔥",
     availableSauces: SAUCE_OPTIONS,
   },
-
   {
     id: "veggie-greek-feta",
-    name: "Greek Feta & Salad Wrap",
+    name: "Wrap Grecki z Fetą",
     category: "veggie",
     price: 22.9,
     description:
-      "Rich block of authentic Greek feta cheese, black olives, crisp cucumbers, sweet bell peppers, red onion & herbal garlic vinaigrette.",
+      "Oryginalny grecki ser feta, czarne oliwki, świeży ogórek, papryka, czerwona cebula oraz ziołowy sos winegret.",
     image:
       "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/b75529f5-94e3-4439-b736-d6a4e724895c.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=400&w=600",
     isVegetarian: true,
@@ -269,52 +268,51 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: "sides-french-fries",
-    name: "Crispy Golden French Fries",
+    name: "Złociste Frytki Chrupiące",
     category: "sides",
     price: 11.9,
-    description: "Portion of stealth-cut extra crispy seasoned potato fries.",
+    description: "Porcja bardzo chrupiących, idealnie posolonych frytek ziemniaczanych.",
     image:
       "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/47d722b2-8df1-40db-b7c0-bc5c3f22f812.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=400&w=600",
   },
-
 ];
 
 export const PROMOTIONS: Promotion[] = [
   {
     id: "new-customer",
-    title: "5% OFF Your First Online Order",
-    tagline: "Exclusive Welcome Gift 🎁",
+    title: "Promocja dla nowych klientów",
+    tagline: "Otrzymaj 5% rabatu na pierwsze zamówienie online",
     description:
-      "Get 5% instant discount on your first online delivery or takeaway order of 70 PLN or more! Use coupon code DOSTANA5 at checkout.",
+      "1. Wejdź w menu i dodaj swoje ulubione dania do koszyka za min. 70 zł. 2. W formularzu zamówienia, podaj swoje dane. 3. Otrzymasz SMS z jednorazowym kodem rabatowym na to zamówienie.",
     code: "DOSTANA5",
-    discountDisplay: "5% OFF",
+    discountDisplay: "5% RABATU",
     image:
       "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/imageye___-_imgi_32_d4cdebe687ae8357ddbd0422f5d84230-1-6f516b90be782e231d1e1dfe082d3819.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&max-h=625&max-w=800",
-    badge: "NEW CUSTOMERS",
+    badge: "NOWI KLIENCI",
   },
   {
     id: "loyalty-stamps",
-    title: "Collect Stamps & Get FREE Rollo!",
-    tagline: "Loyalty Rewards Program 🎟️",
+    title: "Zbieraj pieczątki",
+    tagline: "Zbieraj pieczątki i odbierz darmowy Rollo!",
     description:
-      "Earn 1 digital stamp with every online order. Collect 5 stamps and receive a FREE Small Rollo Kebab with your 6th order!",
+      "Po każdym zamówieniu otrzymujesz pieczątkę. Uzbieraj 5 pieczątek. Po 5 zamówieniu online otrzymasz kod rabatowy na Rollo Mały Gratis (do koszyka za min. 70 zł). Promocja wymaga zgody marketingowej.",
     code: "STAMP5",
-    discountDisplay: "FREE ROLLO",
+    discountDisplay: "DARMOWE ROLLO",
     image:
       "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/imageye___-_imgi_31_5fb241fb6377e060e75bb960e11c4cc9-1-ac48b6f9294dd70f0360ca5743faa3e0.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&max-h=625&max-w=800",
-    badge: "LOYALTY CARD",
+    badge: "KARTA LOJALNOŚCIOWA",
   },
   {
     id: "free-delivery",
-    title: "FREE Express Delivery on Orders 150+ PLN",
-    tagline: "Hot & Fresh to Your Door 🛵",
+    title: "Darmowa dostawa dla zamówień od 150 zł",
+    tagline: "Darmowa dostawa na terenie Lublina",
     description:
-      "Order food for your office, friends, or family gathering over 150 PLN and we will deliver it anywhere in Lublin completely free of charge!",
+      "Zamów jedzenie do biura, dla znajomych lub rodziny o wartości powyżej 150 PLN, a dostarczymy je na terenie całego Lublina całkowicie bezpłatnie!",
     code: "FREEDEL150",
-    discountDisplay: "FREE DELIVERY",
+    discountDisplay: "DARMOWA DOSTAWA",
     image:
       "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/imageye___-_imgi_30_65e0cea829fe4acd3e3ff508bd30d5f8-1-e58f399429647cbce366334758f1110e.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&max-h=625&max-w=800",
-    badge: "FAST DELIVERY",
+    badge: "SZYBKA DOSTAWA",
   },
 ];
 
@@ -322,11 +320,11 @@ export const REVIEWS: Review[] = [
   {
     id: "r1",
     author: "Iwona S.",
-    location: "Lublin Center",
+    location: "Lublin Centrum",
     rating: 5,
     comment:
-      "Ordering online is super fast and smooth! The meat is cooked to perfection and the garlic sauce is addictive!",
-    date: "2 days ago",
+      "Zamawianie online jest super szybkie i wygodne! Mięso jest idealnie upieczone, a sos czosnkowy po prostu uzależnia!",
+    date: "2 dni temu",
   },
   {
     id: "r2",
@@ -334,52 +332,52 @@ export const REVIEWS: Review[] = [
     location: "Krakowskie Przedmieście",
     rating: 5,
     comment:
-      "Hands down the best Rollo Monster XL in Lublin. It weighs over a kilo and feeds 2 people easily. Arrived piping hot!",
-    date: "3 days ago",
+      "Zdecydowanie najlepszy Rollo Monster XL w Lublinie. Waży ponad kilogram i bez problemu najedzą się dwie osoby. Przyjechał bardzo gorący!",
+    date: "3 dni temu",
   },
   {
     id: "r3",
     author: "Grzegorz M.",
-    location: "Lipowa branch",
+    location: "ul. Lipowa",
     rating: 5,
     comment:
-      "Super friendly staff, fresh crunchy salads and authentic charcoal flame flavor. 10/10 recommendation!",
-    date: "1 week ago",
+      "Super miła obsługa, świeże chrupiące sałatki i autentyczny smak mięsa pieczonego na wglu. Szczerze polecam! 10/10",
+    date: "tydzień temu",
   },
   {
     id: "r4",
     author: "Elena B.",
-    location: "Turystyczna branch",
+    location: "ul. Turystyczna",
     rating: 5,
     comment:
-      "The Falafel wrap is so crispy and flavorful. Love that they have real vegan options that taste heavenly!",
-    date: "2 weeks ago",
+      "Wrap z falafelem jest niesamowicie chrupki i pełen smaku. Super, że mają porządne wegetariańskie opcje, które smakują wyśmienicie!",
+    date: "2 tygodnie temu",
   },
 ];
 
 export const GALLERY_PHOTOS = [
   {
     url: "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/b75529f5-94e3-4439-b736-d6a4e724895c.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&h=600&w=800",
-    title: "Crispy Charcoal Rollo Kebab",
+    title: "Chrupiący Rollo Kebab z rożna",
   },
   {
     url: "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/8e6c32d9-d4ce-49a1-b51d-26394b3d128f.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&h=600&w=800",
-    title: "Dostana Monster XL Feast",
+    title: "Uczta Dostana Monster XL",
   },
   {
     url: "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/aee8865c-3344-4fb8-93d1-e3661bf1072b.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&h=600&w=800",
-    title: "Triple Melted Cheese Rollo",
+    title: "Potrójnie Serowy Rollo",
   },
   {
     url: "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/47d722b2-8df1-40db-b7c0-bc5c3f22f812.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&h=600&w=800",
-    title: "Loaded Kebab Box & Fries",
+    title: "Kebab Box z frytkami",
   },
   {
     url: "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/e90c9620-1264-4dbf-a8b5-7ead9e945bdb.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&h=600&w=800",
-    title: "Spicy Jalapeño Cheese Deluxe",
+    title: "Serowy Box z Jalapeno",
   },
   {
     url: "https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/6e38ccb3-b983-48aa-a3b0-81fe09721131.jpg?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&h=600&w=800",
-    title: "Dostana Royal Dinner Plate",
+    title: "Królewski Talerz Dostana",
   },
 ];

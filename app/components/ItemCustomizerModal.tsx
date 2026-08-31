@@ -29,7 +29,7 @@ export default function ItemCustomizerModal({
   onAddToCart,
 }: ItemCustomizerModalProps) {
   const [selectedSize, setSelectedSize] = useState<{ name: string; extraPrice: number }>({
-    name: "Standard Portion",
+    name: "Porcja standardowa",
     extraPrice: 0,
   });
   const [selectedMeat, setSelectedMeat] = useState<string>(MEAT_OPTIONS[0]);
@@ -45,7 +45,7 @@ export default function ItemCustomizerModal({
       if (item.availableSizes && item.availableSizes.length > 0) {
         setSelectedSize(item.availableSizes[0]);
       } else {
-        setSelectedSize({ name: "Standard Portion", extraPrice: 0 });
+        setSelectedSize({ name: "Porcja standardowa", extraPrice: 0 });
       }
 
       if (item.availableMeats && item.availableMeats.length > 0) {
@@ -111,7 +111,7 @@ export default function ItemCustomizerModal({
             <div>
               <h3 className="font-judson font-bold text-xl sm:text-2xl text-white leading-tight">{item.name}</h3>
               <p className="text-[10px] sm:text-xs text-[#f26522] font-bold mt-1">
-                Customize your flavor, meats & signature sauces
+                Dostosuj smak, mięso i autorskie sosy
               </p>
             </div>
           </div>
@@ -122,8 +122,8 @@ export default function ItemCustomizerModal({
             <X className="w-4 h-4" />
           </button>
         </div>
-<div className="p-6 overflow-y-auto space-y-6 flex-1 text-xs">
-<div className="flex gap-4 bg-[#121212] p-4 rounded-2xl border border-white/10 items-center">
+        <div className="p-6 overflow-y-auto space-y-6 flex-1 text-xs">
+          <div className="flex gap-4 bg-[#121212] p-4 rounded-2xl border border-white/10 items-center">
             <img
               src={item.image}
               alt={item.name}
@@ -132,15 +132,15 @@ export default function ItemCustomizerModal({
             <div className="space-y-1">
               <p className="text-neutral-300 leading-relaxed">{item.description}</p>
               <div className="text-[#e5a93c] font-bold text-sm">
-                Base Item Price: {item.price.toFixed(2)} PLN
+                Cena podstawowa: {item.price.toFixed(2)} zł
               </div>
             </div>
           </div>
-{item.availableSizes && item.availableSizes.length > 0 && (
+          {item.availableSizes && item.availableSizes.length > 0 && (
             <div className="space-y-3">
               <label className="text-xs uppercase font-extrabold text-white tracking-wider flex items-center justify-between">
-                <span>1. Select Portion Size</span>
-                <span className="text-[#f26522] font-bold text-[10px] bg-[#d9531e]/20 px-2 py-0.5 rounded">*REQUIRED</span>
+                <span>1. Wybierz rozmiar porcji</span>
+                <span className="text-[#f26522] font-bold text-[10px] bg-[#d9531e]/20 px-2 py-0.5 rounded">*WYMAGANE</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {item.availableSizes.map((size) => {
@@ -161,7 +161,7 @@ export default function ItemCustomizerModal({
                         {isSelected && <Check className="w-4 h-4 text-[#f26522]" />}
                       </div>
                       <span className="text-[11px] text-[#e5a93c] mt-1.5 font-mono">
-                        {size.extraPrice > 0 ? `+${size.extraPrice.toFixed(2)} PLN` : "Included"}
+                        {size.extraPrice > 0 ? `+${size.extraPrice.toFixed(2)} zł` : "W cenie"}
                       </span>
                     </button>
                   );
@@ -169,11 +169,11 @@ export default function ItemCustomizerModal({
               </div>
             </div>
           )}
-{item.availableMeats && item.availableMeats.length > 0 && (
+          {item.availableMeats && item.availableMeats.length > 0 && (
             <div className="space-y-3">
               <label className="text-xs uppercase font-extrabold text-white tracking-wider flex items-center justify-between">
-                <span>2. Select Charcoal Meat</span>
-                <span className="text-[#f26522] font-bold text-[10px] bg-[#d9531e]/20 px-2 py-0.5 rounded">*REQUIRED</span>
+                <span>2. Wybierz mięso z węgla drzewnego</span>
+                <span className="text-[#f26522] font-bold text-[10px] bg-[#d9531e]/20 px-2 py-0.5 rounded">*WYMAGANE</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {item.availableMeats.map((meat) => {
@@ -197,11 +197,11 @@ export default function ItemCustomizerModal({
               </div>
             </div>
           )}
-{item.availableSauces && item.availableSauces.length > 0 && (
+          {item.availableSauces && item.availableSauces.length > 0 && (
             <div className="space-y-3">
               <label className="text-xs uppercase font-extrabold text-white tracking-wider flex items-center justify-between">
-                <span>3. Select Signature Sauce</span>
-                <span className="text-[#f26522] font-bold text-[10px] bg-[#d9531e]/20 px-2 py-0.5 rounded">*REQUIRED</span>
+                <span>3. Wybierz autorski sos</span>
+                <span className="text-[#f26522] font-bold text-[10px] bg-[#d9531e]/20 px-2 py-0.5 rounded">*WYMAGANE</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {item.availableSauces.map((sauce) => {
@@ -225,9 +225,9 @@ export default function ItemCustomizerModal({
               </div>
             </div>
           )}
-<div className="space-y-3">
+          <div className="space-y-3">
             <label className="text-xs uppercase font-extrabold text-white tracking-wider">
-              4. Add Extra Toppings & Cheese (Optional)
+              4. Dodaj dodatki i ser (Opcjonalnie)
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {EXTRA_TOPPINGS.map((extra) => {
@@ -245,27 +245,26 @@ export default function ItemCustomizerModal({
                   >
                     <span>{extra.name}</span>
                     <span className="text-[#e5a93c] font-mono">
-                      +{extra.price.toFixed(2)} PLN
+                      +{extra.price.toFixed(2)} zł
                     </span>
                   </button>
                 );
               })}
             </div>
           </div>
-<div className="space-y-2">
+          <div className="space-y-2">
             <label className="text-xs uppercase font-extrabold text-white tracking-wider flex items-start gap-1.5">
               <MessageSquare className="w-3.5 h-3.5 text-[#f26522] shrink-0 mt-0.5" />
-              <span>5. Kitchen Special Instructions (Optional)</span>
+              <span>5. Specjalne instrukcje dla kuchni (Opcjonalnie)</span>
             </label>
             <textarea
               rows={2}
               value={specialNotes}
               onChange={(e) => setSpecialNotes(e.target.value)}
-              placeholder="e.g. Extra crispy pita, no raw onions, sauce on the side..."
+              placeholder="np. bardzo chrupiąca pita, bez surowej cebuli, sos osobno..."
               className="w-full bg-[#121212] border border-white/10 rounded-2xl p-3 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-[#f26522]"
             />
           </div>
-
         </div>
         <div className="p-3 sm:p-6 border-t border-white/10 bg-[#121212] flex items-center justify-between gap-2 sm:gap-4">
           <div className="flex items-center gap-2 bg-[#1c1c1c] border border-white/10 p-1 rounded-full shrink-0">
@@ -290,10 +289,9 @@ export default function ItemCustomizerModal({
             className="flex-1 flame-btn-gradient text-white font-black text-[10px] xs:text-xs sm:text-sm md:text-base uppercase py-3 px-2 sm:px-4 rounded-2xl flex items-center justify-center gap-1.5 sm:gap-2 shadow-xl whitespace-nowrap"
           >
             <ShoppingBag className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 shrink-0" />
-            <span>ADD TO ORDER ({totalPrice.toFixed(2)} PLN)</span>
+            <span>DODAJ DO ZAMÓWIENIA ({totalPrice.toFixed(2)} zł)</span>
           </button>
         </div>
-
       </div>
     </div>
   );

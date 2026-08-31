@@ -21,13 +21,13 @@ export default function ReviewsSection({ showPattern = false }: ReviewsSectionPr
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 font-lato">
-            <ShieldCheck className="w-4 h-4 text-emerald-400" /> Verified Customer Feedback
+            <ShieldCheck className="w-4 h-4 text-emerald-400" /> Zweryfikowane opinie klientów
           </div>
           <h2 className="font-judson font-bold text-3xl sm:text-5xl text-white tracking-tight">
-            99.2% SATISFIED <span className="flame-gradient-text">FOOD LOVERS</span>
+            99.2% Zadowolonych <span className="flame-gradient-text">Klientów</span>
           </h2>
           <p className="font-lato text-neutral-400 mt-2 text-sm sm:text-base">
-            See why thousands of kebab fans in Lublin choose Dostana Kebab every single day!
+            Sprawdź, dlaczego tysiące miłośników kebaba w Lublinie wybiera Dostana Kebab każdego dnia!
           </p>
         </div>
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 font-lato">

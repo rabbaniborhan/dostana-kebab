@@ -75,12 +75,12 @@ export default function CheckoutModal({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
       <div className="bg-neutral-900 border border-neutral-800 w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]">
-<div className="p-6 border-b border-neutral-800 flex items-center justify-between bg-neutral-950">
+        <div className="p-6 border-b border-neutral-800 flex items-center justify-between bg-neutral-950">
           <div className="flex items-center gap-3">
             <Flame className="w-6 h-6 text-orange-500 fill-orange-500" />
             <div>
               <h3 className="text-xl font-extrabold text-white">
-                {orderConfirmed ? "Order Confirmation" : "Complete Your Order"}
+                {orderConfirmed ? "Potwierdzenie zamówienia" : "Dokończ swoje zamówienie"}
               </h3>
               <p className="text-xs text-neutral-400">
                 {currentLocation.name}
@@ -94,9 +94,8 @@ export default function CheckoutModal({
             <X className="w-5 h-5" />
           </button>
         </div>
-<div className="p-6 overflow-y-auto space-y-6 flex-1">
+        <div className="p-6 overflow-y-auto space-y-6 flex-1">
           {orderConfirmed ? (
-            /* Live Order Tracker Confirmation Screen */
             <div className="text-center py-8 space-y-6 animate-in zoom-in-95 duration-300">
               <div className="w-20 h-20 bg-emerald-500/20 border-2 border-emerald-500 rounded-full flex items-center justify-center mx-auto text-emerald-400 text-4xl shadow-xl shadow-emerald-500/20">
                 <CheckCircle2 className="w-12 h-12" />
@@ -104,24 +103,24 @@ export default function CheckoutModal({
 
               <div className="space-y-2">
                 <span className="bg-orange-500/20 border border-orange-500/40 text-orange-300 text-xs font-black uppercase px-3 py-1 rounded-full">
-                  ORDER PLACED #{orderNumber}
+                  ZAMÓWIENIE ZŁOŻONE #{orderNumber}
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black text-white">
-                  Kebab is Sizzling on the Grill! 🔥
+                  Kebab skwierczy na grillu! 🔥
                 </h2>
                 <p className="text-neutral-300 text-sm max-w-md mx-auto">
-                  Thank you, <strong className="text-white">{name || "Valued Customer"}</strong>! Your order has been dispatched directly to our <span className="text-orange-400 font-bold">{currentLocation.name}</span> kitchen.
+                  Dziękujemy, <strong className="text-white">{name || "Drogi Kliencie"}</strong>! Twoje zamówienie zostało wysłane bezpośrednio do kuchni w lokalu <span className="text-orange-400 font-bold">{currentLocation.name}</span>.
                 </p>
               </div>
-<div className="bg-neutral-950 p-6 rounded-3xl border border-neutral-800 max-w-sm mx-auto space-y-2">
+              <div className="bg-neutral-950 p-6 rounded-3xl border border-neutral-800 max-w-sm mx-auto space-y-2">
                 <div className="flex items-center justify-center gap-2 text-amber-400 font-extrabold text-xs uppercase tracking-wider">
-                  <Clock className="w-4 h-4" /> Estimated Delivery Time
+                  <Clock className="w-4 h-4" /> Szacowany czas dostawy
                 </div>
                 <div className="text-5xl font-black text-white flame-gradient-text">
-                  ~{countdownMinutes} MINS
+                  ~{countdownMinutes} MINUT
                 </div>
                 <p className="text-[11px] text-neutral-400">
-                  Our driver will deliver your order piping hot to {street} {houseNumber}.
+                  Nasz kurier dostarczy Twoje zamówienie gorące pod adres {street} {houseNumber}.
                 </p>
               </div>
 
@@ -129,13 +128,12 @@ export default function CheckoutModal({
                 onClick={onClose}
                 className="flame-btn-gradient text-white font-extrabold text-sm px-8 py-3.5 rounded-full inline-block shadow-xl"
               >
-                Back To Main Page
+                Powrót do strony głównej
               </button>
             </div>
           ) : (
-            /* Checkout Form */
             <form onSubmit={handleSubmitOrder} className="space-y-6">
-<div className="grid grid-cols-2 gap-3 p-1.5 bg-neutral-950 rounded-2xl border border-neutral-800">
+              <div className="grid grid-cols-2 gap-3 p-1.5 bg-neutral-950 rounded-2xl border border-neutral-800">
                 <button
                   type="button"
                   onClick={() => setFulfillmentMethod("delivery")}
@@ -145,7 +143,7 @@ export default function CheckoutModal({
                       : "text-neutral-400 hover:text-white"
                   }`}
                 >
-                  <Truck className="w-4 h-4" /> Express Delivery 🛵
+                  <Truck className="w-4 h-4" /> Ekspresowa dostawa 🛵
                 </button>
                 <button
                   type="button"
@@ -156,32 +154,32 @@ export default function CheckoutModal({
                       : "text-neutral-400 hover:text-white"
                   }`}
                 >
-                  <ShoppingBag className="w-4 h-4" /> Self Pick-Up 🛍️
+                  <ShoppingBag className="w-4 h-4" /> Odbiór osobisty 🛍️
                 </button>
               </div>
-<div className="space-y-4">
+              <div className="space-y-4">
                 <h4 className="text-xs uppercase font-extrabold text-neutral-400 tracking-wider">
-                  1. Contact & Location Info
+                  1. Dane kontaktowe i adresowe
                 </h4>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-bold text-neutral-300 mb-1">
-                      Full Name *
+                      Imię i nazwisko *
                     </label>
                     <input
                       type="text"
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      placeholder="John Doe"
+                      placeholder="Jan Kowalski"
                       className="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-4 py-2.5 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-orange-500"
                     />
                   </div>
 
                   <div>
                     <label className="block text-xs font-bold text-neutral-300 mb-1">
-                      Phone Number (For SMS Confirmation) *
+                      Numer telefonu (do potwierdzenia SMS) *
                     </label>
                     <input
                       type="tel"
@@ -198,27 +196,27 @@ export default function CheckoutModal({
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div className="sm:col-span-2">
                       <label className="block text-xs font-bold text-neutral-300 mb-1">
-                        Street Address *
+                        Nazwa ulicy *
                       </label>
                       <input
                         type="text"
                         required
                         value={street}
                         onChange={(e) => setStreet(e.target.value)}
-                        placeholder="e.g. Krakowskie Przedmieście"
+                        placeholder="np. Krakowskie Przedmieście"
                         className="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-4 py-2.5 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-orange-500"
                       />
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-neutral-300 mb-1">
-                        House / Apt # *
+                        Numer domu / lokalu *
                       </label>
                       <input
                         type="text"
                         required
                         value={houseNumber}
                         onChange={(e) => setHouseNumber(e.target.value)}
-                        placeholder="12 / 4B"
+                        placeholder="np. 12 / 4B"
                         className="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-4 py-2.5 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-orange-500"
                       />
                     </div>
@@ -227,20 +225,20 @@ export default function CheckoutModal({
 
                 <div>
                   <label className="block text-xs font-bold text-neutral-300 mb-1">
-                    Special Cooking Notes (Optional)
+                    Uwagi specjalne (Opcjonalnie)
                   </label>
                   <input
                     type="text"
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
-                    placeholder="e.g. Extra spicy, no onions, door code 1420"
+                    placeholder="np. bardzo ostre, bez cebuli, kod do bramy 1420"
                     className="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-4 py-2.5 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-orange-500"
                   />
                 </div>
               </div>
-<div className="space-y-3">
+              <div className="space-y-3">
                 <h4 className="text-xs uppercase font-extrabold text-neutral-400 tracking-wider">
-                  2. Select Payment Method
+                  2. Wybierz metodę płatności
                 </h4>
 
                 <div className="grid grid-cols-3 gap-3">
@@ -254,7 +252,7 @@ export default function CheckoutModal({
                     }`}
                   >
                     <span className="text-base font-black text-amber-400">BLIK</span>
-                    <span>Online BLIK ⚡</span>
+                    <span>BLIK online ⚡</span>
                   </button>
 
                   <button
@@ -267,7 +265,7 @@ export default function CheckoutModal({
                     }`}
                   >
                     <Banknote className="w-5 h-5 text-emerald-400" />
-                    <span>Cash On Door 💵</span>
+                    <span>Gotówka przy odbiorze 💵</span>
                   </button>
 
                   <button
@@ -280,49 +278,48 @@ export default function CheckoutModal({
                     }`}
                   >
                     <CreditCard className="w-5 h-5 text-sky-400" />
-                    <span>Card Terminal 💳</span>
+                    <span>Terminal płatniczy 💳</span>
                   </button>
                 </div>
               </div>
-<div className="bg-neutral-950 p-4 rounded-2xl border border-neutral-800 space-y-2 text-xs">
+              <div className="bg-neutral-950 p-4 rounded-2xl border border-neutral-800 space-y-2 text-xs">
                 <div className="flex justify-between text-neutral-400">
-                  <span>Items Total ({cartItems.length}):</span>
-                  <span className="text-white font-bold">{subtotal.toFixed(2)} PLN</span>
+                  <span>Razem za dania ({cartItems.length}):</span>
+                  <span className="text-white font-bold">{subtotal.toFixed(2)} zł</span>
                 </div>
                 {discountAmount > 0 && (
                   <div className="flex justify-between text-emerald-400 font-bold">
-                    <span>Promo Discount ({appliedPromoCode}):</span>
-                    <span>-{discountAmount.toFixed(2)} PLN</span>
+                    <span>Rabat kuponu ({appliedPromoCode}):</span>
+                    <span>-{discountAmount.toFixed(2)} zł</span>
                   </div>
                 )}
                 <div className="flex justify-between text-neutral-400">
-                  <span>Delivery ({fulfillmentMethod}):</span>
+                  <span>Dostawa ({fulfillmentMethod === "delivery" ? "kurier" : "odbiór"}):</span>
                   <span className="text-white font-bold">
-                    {deliveryFee === 0 ? "FREE" : `${deliveryFee.toFixed(2)} PLN`}
+                    {deliveryFee === 0 ? "DARMOWA" : `${deliveryFee.toFixed(2)} zł`}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm font-black text-white pt-2 border-t border-neutral-800">
-                  <span>Total To Pay:</span>
+                  <span>Razem do zapłaty:</span>
                   <span className="text-amber-400 font-mono text-base">
-                    {finalTotal.toFixed(2)} PLN
+                    {finalTotal.toFixed(2)} zł
                   </span>
                 </div>
               </div>
-<button
+              <button
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full flame-btn-gradient text-white font-black text-sm py-4 rounded-2xl flex items-center justify-center gap-2 shadow-xl"
               >
                 {isSubmitting ? (
-                  <span>DISPATCHING ORDER TO KITCHEN...</span>
+                  <span>WYSYŁANIE ZAMÓWIENIA DO KUCHNI...</span>
                 ) : (
-                  <span>CONFIRM & PLACE ORDER ({finalTotal.toFixed(2)} PLN)</span>
+                  <span>POTWIERDŹ I ZŁÓŻ ZAMÓWIENIE ({finalTotal.toFixed(2)} zł)</span>
                 )}
               </button>
             </form>
           )}
         </div>
-
       </div>
     </div>
   );

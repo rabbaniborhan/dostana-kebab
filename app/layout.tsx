@@ -16,9 +16,9 @@ const judson = Judson({
 });
 
 export const metadata: Metadata = {
-  title: "Dostana Kebab - Order & Pay Online - Dostana Kebab Lublin",
+  title: "Dostana Kebab - Zamów i zapłać online - Dostana Kebab",
   description:
-    "Dostana Kebab Lublin - Order online, pay cash or card, express delivery to home and office. Charcoal grilled kebabs, rollo wraps, boxes & plates.",
+    "Dostana Kebab - Zamów przez internet, zapłac gotówką lub online, dowieziemy do domu i biura",
   keywords: [
     "Dostana Kebab",
     "Zamów online",
@@ -37,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="pl"
       className={`${roboto.variable} ${judson.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col bg-[#121212] text-neutral-100 font-roboto">

@@ -29,13 +29,13 @@ export default function ContactSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-2">
           <div className="inline-flex items-center gap-2 text-[#f26522] text-xs font-bold uppercase tracking-wider bg-[#d9531e]/20 border border-[#d9531e]/40 px-3.5 py-1 rounded-full">
-            <MessageSquare className="w-4 h-4 text-[#f26522]" /> Get In Touch
+            <MessageSquare className="w-4 h-4 text-[#f26522]" /> Napisz do nas
           </div>
           <h2 className="font-judson font-bold text-3xl sm:text-5xl text-white tracking-tight">
-            CONTACT <span className="text-[#f26522]">DOSTANA KEBAB</span>
+            KONTAKT <span className="text-[#f26522]">DOSTANA KEBAB</span>
           </h2>
           <p className="text-neutral-300 text-sm sm:text-base">
-            Select your preferred Lublin venue to view live map directions, or send us a direct message!
+            Wybierz preferowany lokal w Lublinie, aby zobaczyć wskazówki na mapie lub wyślij do nas wiadomość!
           </p>
         </div>
         <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 space-y-6">
@@ -43,10 +43,10 @@ export default function ContactSection() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6">
             <div className="space-y-1">
               <label className="text-xs font-bold text-[#f26522] uppercase tracking-wider flex items-center gap-1.5">
-                <Compass className="w-4 h-4 text-[#f26522]" /> Click to select a venue:
+                <Compass className="w-4 h-4 text-[#f26522]" /> Kliknij, aby wybrać lokal:
               </label>
               <h3 className="font-judson font-bold text-2xl sm:text-3xl text-white">
-                Interactive Restaurant Map Locator
+                Interaktywny lokalizator mapy restauracji
               </h3>
             </div>
             <div className="w-full md:w-96 relative">
@@ -99,7 +99,7 @@ export default function ContactSection() {
               <div className="space-y-4 text-xs text-neutral-300">
                 <div className="space-y-1">
                   <span className="text-[10px] font-black text-[#f26522] uppercase tracking-widest bg-[#d9531e]/20 border border-[#d9531e]/40 px-2.5 py-0.5 rounded">
-                    SELECTED VENUE
+                    WYBRANY LOKAL
                   </span>
                   <h4 className="font-judson font-bold text-2xl text-white pt-1">
                     {selectedVenue.name}
@@ -113,7 +113,7 @@ export default function ContactSection() {
                 <div className="space-y-3 pt-3 border-t border-white/10">
                   <div className="flex items-center justify-between">
                     <span className="text-neutral-400 flex items-center gap-1.5">
-                      <Phone className="w-4 h-4 text-emerald-400" /> Phone:
+                      <Phone className="w-4 h-4 text-emerald-400" /> Telefon:
                     </span>
                     <a
                       href={`tel:${selectedVenue.phone.replace(/\s+/g, "")}`}
@@ -125,7 +125,7 @@ export default function ContactSection() {
 
                   <div className="flex items-center justify-between">
                     <span className="text-neutral-400 flex items-center gap-1.5">
-                      <Clock className="w-4 h-4 text-[#e5a93c]" /> Hours:
+                      <Clock className="w-4 h-4 text-[#e5a93c]" /> Godziny:
                     </span>
                     <span className="font-bold text-white">{selectedVenue.hours}</span>
                   </div>
@@ -141,12 +141,12 @@ export default function ContactSection() {
                   rel="noopener noreferrer"
                   className="w-full flame-btn-gradient text-white font-bold text-xs uppercase py-3 rounded-xl flex items-center justify-center gap-2"
                 >
-                  <span>Open In Google Maps</span>
+                  <span>Otwórz w Google Maps</span>
                   <ExternalLink className="w-4 h-4" />
                 </a>
               </div>
             </div>
-<div className="lg:col-span-8 h-80 lg:h-auto min-h-[300px] rounded-2xl overflow-hidden border border-white/10 bg-[#161616] relative">
+            <div className="lg:col-span-8 h-80 lg:h-auto min-h-[300px] rounded-2xl overflow-hidden border border-white/10 bg-[#161616] relative">
               <iframe
                 title={`Map for ${selectedVenue.name}`}
                 src={mapEmbedUrl}
@@ -159,9 +159,9 @@ export default function ContactSection() {
           </div>
 
         </div>
-<div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-<div className="lg:col-span-5 space-y-6">
-<div className="glass-panel p-4 rounded-2xl border border-white/10 flex items-center gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-5 space-y-6">
+            <div className="glass-panel p-4 rounded-2xl border border-white/10 flex items-center gap-4">
               <img
                 src="https://restaumatic-production.imgix.net/uploads/accounts/308281/media_library/ee39356f-0878-4640-bdbd-9af8924847a8.png?auto=compress%2Cformat&blur=0&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&rect=0%2C0%2C657%2C656"
                 alt="Dostana Kebab Food Showcase"
@@ -169,19 +169,19 @@ export default function ContactSection() {
               />
               <div className="space-y-1">
                 <span className="text-xs font-bold text-[#f26522] uppercase tracking-wider">
-                  Always Fresh In Lublin
+                  Zawsze świeże w Lublinie
                 </span>
                 <h4 className="font-judson font-bold text-white text-xl">
-                  Order Hot & Delicious
+                  Zamawiaj na gorąco i smacznie
                 </h4>
                 <p className="text-xs text-neutral-300">
-                  Delivered from 6 local branches across Lublin.
+                  Dostarczamy z 6 lokalnych oddziałów w Lublinie.
                 </p>
               </div>
             </div>
 
             <div className="glass-panel p-6 sm:p-8 rounded-2xl border border-white/10 space-y-6">
-              <h3 className="font-judson font-bold text-xl text-white">Main Branch Contact</h3>
+              <h3 className="font-judson font-bold text-xl text-white">Kontakt z głównym oddziałem</h3>
               
               <div className="space-y-4 text-xs text-neutral-300">
                 <div className="flex items-start gap-3">
@@ -195,7 +195,7 @@ export default function ContactSection() {
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-emerald-400 shrink-0" />
                   <div>
-                    <div className="font-extrabold text-white">Direct Phone:</div>
+                    <div className="font-extrabold text-white">Bezpośredni telefon:</div>
                     <a href="tel:732816154" className="text-emerald-400 font-bold hover:underline">
                       732 816 154
                     </a>
@@ -205,31 +205,31 @@ export default function ContactSection() {
                 <div className="flex items-center gap-3">
                   <Clock className="w-5 h-5 text-[#e5a93c] shrink-0" />
                   <div>
-                    <div className="font-extrabold text-white">Opening Hours:</div>
-                    <div>Monday - Sunday: 11:00 AM - 9:30 PM</div>
+                    <div className="font-extrabold text-white">Godziny otwarcia:</div>
+                    <div>Poniedziałek - Niedziela: 11:00 - 21:30</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-<div className="lg:col-span-7">
+          <div className="lg:col-span-7">
             <div className="glass-panel p-6 sm:p-8 rounded-2xl border border-white/10 space-y-6">
-              <h3 className="font-judson font-bold text-2xl text-white">Send Us A Message</h3>
+              <h3 className="font-judson font-bold text-2xl text-white">Wyślij do nas wiadomość</h3>
               
               {sent ? (
                 <div className="text-center py-12 space-y-4">
                   <div className="w-16 h-16 bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 rounded-full flex items-center justify-center mx-auto text-3xl">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
-                  <h4 className="font-judson font-bold text-2xl text-white">Message Sent!</h4>
+                  <h4 className="font-judson font-bold text-2xl text-white">Wiadomość wysłana!</h4>
                   <p className="text-xs text-neutral-300 max-w-sm mx-auto">
-                    Thank you, <strong className="text-white">{name}</strong>! We have received your message and will reply shortly.
+                    Dziękujemy, <strong className="text-white">{name}</strong>! Otrzymaliśmy Twoją wiadomość i wkrótce odpowiemy.
                   </p>
                   <button
                     onClick={() => setSent(false)}
                     className="flame-btn-gradient text-white text-xs font-bold px-6 py-3 rounded inline-block"
                   >
-                    Send Another Message
+                    Wyślij kolejną wiadomość
                   </button>
                 </div>
               ) : (
@@ -237,28 +237,28 @@ export default function ContactSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block font-bold text-neutral-300 mb-1">
-                        Your Name *
+                        Twoje imię *
                       </label>
                       <input
                         type="text"
                         required
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder="John Doe"
+                        placeholder="Jan Kowalski"
                         className="w-full bg-[#161616] border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:border-[#f26522]"
                       />
                     </div>
 
                     <div>
                       <label className="block font-bold text-neutral-300 mb-1">
-                        Email Address *
+                        Adres e-mail *
                       </label>
                       <input
                         type="email"
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="john@example.com"
+                        placeholder="jan.kowalski@example.com"
                         className="w-full bg-[#161616] border border-white/10 rounded-xl px-4 py-2.5 text-white placeholder-neutral-500 focus:outline-none focus:border-[#f26522]"
                       />
                     </div>
@@ -266,14 +266,14 @@ export default function ContactSection() {
 
                   <div>
                     <label className="block font-bold text-neutral-300 mb-1">
-                      Your Message *
+                      Twoja wiadomość *
                     </label>
                     <textarea
                       required
                       rows={4}
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
-                      placeholder="How can we help you?"
+                      placeholder="W czym możemy pomóc?"
                       className="w-full bg-[#161616] border border-white/10 rounded-xl p-4 text-white placeholder-neutral-500 focus:outline-none focus:border-[#f26522]"
                     />
                   </div>
@@ -282,7 +282,7 @@ export default function ContactSection() {
                     type="submit"
                     className="w-full flame-btn-gradient text-white font-bold uppercase py-3.5 rounded flex items-center justify-center gap-2"
                   >
-                    <Send className="w-4 h-4" /> SEND MESSAGE
+                    <Send className="w-4 h-4" /> WYŚLIJ WIADOMOŚĆ
                   </button>
                 </form>
               )}

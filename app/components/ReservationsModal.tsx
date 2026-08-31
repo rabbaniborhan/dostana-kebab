@@ -40,7 +40,7 @@ export default function ReservationsModal({
           <div className="flex items-center gap-3">
             <UtensilsCrossed className="w-5 h-5 text-orange-500" />
             <div>
-              <h3 className="text-xl font-extrabold text-white">Table Reservation</h3>
+              <h3 className="text-xl font-extrabold text-white">Rezerwacja stolika</h3>
               <p className="text-xs text-neutral-400">{currentLocation.name}</p>
             </div>
           </div>
@@ -54,15 +54,15 @@ export default function ReservationsModal({
             <X className="w-5 h-5" />
           </button>
         </div>
-<div className="p-6 space-y-4">
+        <div className="p-6 space-y-4">
           {confirmed ? (
             <div className="text-center py-8 space-y-4">
               <div className="w-16 h-16 bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 rounded-full flex items-center justify-center mx-auto text-3xl">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
-              <h4 className="text-2xl font-black text-white">Table Reserved!</h4>
+              <h4 className="text-2xl font-black text-white">Stolik zarezerwowany!</h4>
               <p className="text-xs text-neutral-300 max-w-sm mx-auto">
-                Thank you, <strong className="text-white">{name}</strong>! Your table for <strong className="text-white">{guests} guests</strong> on <strong className="text-orange-400">{date} at {time}</strong> is confirmed at {currentLocation.name}.
+                Dziękujemy, <strong className="text-white">{name}</strong>! Twój stolik dla <strong className="text-white">{guests === "1" ? "1 osoby" : guests === "8+" ? "grupy 8+" : `${guests} osób`}</strong> w dniu <strong className="text-orange-400">{date} o godzinie {time}</strong> został pomyślnie zarezerwowany w {currentLocation.name}.
               </p>
               <button
                 onClick={() => {
@@ -71,7 +71,7 @@ export default function ReservationsModal({
                 }}
                 className="flame-btn-gradient text-white text-xs font-bold px-6 py-3 rounded-full inline-block"
               >
-                Close Window
+                Zamknij okno
               </button>
             </div>
           ) : (
@@ -79,7 +79,7 @@ export default function ReservationsModal({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-neutral-300 mb-1">
-                    Date *
+                    Data *
                   </label>
                   <input
                     type="date"
@@ -92,7 +92,7 @@ export default function ReservationsModal({
 
                 <div className="relative">
                   <label className="block text-xs font-bold text-neutral-300 mb-1">
-                    Time *
+                    Godzina *
                   </label>
                   <button
                     type="button"
@@ -155,7 +155,7 @@ export default function ReservationsModal({
 
               <div className="relative">
                 <label className="block text-xs font-bold text-neutral-300 mb-1">
-                  Number of Guests *
+                  Liczba gości *
                 </label>
                 <button
                   type="button"
@@ -168,7 +168,7 @@ export default function ReservationsModal({
                   }`}
                 >
                   <span>
-                    {guests === "1" ? "1 Person" : guests === "8+" ? "8+ Large Party" : `${guests} Persons`}
+                    {guests === "1" ? "1 osoba" : guests === "8+" ? "Grupa 8+" : `${guests} osoby`}
                   </span>
                   <span className="text-[#f26522] text-[10px]">▼</span>
                 </button>
@@ -178,11 +178,11 @@ export default function ReservationsModal({
                     <div className="fixed inset-0 z-40" onClick={() => setGuestsDropdownOpen(false)} />
                     <div className="absolute right-0 left-0 mt-1 bg-neutral-950 border border-[#f26522] rounded-xl overflow-hidden shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-100 max-h-48 overflow-y-auto">
                       {[
-                        { value: "1", label: "1 Person" },
-                        { value: "2", label: "2 Persons" },
-                        { value: "4", label: "4 Persons" },
-                        { value: "6", label: "6 Persons" },
-                        { value: "8+", label: "8+ Large Party" },
+                        { value: "1", label: "1 osoba" },
+                        { value: "2", label: "2 osoby" },
+                        { value: "4", label: "4 osoby" },
+                        { value: "6", label: "6 osób" },
+                        { value: "8+", label: "Grupa 8+" },
                       ].map((item) => {
                         const isSelected = guests === item.value;
                         return (
@@ -211,21 +211,21 @@ export default function ReservationsModal({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-neutral-300 mb-1">
-                    Your Name *
+                    Imię i nazwisko *
                   </label>
                   <input
                     type="text"
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="Full Name"
+                    placeholder="Imię i nazwisko"
                     className="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-4 py-2.5 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-orange-500"
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-bold text-neutral-300 mb-1">
-                    Phone Number *
+                    Numer telefonu *
                   </label>
                   <input
                     type="tel"
@@ -240,13 +240,13 @@ export default function ReservationsModal({
 
               <div>
                 <label className="block text-xs font-bold text-neutral-300 mb-1">
-                  Special Notes (Optional)
+                  Uwagi specjalne (Opcjonalnie)
                 </label>
                 <input
                   type="text"
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  placeholder="e.g. Birthday celebration, booth seating"
+                  placeholder="np. Urodziny, stolik przy oknie..."
                   className="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-4 py-2.5 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-orange-500"
                 />
               </div>
@@ -255,9 +255,9 @@ export default function ReservationsModal({
                 type="submit"
                 className="w-full flame-btn-gradient text-white font-black text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 shadow-xl"
               >
-                CONFIRM TABLE RESERVATION
+                POTWIERDŹ REZERWACJĘ STOLIKA
               </button>
-            </form>
+            </form>orm>
           )}
         </div>
 

@@ -15,13 +15,13 @@ export default function GalleryModal() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
 <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 text-[#e5a93c] text-xs font-bold uppercase tracking-wider mb-2 font-lato">
-            <Camera className="w-4 h-4 text-[#e5a93c]" /> Taste With Your Eyes
+            <Camera className="w-4 h-4 text-[#e5a93c]" /> Jedz oczami
           </div>
           <h2 className="font-judson font-bold text-3xl sm:text-5xl text-white tracking-tight">
-            OUR <span className="text-[#f26522]">FOOD GALLERY</span>
+            NASZA <span className="text-[#f26522]">GALERIA DAŃ</span>
           </h2>
           <p className="font-lato text-neutral-400 mt-2 text-sm sm:text-base">
-            Real sizzle, real ingredients. Handcrafted daily with fresh veggies, warm toasted lavash, and flame-baked meats.
+            Prawdziwy smak, świeże składniki. Przygotowywane codziennie ze świeżych warzyw, ciepłego chlebka lawasz i soczystego mięsa z grilla.
           </p>
         </div>
 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 font-lato">

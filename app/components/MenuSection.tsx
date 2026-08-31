@@ -37,13 +37,13 @@ export default function MenuSection({
 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 glow-box-orange">
           <div className="space-y-2">
             <div className="inline-flex items-center gap-2 text-[#f26522] text-xs font-bold uppercase tracking-wider font-lato bg-[#d9531e]/20 border border-[#d9531e]/40 px-3 py-1 rounded-full">
-              <Flame className="w-4 h-4 text-[#f26522] fill-[#f26522]" /> Charcoal Grilled Delights
+              <Flame className="w-4 h-4 text-[#f26522] fill-[#f26522]" /> Przysmaki z węgla drzewnego
             </div>
             <h2 className="font-judson font-bold text-3xl sm:text-5xl text-white tracking-tight drop-shadow-md">
-              EXPLORE OUR <span className="flame-gradient-text">MENU</span>
+              POZNAJ NASZE <span className="flame-gradient-text">MENU</span>
             </h2>
             <p className="font-lato text-neutral-200 text-xs sm:text-sm max-w-xl leading-relaxed drop-shadow">
-              Customize your favorite meat, portion size, signature garlic or harissa sauces, and extra toppings!
+              Dostosuj swoje ulubione mięso, rozmiar porcji, sosy czosnkowe lub harissa oraz dodatki!
             </p>
           </div>
 <div className="relative w-full md:w-80 font-lato">
@@ -52,7 +52,7 @@ export default function MenuSection({
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search Rollo, Box, Falafel..."
+              placeholder="Szukaj Rollo, Box, Falafel..."
               className="w-full bg-neutral-950/90 border border-white/20 rounded-full pl-10 pr-4 py-2.5 text-xs text-white placeholder-neutral-400 focus:outline-none focus:border-[#f26522] transition-colors shadow-lg backdrop-blur-md"
             />
             {searchQuery && (
@@ -60,7 +60,7 @@ export default function MenuSection({
                 onClick={() => setSearchQuery("")}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-neutral-400 hover:text-white"
               >
-                Clear
+                Wyczyść
               </button>
             )}
           </div>
@@ -86,7 +86,7 @@ export default function MenuSection({
 {filteredItems.length === 0 ? (
           <div className="text-center py-16 bg-[#1c1c1c]/90 rounded-3xl border border-white/10 font-lato backdrop-blur-md">
             <p className="text-neutral-400 text-base font-medium">
-              No kebab items match &quot;{searchQuery}&quot;.
+              Nie znaleziono dań pasujących do &quot;{searchQuery}&quot;.
             </p>
             <button
               onClick={() => {
@@ -95,7 +95,7 @@ export default function MenuSection({
               }}
               className="mt-4 text-xs font-bold text-[#f26522] underline"
             >
-              Reset Filters
+              Resetuj filtry
             </button>
           </div>
         ) : (
@@ -122,7 +122,7 @@ export default function MenuSection({
 
                     {item.isVegetarian && (
                       <span className="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded shadow">
-                        🌱 VEGETARIAN
+                        🌱 WEGETARIAŃSKIE
                       </span>
                     )}
                   </div>
@@ -147,7 +147,7 @@ export default function MenuSection({
                     className="w-full bg-[#242424] hover:bg-[#d9531e] text-neutral-200 hover:text-white border border-white/10 font-bold text-xs py-2.5 rounded flex items-center justify-center gap-2 transition-all uppercase tracking-wide"
                   >
                     <Plus className="w-4 h-4 text-[#f26522] group-hover:text-white" />
-                    <span>CUSTOMIZE & ADD</span>
+                    <span>Dostosuj i dodaj</span>
                   </button>
                 </div>
               </div>

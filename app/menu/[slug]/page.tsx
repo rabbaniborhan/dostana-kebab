@@ -33,7 +33,7 @@ export default function BranchMenuPage() {
 <SubpageHero
         title={branch.name}
         breadcrumb="Menu"
-        subtitle={`Fresh charcoal-grilled kebab menu & online ordering from ${branch.street}, ${branch.city}`}
+        subtitle={`Świeże menu kebab z grilla węglowego i zamówienia online z lokalu na ${branch.street}, ${branch.city}`}
       />
 <section className="bg-[#181818] border-b border-white/10 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -44,7 +44,7 @@ export default function BranchMenuPage() {
             <div>
               <div className="flex items-center gap-2 justify-center sm:justify-start">
                 <span className="bg-[#d9531e]/20 border border-[#d9531e]/40 text-[#f26522] text-[10px] font-black uppercase px-2.5 py-0.5 rounded">
-                  ACTIVE LOCATION
+                  AKTYWNY LOKAL
                 </span>
                 <h2 className="font-judson font-bold text-2xl text-white">{branch.name}</h2>
               </div>
@@ -58,7 +58,7 @@ export default function BranchMenuPage() {
                 </a>
                 <span className="text-[#f26522]">•</span>
                 <span className="flex items-center gap-1 text-neutral-400">
-                  <Clock className="w-3.5 h-3.5 text-[#e5a93c]" /> Today: <strong className="text-white">{branch.hours}</strong>
+                  <Clock className="w-3.5 h-3.5 text-[#e5a93c]" /> Dzisiaj: <strong className="text-white">{branch.hours}</strong>
                 </span>
               </p>
             </div>
@@ -73,7 +73,7 @@ export default function BranchMenuPage() {
               }`}
             >
               <Truck className="w-4 h-4" />
-              <span>Express Delivery</span>
+              <span>Dostawa ekspresowa</span>
             </button>
 
             <button
@@ -85,7 +85,7 @@ export default function BranchMenuPage() {
               }`}
             >
               <ShoppingBag className="w-4 h-4" />
-              <span>Takeaway Pickup</span>
+              <span>Odbiór osobisty</span>
             </button>
           </div>
 

@@ -4,269 +4,197 @@ export default function TermsPage() {
   return (
     <div className="bg-[#121212] min-h-screen text-neutral-200 font-lato">
       <SubpageHero
-        title="Terms & Conditions"
-        breadcrumb="Terms and Conditions"
-        subtitle="TERMS AND CONDITIONS OF THE WEBSITE dostanakebab.com"
+        title="Regulamin"
+        breadcrumb="Regulamin"
+        subtitle="REGULAMIN SERWISU dostanakebab.com"
       />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-10">
-<div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
-          <h2 className="font-judson font-bold text-2xl text-white">I. General Provisions</h2>
+        <div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+          <h2 className="font-judson font-bold text-2xl text-white">I. Postanowienia ogólne</h2>
           <div className="text-sm text-neutral-300 leading-relaxed space-y-3">
-            <p>These Terms and Conditions are effective from June 1, 2025, and govern the mutual rights and obligations of the Partner Entity, the Client, the User, and the Processor. In particular, the Terms and Conditions govern the use of the online store operated by the Partner Entity, including the rules for placing and fulfilling orders for products and services offered by the Partner Entity.</p>
-            <p>The Regulations have been created in particular on the basis of the Consumer Rights Act, the Act on the provision of services by electronic means, as well as on the basis of Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (hereinafter &quot;GDPR&quot;), while taking into account the applicable provisions on personal data protection.</p>
-            <p>The Partner can be contacted at the email address: or by phone: 729 202 173 during the Partner&apos;s business hours specified on the website. The online store is operated and administered by the Partner (including with respect to personal data).</p>
-            <p>These Regulations are made available free of charge before placing an order in the online store operated by the Partner Entity in a form that enables their storage and reproduction in the ordinary course of business.</p>
-            <p>The online store operated by the Partner Entity is intended for adults with full legal capacity.</p>
-            <p>Sales via the Online Store are conducted in the territory of Poland.</p>
-            <p>The information contained and displayed by the Information System does not constitute an offer within the meaning of the Civil Code. By placing an order through the Information System, the Buyer/User is making an offer to purchase a specific product under the terms specified in the product description.</p>
-            <p>The User and the Client are prohibited from using the IT System in a manner that is contrary to law, good practice, or violates the legitimate interests of the Partner Entity or the Processor. In particular, the Client and the User will not undertake any activities that could expose the Partner Entity or the Processor to any property or reputational damage.</p>
-            <p>The User and the Customer may not place illegal content in the IT System.</p>
-            <p>When placing an Order, the User becomes a Customer.</p>
-            <p>If a Service Fee is added, the Client is informed that the Service Fee constitutes remuneration due to the Processor and is not part of the price of the goods offered by the Partner Entity.</p>
-            <p>The Client declares that the data provided in the order form, in particular the address and email address, is accurate, correct, and complete. If false data or data not belonging to the Client is provided, the Partner may notify the Processor, who may immediately cancel the Client&apos;s order and, regardless of the Partner&apos;s actions, is entitled to notify the appropriate government authorities.</p>
-            <p>The Partner and the Processor are not responsible for the accuracy and legality of the actions and data used and shared by Users and Clients. In particular, the Partner and the Processor are not responsible for the validity or illegality of, or the consequences of, the use of data provided by Users and Clients, provided that the Partner and the Processor had no knowledge of the unlawful nature of the use of the Client&apos;s data. Neither the Partner nor the Processor verify or verify the authenticity of data used and shared by Users and Clients.</p>
-            <p>The Affiliate, User, Client, and Processor agree to comply with all provisions of the Terms and Conditions. Consent to these Terms and Conditions constitutes full acceptance of the Terms and Conditions without the need to conclude a separate agreement.</p>
-            <p>The affiliate conducts retail sales electronically via the Internet. Orders are accepted through the website, as well as by telephone and email. Placing an order by telephone or email constitutes acceptance of these Terms and Conditions.</p>
-            <p>The use of the Online Store is possible provided that the Buyer&apos;s/User&apos;s IT system meets the technical requirements specified in these Regulations.</p>
-            <p>The Partner declares that it is not able to guarantee that the opinions about goods or services published on the Online Store website come exclusively from consumers who actually purchased the goods or used the service.</p>
-            <p>The Affiliate declares that it does not use an algorithm that adjusts prices based on automated decision-making.</p>
+            <p>Niniejszy Regulamin wchodzi w życie z dniem 1 czerwca 2025 r. i reguluje wzajemne prawa i obowiązki Partnera, Klienta, Użytkownika oraz Procesora. W szczególności Regulamin reguluje korzystanie ze sklepu internetowego prowadzonego przez Partnera, w tym zasady składania i realizacji zamówień na produkty i usługi oferowane przez Partnera.</p>
+            <p>Regulamin został sporządzony w szczególności na podstawie ustawy o prawach konsumenta, ustawy o świadczeniu usług drogą elektroniczną, a także na podstawie Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (dalej „RODO”), przy uwzględnieniu obowiązujących przepisów o ochronie danych osobowych.</p>
+            <p>Z Partnerem można skontaktować się pod adresem e-mail lub telefonicznie: 729 202 173 w godzinach pracy Partnera podanych na stronie internetowej. Sklep internetowy jest prowadzony i administrowany przez Partnera (również w zakresie danych osobowych).</p>
+            <p>Niniejszy Regulamin udostępniany jest nieodpłatnie przed złożeniem zamówienia w sklepie internetowym prowadzonym przez Partnera w formie umożliwiającej jego przechowywanie i odtwarzanie w zwykłym toku czynności.</p>
+            <p>Sklep internetowy prowadzony przez Partnera przeznaczony jest dla osób pełnoletnich posiadających pełną zdolność do czynności prawnych.</p>
+            <p>Sprzedaż za pośrednictwem Sklepu Internetowego prowadzona jest na terytorium Rzeczypospolitej Polskiej.</p>
+            <p>Informacje zawarte i wyświetlane przez System Informatyczny nie stanowią oferty w rozumieniu Kodeksu Cywilnego. Składając zamówienie za pośrednictwem Systemu Informatycznego, Kupujący/Użytkownik składa ofertę zakupu określonego produktu na warunkach określonych w opisie produktu.</p>
+            <p>Użytkownikowi i Klientowi zabrania się korzystania z Systemu IT w sposób sprzeczny z prawem, dobrymi obyczajami lub naruszający uzasadnione interesy Partnera lub Procesora. W szczególności Klient i Użytkownik nie będą podejmować żadnych działań, które mogłyby narazić Partnera lub Procesora na jakiekolwiek szkody majątkowe lub wizerunkowe.</p>
+            <p>Użytkownik i Klient nie mogą umieszczać w Systemie IT treści o charakterze bezprawnym.</p>
+            <p>Z chwilą złożenia Zamówienia Użytkownik staje się Klientem.</p>
+            <p>W przypadku dodania Opłaty Serwisowej, Klient jest informowany, że Opłata Serwisowa stanowi wynagrodzenie należne Procesorowi i nie stanowi części ceny towarów oferowanych przez Partnera.</p>
+            <p>Klient oświadcza, że dane podane w formularzu zamówienia, w szczególności adres oraz adres e-mail, są dokładne, prawidłowe i kompletne. W przypadku podania nieprawdziwych danych lub danych nienależących do Klienta, Partner może powiadomić Procesora, który może niezwłocznie anulować zamówienie Klienta i, niezależnie od działań Partnera, jest uprawniony do powiadomienia odpowiednich organów państwowych.</p>
+            <p>Partner i Procesor nie ponoszą odpowiedzialności za prawidłowość i zgodność z prawem działań oraz danych wykorzystywanych i udostępnianych przez Użytkowników i Klientów. W szczególności Partner i Procesor nie ponoszą odpowiedzialności za ważność, bezprawność lub konsekwencje korzystania z danych podanych przez Użytkowników i Klientów, pod warunkiem, że Partner i Procesor nie wiedzieli o bezprawnym charakterze korzystania z danych Klienta. Ani Partner, ani Procesor nie weryfikują ani nie badają autentyczności danych używanych i udostępnianych przez Użytkowników i Klientów.</p>
+            <p>Partner, Użytkownik, Klient i Procesor zobowiązują się do przestrzegania wszystkich postanowień Regulaminu. Zgoda na niniejszy Regulamin stanowi pełną akceptację Regulaminu bez konieczności zawierania odrębnej umowy.</p>
+            <p>Partner prowadzi sprzedaż detaliczną drogą elektroniczną przez Internet. Zamówienia przyjmowane są za pośrednictwem strony internetowej, a także telefonicznie i e-mailem. Złożenie zamówienia telefonicznie lub e-mailem oznacza akceptację niniejszego Regulaminu.</p>
+            <p>Korzystanie ze Sklepu Internetowego jest możliwe pod warunkiem spełnienia przez system teleinformatyczny Kupującego/Użytkownika wymagań technicznych określonych w niniejszym Regulaminie.</p>
+            <p>Partner oświadcza, że nie jest w stanie zagwarantować, iż opinie o towarach lub usługach publikowane na stronie Sklepu Internetowego pochodzą wyłącznie od konsumentów, którzy faktycznie zakupili dany towar lub skorzystali z usługi.</p>
+            <p>Partner oświadcza, że nie stosuje algorytmu dostosowującego ceny na podstawie zautomatyzowanego podejmowania decyzji.</p>
           </div>
         </div>
-<div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
-          <h2 className="font-judson font-bold text-2xl text-white">II. Definitions</h2>
+
+        <div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+          <h2 className="font-judson font-bold text-2xl text-white">II. Definicje</h2>
           <div className="text-sm text-neutral-300 leading-relaxed space-y-3">
-            <p>The parties to the agreements for the provision of services by electronic means are: the Partner Entity and the Client fulfilling the order.</p>
-            <p><strong className="text-white">Partner Entity</strong> - NURUCTG SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ, UL. HOŻA 86/410, 00-682 WARSAW, PL, NIP: 7010848184, KRS: 0000750424, DISTRICT COURT FOR THE CAPITAL CITY OF WARSAW IN WARSAW, XIITH COMMERCIAL DIVISION OF THE NATIONAL COURT REGISTER being an entrepreneur. On behalf and on account of the Partner Entity, the Processor is Restaumatic SA with its registered office in Zabrze (41-800) at ul. Wolności 345, entered into the Register of Entrepreneurs of the National Court Register maintained by the District Court in Gliwice, 10th Commercial Division of the National Court Register under the KRS number 0001016935, NIP 6482765571, REGON 242895699, which is authorized to receive declarations of will, accept services and conclude agreements on behalf of and for the account of the Partner Entity as part of the operation of the IT System for handling catering orders under the name Skubacz.pl and/or Restaumatic.com.</p>
-            <p><strong className="text-white">Customer</strong> - a natural person (including a Consumer) who is at least 18 years of age and has full legal capacity, or a legal person or organizational unit with legal capacity. A Customer may be a natural person who is at least 13 years of age but under 18 years of age to the extent that they can acquire rights and incur obligations in accordance with generally applicable law, i.e., in minor, everyday matters, who places an order via the Partner&apos;s website.</p>
-            <p><strong className="text-white">Consumer</strong> – a natural person performing a legal act not directly related to his or her business or professional activity within the meaning of the Civil Code.</p>
-            <p><strong className="text-white">Entrepreneur</strong> - A Customer who is not a Consumer.</p>
-            <p><strong className="text-white">User</strong> – a natural person with at least limited legal capacity, a legal person or an entity with legal capacity who uses the IT System.</p>
-            <p><strong className="text-white">Processor</strong> - Restaumatic SA with its registered office in Zabrze (41-800) at ul. Wolności 345, entered into the register of entrepreneurs of the National Court Register maintained by the District Court in Gliwice, 10th Commercial Division of the National Court Register under the KRS number 0001016935, NIP (Tax Identification Number) 6482765571, REGON (National Business Registry Number) 242895699, which is also the supplier of the IT System under the name Skubacz.pl and/or Restaumatic.com, acting on behalf of and for the sole benefit of the Partner Entity.</p>
-            <p><strong className="text-white">The IT System</strong> is the software used by the Partner Entity through which the Customer can order products and services offered by the Partner Entity, known as Skubacz.pl and/or Restaumatic.com. This term includes the website, the Active Menu tab, the QR Waiter service, and the Mobile Application, through which the Customer can place orders.</p>
-            <p><strong className="text-white">Order</strong> - a legal act performed via the IT System, during which the Customer expresses his or her willingness to purchase the ordered products and services in accordance with their description and price.</p>
-            <p><strong className="text-white">Service Fee</strong> - an additional fee charged to the Customer when placing an Order via the IT System, constituting the remuneration due to the Processor for providing and maintaining the IT System, calculated as a percentage of the value of the Order.</p>
-            <p><strong className="text-white">Personal Data Controller</strong> - Partner entity: NURUCTG SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ, UL. HOŻA 86/410, 00-682 WARSAW, PL, NIP: 7010848184, KRS: 0000750424, DISTRICT COURT FOR THE CAPITAL CITY OF WARSAW IN WARSAW, XIITH COMMERCIAL DIVISION OF THE NATIONAL COURT REGISTER.</p>
-            <p><strong className="text-white">Personal Data Processor</strong> - Restaumatic SA with its registered office in Zabrze (41-800) at ul. Wolności 345, entered into the Register of Entrepreneurs - National Court Register maintained by the District Court in Gliwice, 10th Commercial Division of the National Court Register under KRS number 0001016935, NIP (Tax Identification Number) 6482765571, REGON (National Business Registry Number) 242895699, share capital and paid-up capital: PLN 149,400.00, email: contact@restaumatic.com.</p>
+            <p>Stronami umów o świadczenie usług drogą elektroniczną są: Partner oraz Klient realizujący zamówienie.</p>
+            <p><strong className="text-white">Partner</strong> - NURUCTG SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ, UL. HOŻA 86/410, 00-682 WARSZAWA, PL, NIP: 7010848184, KRS: 0000750424, SĄD REJONOWY DLA M.ST. WARSZAWY W WARSZAWIE, XII WYDZIAŁ GOSPODARCZY KRAJOWEGO REJESTRU SĄDOWEGO będący przedsiębiorcą. W imieniu i na rzecz Partnera, Procesorem jest Restaumatic SA z siedzibą w Zabrzu (41-800) przy ul. Wolności 345, wpisana do Rejestru Przedsiębiorców Krajowego Rejestru Sądowego prowadzonego przez Sąd Rejonowy w Gliwicach, X Wydział Gospodarczy Krajowego Rejestru Sądowego pod numerem KRS 0001016935, NIP 6482765571, REGON 242895699, która jest uprawniona do odbierania oświadczeń woli, przyjmowania świadczeń i zawierania umów w imieniu i na rzecz Partnera w ramach działania Systemu IT do obsługi zamówień gastronomicznych pod nazwą Skubacz.pl i/lub Restaumatic.com.</p>
+            <p><strong className="text-white">Klient</strong> - osoba fizyczna (w tym Konsument), która ukończyła co najmniej 18 lat i posiada pełną zdolność do czynności prawnych, osoba prawna lub jednostka organizacyjna posiadająca zdolność prawną. Klientem może być osoba fizyczna, która ukończyła co najmniej 13 lat, ale nie ukończyła 18 lat w zakresie, w jakim może nabywać prawa i zaciągać zobowiązania zgodnie z powszechnie obowiązującym prawem, tj. w drobnych, bieżących sprawach życia codziennego, która składa zamówienie za pośrednictwem strony internetowej Partnera.</p>
+            <p><strong className="text-white">Konsument</strong> – osoba fizyczna dokonująca czynności prawnej niezwiązanej bezpośrednio z jej działalnością gospodarczą lub zawodową w rozumieniu Kodeksu Cywilnego.</p>
+            <p><strong className="text-white">Przedsiębiorca</strong> - Klient niebędący Konsumentem.</p>
+            <p><strong className="text-white">Użytkownik</strong> – osoba fizyczna posiadająca co najmniej ograniczoną zdolność do czynności prawnych, osoba prawna lub jednostka organizacyjna posiadająca zdolność prawną, która korzysta z Systemu IT.</p>
+            <p><strong className="text-white">Procesor</strong> - Restaumatic SA z siedzibą w Zabrzu (41-800) przy ul. Wolności 345, wpisana do rejestru przedsiębiorców Krajowego Rejestru Sądowego prowadzonego przez Sąd Rejonowy w Gliwicach, X Wydział Gospodarczy Krajowego Rejestru Sądowego pod numerem KRS 0001016935, NIP 6482765571, REGON 242895699, będąca jednocześnie dostawcą Systemu IT pod nazwą Skubacz.pl i/lub Restaumatic.com, działająca w imieniu i na wyłączną rzecz Partnera.</p>
+            <p><strong className="text-white">System IT</strong> - oprogramowanie wykorzystywane przez Partnera, za pośrednictwem którego Klient może zamawiać produkty i usługi oferowane przez Partnera, znane jako Skubacz.pl i/lub Restaumatic.com. Pojęcie to obejmuje stronę internetową, zakładkę Aktywne Menu, usługę QR Waiter oraz Aplikację Mobilną, za pośrednictwem których Klient może składać zamówienia.</p>
+            <p><strong className="text-white">Zamówienie</strong> - czynność prawna dokonywana za pośrednictwem Systemu IT, podczas której Klient wyraża wolę zakupu zamówionych produktów i usług zgodnie z ich opisem i ceną.</p>
+            <p><strong className="text-white">Opłata Serwisowa</strong> - dodatkowa opłata naliczana Klientowi przy składaniu Zamówienia za pośrednictwem Systemu IT, stanowiąca wynagrodzenie należne Procesorowi za udostępnienie i utrzymanie Systemu IT, kalkulowana jako procent wartości Zamówienia.</p>
+            <p><strong className="text-white">Administrator Danych Osobowych</strong> - Partner: NURUCTG SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ, UL. HOŻA 86/410, 00-682 WARSZAWA, PL, NIP: 7010848184, KRS: 0000750424, SĄD REJONOWY DLA M.ST. WARSZAWY W WARSZAWIE, XII WYDZIAŁ GOSPODARCZY KRAJOWEGO REJESTRU SĄDOWEGO.</p>
+            <p><strong className="text-white">Procesor Danych Osobowych</strong> - Restaumatic SA z siedzibą w Zabrzu (41-800) przy ul. Wolności 345, wpisana do Rejestru Przedsiębiorców Krajowego Rejestru Sądowego prowadzonego przez Sąd Rejonowy w Gliwicach, X Wydział Gospodarczy Krajowego Rejestru Sądowego pod numerem KRS 0001016935, NIP 6482765571, REGON 242895699, kapitał zakładowy i wpłacony: 149 400,00 PLN, e-mail: contact@restaumatic.com.</p>
           </div>
         </div>
-<div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
-          <h2 className="font-judson font-bold text-2xl text-white">III. Receiving and Fulfilling Orders</h2>
+
+        <div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+          <h2 className="font-judson font-bold text-2xl text-white">III. Składanie i realizacja zamówień</h2>
           <div className="text-sm text-neutral-300 leading-relaxed space-y-3">
-            <p>The condition for using the services of the IT System is to read and accept these Regulations.</p>
-            <p>When placing an order, the Customer undertakes to provide true and complete data required by the IT System and acknowledges that he/she is placing an Order with an obligation to pay.</p>
-            <p>In the event of a Service Fee being added, the Customer concludes: a) a sales agreement for goods and/or services with the Partner Entity, b) a separate agreement for the provision of electronic services with the Processor in the scope of providing the IT System, the remuneration for which is the Service Fee.</p>
-            <p>The Customer may place Orders on the days and times specified by the Partner Entity via the IT System.</p>
-            <p>The Partner reserves the right to confirm the order and the accuracy of the data by phone or email. If the Customer is unable to contact them, if the data is incomplete, if there is a suspicion that the data is false, belongs to a third party, or if the promotion is not applicable to the Customer, the Partner has the right to cancel the order and provide a reason for the cancellation.</p>
-            <p>If the Customer places an Order using a promotion, discount, or other advantage to which they were not entitled, they are obligated to pay the full price. The Partner has the right to verify the Customer&apos;s eligibility to purchase goods and services on preferential terms during Order processing.</p>
-            <p>The Partner Entity and the Processor have the right to suspend for a specified or indefinite period the Buyer&apos;s ability to place new orders if his actions violate the provisions of the Regulations, negatively affect the good name of the store or otherwise harm it.</p>
-            <p>The Seller does not exclude the temporary suspension of the provision of access to the website for reasons beyond the Seller&apos;s control, and furthermore reserves the right to temporarily suspend the provision of the above-mentioned service in the event of the need to carry out repairs or maintenance of the operating systems and in connection with the need to modernize or expand them.</p>
+            <p>Warunkiem korzystania z usług Systemu IT jest zapoznanie się i akceptacja niniejszego Regulaminu.</p>
+            <p>Składając zamówienie, Klient zobowiązuje się do podania prawdziwych i pełnych danych wymaganych przez System IT oraz przyjmuje do wiadomości, że składa Zamówienie z obowiązkiem zapłaty.</p>
+            <p>W przypadku dodania Opłaty Serwisowej, Klient zawiera: a) umowę sprzedaży towarów i/lub usług z Partnerem, b) odrębną umowę o świadczenie usług drogą elektroniczną z Procesorem w zakresie udostępnienia Systemu IT, której wynagrodzeniem jest Opłata Serwisowa.</p>
+            <p>Klient może składać Zamówienia w dniach i godzinach określonych przez Partnera za pośrednictwem Systemu IT.</p>
+            <p>Partner zastrzega sobie prawo do telefonicznego lub mailowego potwierdzenia zamówienia oraz prawidłowości danych. W przypadku braku kontaktu z Klientem, niekompletności danych, podejrzenia, że dane są fałszywe lub należą do osoby trzeciej, Partner ma prawo anulować zamówienie.</p>
+            <p>Jeśli Klient złożył Zamówienie z wykorzystaniem promocji lub rabatu, do którego nie był uprawniony, jest zobowiązany do zapłaty pełnej ceny.</p>
+            <p>Partner oraz Procesor mają prawo zawiesić Klientowi możliwość składania nowych zamówień, jeśli jego działania naruszają Regulamin lub szkodzą dobremu imieniu sklepu.</p>
+            <p>Sprzedawca nie wyklucza możliwości czasowego zawieszenia dostępu do strony z przyczyn niezależnych, a także zastrzega sobie prawo do przerw technicznych na konserwację i modernizację systemów.</p>
           </div>
         </div>
-<div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
-          <h2 className="font-judson font-bold text-2xl text-white">IV. Technical Requirements</h2>
+
+        <div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+          <h2 className="font-judson font-bold text-2xl text-white">IV. Wymagania techniczne</h2>
           <div className="text-sm text-neutral-300 leading-relaxed space-y-3">
-            <p>In order to receive the Service, the User and/or Customer must be equipped with appropriate terminal devices (telephone, computer, tablet) with an Internet connection.</p>
-            <p>Detailed information on the privacy policy, in particular the use of cookies, is contained in the Privacy Policy available to all Users and/or Customers at: <a href="/privacy-policy" className="text-[#f26522] hover:underline">https://www.dostanakebab.com/privacy-policy</a></p>
-            <p>The technical condition for the proper use of the System and the services provided through it is to have a terminal device with access to the Internet and a web browser such as Internet Explorer, Microsoft Edge, Google Chrome, Mozilla Firefox, Opera, Safari in the latest possible version.</p>
+            <p>W celu korzystania z Usługi, Użytkownik i/lub Klient musi posiadać urządzenie końcowe (telefon, komputer, tablet) z dostępem do Internetu.</p>
+            <p>Szczegółowe informacje dotyczące polityki prywatności, w szczególności stosowania plików cookies, zawarte są w Polityce Prywatności dostępnej pod adresem: <a href="/privacy-policy" className="text-[#f26522] hover:underline">https://www.dostanakebab.com/privacy-policy</a></p>
+            <p>Warunkiem technicznym korzystania z Systemu jest posiadanie przeglądarki internetowej (np. Chrome, Firefox, Safari, Edge, Opera) w najnowszej wersji.</p>
           </div>
         </div>
-<div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
-          <h2 className="font-judson font-bold text-2xl text-white">V. Additional Information Regarding Online Orders</h2>
+
+        <div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+          <h2 className="font-judson font-bold text-2xl text-white">V. Dodatkowe informacje dotyczące zamówień online</h2>
           <div className="text-sm text-neutral-300 leading-relaxed space-y-3">
-            <p>The Agreement between the Customer and the Partner Entity is deemed to be concluded only when the Partner Entity confirms to the Customer that the Order has been accepted for execution, specifying the time of delivery or receipt of the Order.</p>
-            <p>The Partner Entity and the Processor have the right to cancel a confirmed Order in the event of: a) breach of the principles described in these Regulations; b) failures, technical or organizational limitations that prevent or significantly hinder the execution of the Order; c) a lack of appropriate goods, resources or products to execute the Order, which the Partner Entity could not have foreseen despite exercising due diligence; d) in the event of reasonable doubts that the data provided by the Customer is untrue, belongs to third parties, the Customer does not have legal capacity within the meaning of civil law or for other reasons attributable to the Customer that prevent the execution of the Order.</p>
-            <p>The Partner Entity undertakes to immediately, if possible, publish publicly available information via the IT System about any limitations or impossibility to fulfill Orders.</p>
-            <p>The Partner confirms acceptance of the Order for processing by displaying the appropriate information to the Customer on the screen of the device on which the Customer placed the Order. Additionally, the Customer will receive an appropriate notification via email or text message. Completion of one of the above-mentioned actions by the Partner constitutes effective confirmation of acceptance of the Order for processing by the Customer.</p>
-            <p>The specified order completion time should be treated as planned and exceeding it by up to 80% is not treated as a failure to complete the Order and does not constitute grounds for complaint.</p>
-            <p>The provisions of these Terms and Conditions relating to the sale of alcoholic beverages, energy drinks, tobacco products, and other goods subject to restrictions under applicable law apply only to Partner Entities that have chosen to enable the sale of such goods through the IT System. The mere inclusion of a Partner Entity in these Terms and Conditions does not imply that the Partner Entity conducts or facilitates the sale of any of these goods.</p>
-            <p>The Partner reserves the right to block the ability to add alcoholic beverages, energy drinks, and tobacco products, as well as other goods whose distance selling may be restricted or prohibited under applicable law, from being added to the cart and purchased through the IT System.</p>
-            <p>The sale of the goods listed above through the IT System is only possible to persons over the age of 18. By placing an Order containing the goods referred to above, the Customer declares that he or she is of legal age.</p>
-            <p>The Partner reserves the right to verify the age of the Customer and/or the person receiving the Order containing the goods referred to above. For this purpose, the supplier or employee of the Partner may request the presentation of a valid photo ID confirming the identity of the Customer and/or the person receiving the Order in order to verify that they are of legal age.</p>
-            <p>If it is determined that the person collecting the goods referred to above is a minor or is unable to document their age, the Partner Entity has the right to refuse to release the above-mentioned goods and cancel the order in the part covering the goods referred to above.</p>
-            <p>The sale of alcohol by the Partner Entity takes place at the address of the Partner Entity, which, by enabling the online ordering of alcohol, declares that it has a permit to sell alcohol.</p>
-            <p>Customers ordering alcohol through the IT System are required to collect the alcohol in person. Customers may appoint a representative to collect the alcohol on their behalf.</p>
-            <p>The Customer&apos;s authorized representative for collecting the alcohol must be of legal age, and granting such authorization is a mandatory condition for order fulfillment. The authorized representative must present proof of identity, failing which the order may be refused.</p>
-            <p>The authorized representative of the Partner Entity may be the Courier, who is obliged and authorized to check the Customer&apos;s identity document in order to verify whether he or she is an adult.</p>
-            <p>The Partner Entity and the Agent are not liable for the Courier&apos;s actions or omissions in connection with the power of attorney granted and the delivery of alcohol.</p>
-            <p>The Partner and Agent are not liable for any misuse of the goods referred to above by the Client or their representative, or for any damage resulting from their consumption. By placing an order, the Client declares that they are aware of the harmful effects of excessive alcohol consumption and that they consume it at their own risk.</p>
+            <p>Umowę między Klientem a Partnerem uważa się za zawartą dopiero w momencie potwierdzenia przez Partnera przyjęcia Zamówienia do realizacji, ze wskazaniem przewidywanego czasu dostawy lub odbioru.</p>
+            <p>Partner oraz Procesor mają prawo anulować potwierdzone Zamówienie w przypadku: a) naruszenia zasad Regulaminu; b) awarii lub ograniczeń technicznych/organizacyjnych; c) braku odpowiednich towarów lub składników; d) uzasadnionych wątpliwości co do prawdziwości danych Klienta.</p>
+            <p>Partner zobowiązuje się do niezwłocznego publikowania w Systemie IT informacji o ograniczeniach lub braku możliwości realizacji Zamówień.</p>
+            <p>Partner potwierdza przyjęcie Zamówienia poprzez wyświetlenie odpowiedniej informacji na ekranie urządzenia oraz wysłanie powiadomienia e-mail lub SMS.</p>
+            <p>Określony czas realizacji zamówienia należy traktować jako planowany, a jego przekroczenie do 80% nie stanowi podstawy do reklamacji.</p>
+            <p>Sprzedaż napojów alkoholowych i innych towarów objętych ograniczeniami prawnymi za pośrednictwem Systemu IT jest możliwa wyłącznie dla osób powyżej 18 roku życia. Składając takie zamówienie, Klient oświadcza, że jest pełnoletni, a kurier ma prawo zweryfikować jego wiek przed wydaniem towaru.</p>
           </div>
         </div>
-<div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
-          <h2 className="font-judson font-bold text-2xl text-white">VI. Payment Methods</h2>
+
+        <div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+          <h2 className="font-judson font-bold text-2xl text-white">VI. Metody płatności</h2>
           <div className="text-sm text-neutral-300 leading-relaxed space-y-3">
-            <p>When placing an order, the Customer selects one of the available payment methods: cash, card via the Partner/Supplier&apos;s payment terminal, or online payment (hereinafter referred to as online payment). Product prices do not include delivery costs.</p>
-            <p>Order costs are added to the order price and depend on the selected shipping method and delivery address. Shipping costs are displayed in the Shopping Cart before placing the order.</p>
-            <p>A service fee payable to the Processor may be added to the value of the Order. Information about the service fee is always presented to the Customer in the Shopping Cart before placing the Order.</p>
-            <p>The Partner reserves the right to change the prices of the products offered, but price changes do not apply to Orders already placed and confirmed for execution.</p>
-            <p>Payment by the Customer of the amount due, including: price of goods and/or services, delivery costs. Payment of the service fee via online payment to the Processor is equivalent to the performance of the following: a) to the Partner Entity – in terms of the price of goods and/or services and delivery costs, b) to the Processor – in terms of the Service Fee.</p>
-            <p>If payment is made via online payment, the Partner will only accept the Order for processing once the Processor confirms receipt of the funds. Documentary confirmation of the funds being credited to the Customer&apos;s account is not sufficient. If the Partner cancels the Order paid via online payment, the Processor will, at the Partner&apos;s request, refund the payment.</p>
-            <p>The Processor will issue a refund request no later than 72 hours after the date the Processor receives information about the Order cancellation and the refund request. The date of the refund is the date the Processor submits the refund request to the Payment Operator.</p>
-            <p>If the Customer places an order with cash payment, the Affiliate is responsible for the refund and the Processor is not responsible for the refund being made by the Affiliate.</p>
-            <p>The Processor, as a partner of the Online Payment System Operator, and the Online Payment System Operator reserve the right to refuse to process payments made by the Customer, particularly if there are doubts as to the legality of the transaction for which the payment is being made or the legality of the payment itself.</p>
-            <p>The Processor and the Online Payment System Operator shall not be liable for delays in the transfer of payments or authorization responses resulting from reasons arising after the Customer has submitted a payment order, as well as for non-execution or delay in the transfer of due funds or data verification, in particular due to the Customer providing incorrect or incomplete data that prevents the execution of the payment transaction.</p>
-            <p>The partner entity will issue appropriate documents to the Customer confirming that the sale has been made within the time limit prescribed by law.</p>
-            <p>In case of questions or doubts, the Client should contact the Partner Entity by telephone or e-mail.</p>
+            <p>Klient wybiera jedną z dostępnych metod płatności: gotówka, karta płatnicza (przez terminal u kuriera/w lokalu) lub płatność online. Ceny produktów nie zawierają kosztów dostawy, które są wskazywane w koszyku przed złożeniem zamówienia.</p>
+            <p>Do wartości Zamówienia może zostać doliczona Opłata Serwisowa na rzecz Procesora. Informacja o opłacie jest zawsze widoczna w koszyku.</p>
+            <p>W przypadku płatności online, Partner przystępuje do realizacji zamówienia po potwierdzeniu otrzymania środków przez operatora płatności.</p>
+            <p>Zwroty środków za anulowane zamówienia opłacone online są realizowane przez Procesora na wniosek Partnera w terminie do 72 godzin od anulowania.</p>
           </div>
         </div>
-<div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
-          <h2 className="font-judson font-bold text-2xl text-white">VII. Delivery</h2>
+
+        <div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+          <h2 className="font-judson font-bold text-2xl text-white">VII. Dostawa</h2>
           <div className="text-sm text-neutral-300 leading-relaxed space-y-3">
-            <p>The Partner Entity shall not be liable for any delay in delivery resulting from reasons attributable to the supplier or the Customer, including, but not limited to, providing an incorrect delivery address or the Customer&apos;s absence at the address indicated in the Order.</p>
-            <p>If the Customer fails to collect the Order (in the event of choosing courier delivery or personal collection on the designated date) for reasons attributable to the Customer, the Affiliate reserves the right to charge the Customer for the costs of delivery and storage of the Order.</p>
-            <p>The risk of accidental loss or damage to goods passes to the Consumer upon receipt of the Order by the Consumer (or a third party designated by the Consumer, other than the courier). If the Customer is an Entrepreneur, the risk passes to the Entrepreneur upon issuance of the Order to the supplier.</p>
+            <p>Partner nie ponosi odpowiedzialności za opóźnienia w dostawie wynikające z przyczyn leżących po stronie Klienta (np. podanie błędnego adresu, nieobecność).</p>
+            <p>W przypadku nieodebrania zamówienia z winy Klienta, Partner zastrzega sobie prawo do obciążenia go kosztami dostawy i przygotowania zamówienia.</p>
+            <p>Ryzyko przypadkowej utraty lub uszkodzenia towaru przechodzi na Konsumenta z chwilą odbioru Zamówienia.</p>
           </div>
         </div>
-<div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
-          <h2 className="font-judson font-bold text-2xl text-white">VIII. The Right of Withdrawal from the Contract by the Customer</h2>
-          <p className="text-xs text-[#f26522] font-bold uppercase tracking-wider">Applies to Consumers</p>
+
+        <div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+          <h2 className="font-judson font-bold text-2xl text-white">VIII. Prawo odstąpienia od umowy</h2>
+          <p className="text-xs text-[#f26522] font-bold uppercase tracking-wider">Dotyczy konsumentów</p>
           <div className="text-sm text-neutral-300 leading-relaxed space-y-3">
-            <p>A consumer who has concluded a distance or off-premises contract has the right to withdraw from the sales contract within 14 days of taking possession of the goods, without giving any reason.</p>
-            <p>Exceptions to the right of withdrawal are provided for in Article 38 of the Consumer Rights Act. The right to withdraw from the sales contract does not apply to consumers, in particular in the case of contracts for the provision of products that spoil quickly or have a short shelf life, or products manufactured according to the individual needs of the Customer, in accordance with the specifications provided by the Customer.</p>
-            <p>To exercise the right to withdraw from the contract, the Consumer must notify the Partner Entity by means of an unequivocal declaration (e.g., by letter or email). The Consumer is entitled to use the model withdrawal form attached as Appendix 2 to these Terms and Conditions.</p>
-            <p>In the event of an effective withdrawal from the Sales Agreement, the Partner Entity shall refund to the Consumer all payments received from them, including the costs of product delivery, immediately, and in any event no later than 14 days from the date of receipt of the Consumer&apos;s declaration of withdrawal from the Sales Agreement.</p>
-            <p>Refunds will be made using the same payment method used by the Consumer, unless the Consumer expressly agrees to a different refund method that will not incur any costs for the Consumer. The Partner may withhold reimbursement until the goods have been returned or proof of shipment has been provided, whichever occurs first.</p>
-            <p>The consumer bears the costs of returning the products and is liable for any reduced value of the product resulting from using it in a manner other than necessary to establish the nature, characteristics and functioning of the product.</p>
+            <p>Konsument ma prawo odstąpić od umowy w terminie 14 dni bez podania przyczyny, z zastrzeżeniem wyjątków ustawowych.</p>
+            <p>Prawo odstąpienia nie przysługuje w przypadku umów, w których przedmiotem świadczenia są produkty ulegające szybkiemu zepsuciu lub mające krótki termin przydatności do użycia (w tym posiłki przygotowywane na zamówienie).</p>
+            <p>Aby skorzystać z prawa odstąpienia od umowy, Konsument musi poinformować Partnera o swojej decyzji w drodze jednoznacznego oświadczenia.</p>
           </div>
         </div>
-<div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
-          <h2 className="font-judson font-bold text-2xl text-white">IX. Intellectual Property and Licenses</h2>
+
+        <div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+          <h2 className="font-judson font-bold text-2xl text-white">IX. Własność intelektualna i licencje</h2>
           <div className="text-sm text-neutral-300 leading-relaxed space-y-3">
-            <p>The appearance of the IT System, content and source code are protected by Polish and international copyright law.</p>
-            <p>Downloading and copying content from the Information System is permitted only for private use in order to better familiarize yourself with the information.</p>
-            <p>No part of the Information System, including these Regulations, may be distributed and/or reproduced without the owner&apos;s knowledge.</p>
-            <p>It is prohibited to copy, distribute, modify or otherwise use the content of the IT System and the online store without the prior written consent of the Partner Entity or the Processor.</p>
+            <p>Wygląd Systemu IT, jego treść oraz kod źródłowy są chronione polskim i międzynarodowym prawem autorskim. Kopiowanie i rozpowszechnianie jakichkolwiek elementów bez pisemnej zgody właściciela jest zabronione.</p>
           </div>
         </div>
-<div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
-          <h2 className="font-judson font-bold text-2xl text-white">X. Non-conformity of the Goods with the Contract — Complaints</h2>
+
+        <div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+          <h2 className="font-judson font-bold text-2xl text-white">X. Niezgodność towaru z umową — Reklamacje</h2>
           <div className="text-sm text-neutral-300 leading-relaxed space-y-3">
-            <p>The Partner Entity delivers the goods in accordance with the agreement. If the goods do not conform to the agreement, the Partner Entity is liable to the Consumer for bringing them into conformity with the agreement pursuant to the provisions of Chapter 5a of the Consumer Rights Act. Complaints regarding, in particular, the Order, the Offer presented, or Delivery should be submitted directly to the Partner Entity. The Processor does not process complaints regarding services provided by the Partner Entity.</p>
-            <p>The partner entity will consider the application immediately, but no later than within 14 days from the date of receipt of the application.</p>
-            <p>The complaint should include the Customer&apos;s identification data, telephone number, e-mail address, date of order placement, order fulfillment date, indicated order fulfillment address, Customer login and a detailed description of the submitted objections.</p>
-            <p>Complaints regarding the services provided by the Partner Entity should be sent via e-mail to the address or in writing to the address of the Partner Entity indicated in point I.</p>
-            <p>If the data or information provided in the complaint is incomplete, or if a full explanation is needed, the Partner and/or Processor will request that it be supplemented before the complaint is reviewed. The complaint review time will be extended until the data is completed by the Client submitting the complaint.</p>
-            <p>Complaints regarding the services provided by the Processor should be sent via email to contact@restaumatic.com or in writing to the registered office of Restaumatic.com, i.e. Restaumatic SA, ul. Wolności 345, 41-800 Zabrze. Complaints regarding the calculation or amount of the Service Fee should be directed directly to the Processor.</p>
-            <p>Consumers have the right to use out-of-court complaint and redress procedures. Detailed information regarding these options is available at the offices and on the websites of district (municipal) consumer ombudsmen, Provincial Inspectorates of Trade Inspection, and at the following website address of the Office of Competition and Consumer Protection: <a href="http://www.uokik.gov.pl/spory_konsumenckie.php" target="_blank" rel="noopener noreferrer" className="text-[#f26522] hover:underline">http://www.uokik.gov.pl/spory_konsumenckie.php</a></p>
+            <p>Partner dostarcza towary zgodne z umową. Reklamacje dotyczące Zamówień, Oferty lub Dostawy należy zgłaszać bezpośrednio do Partnera drogą mailową lub pisemnie na adres wskazany w dziale I.</p>
+            <p>Partner rozpatruje reklamacje niezwłocznie, nie później niż w ciągu 14 dni od ich otrzymania.</p>
+            <p>Reklamacje dotyczące samej Opłaty Serwisowej należy kierować bezpośrednio do Procesora na adres: contact@restaumatic.com.</p>
           </div>
         </div>
-<div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
-          <h2 className="font-judson font-bold text-2xl text-white">XI. Adding Opinions / Comments</h2>
+
+        <div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+          <h2 className="font-judson font-bold text-2xl text-white">XI. Dodawanie opinii / komentarzy</h2>
           <div className="text-sm text-neutral-300 leading-relaxed space-y-3">
-            <p>The partner entity gives the Customer the opportunity to evaluate the performance of the contract and delivery, in particular by providing opinions.</p>
-            <p>Reviews are publicly visible along with the customer&apos;s name.</p>
-            <p>The name is taken from the Order placed by the Customer.</p>
-            <p>By adding an opinion, the Client declares that he or she is aware of the fact that opinions are not anonymous.</p>
-            <p>A review may be deleted by the Client at any time. This requires sending an email to the Affiliate&apos;s email address.</p>
+            <p>Partner umożliwia Klientom ocenę realizacji umowy poprzez wystawianie opinii. Opinie są publicznie widoczne wraz z imieniem Klienta podanym przy zamówieniu. Dodanie opinii oznacza zgodę na jej upublicznienie.</p>
           </div>
         </div>
-<div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
-          <h2 className="font-judson font-bold text-2xl text-white">XII. Personal Data Protection</h2>
+
+        <div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+          <h2 className="font-judson font-bold text-2xl text-white">XII. Ochrona danych osobowych</h2>
           <div className="text-sm text-neutral-300 leading-relaxed space-y-3">
-            <p>The administrator of the personal data of Customers/Users is the Partner Entity.</p>
-            <p>Detailed information regarding the processing of Customers&apos; personal data can be found in the <a href="/privacy-policy" className="text-[#f26522] hover:underline">Privacy Policy</a> available in the tab on the store&apos;s website.</p>
+            <p>Administratorem danych osobowych Klientów jest Partner. Szczegółowe zasady przetwarzania danych określa Polityka Prywatności dostępna na stronie internetowej.</p>
           </div>
         </div>
-<div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
-          <h2 className="font-judson font-bold text-2xl text-white">XIII. Description of Threats</h2>
+
+        <div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+          <h2 className="font-judson font-bold text-2xl text-white">XIII. Opis zagrożeń</h2>
           <div className="text-sm text-neutral-300 leading-relaxed space-y-3">
-            <p>Pursuant to Article 6, Section 1 of the Act of 18 July 2002 on the Provision of Services by Electronic Means, the Partner Entity and the Processor hereby inform Users and Customers of the specific risks associated with the use of services provided electronically:</p>
-            <ul className="list-disc pl-6 space-y-2 text-neutral-400">
-              <li>The possibility of receiving spam, i.e. unsolicited advertising (commercial) information transmitted electronically.</li>
-              <li>The possibility of malicious software (malware, internet worms) operating in a network environment, distributed through code replication.</li>
-              <li>The ability to breach security to obtain personal and confidential information for the purpose of identity theft by sending fake e-mails resembling authentic messages.</li>
-              <li>The possibility of unauthorized eavesdropping involving the use of a computer program whose purpose is to intercept and possibly analyze data flowing over the network (spyware).</li>
-              <li>Installing software used to use the Services from sources other than those authorized by the Service Provider, which may contain malicious software.</li>
-            </ul>
+            <p>Zgodnie z ustawą o świadczeniu usług drogą elektroniczną, informujemy o potencjalnych zagrożeniach związanych z korzystaniem z usług online, takich jak złośliwe oprogramowanie (malware), spam, próby wyłudzenia danych (phishing) czy nieautoryzowany podsłuch transmisji danych. Zalecamy stosowanie programów antywirusowych i bezpiecznych połączeń.</p>
           </div>
         </div>
-<div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
-          <h2 className="font-judson font-bold text-2xl text-white">XIV. Final Provisions</h2>
+
+        <div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+          <h2 className="font-judson font-bold text-2xl text-white">XIV. Postanowienia końcowe</h2>
           <div className="text-sm text-neutral-300 leading-relaxed space-y-3">
-            <p>In matters not regulated by the Regulations, the provisions of generally applicable law shall apply.</p>
-            <p>The Partner or Processor reserves the right to amend these Terms and Conditions. All agreements concluded before the effective date of the new Terms and Conditions are implemented pursuant to the Terms and Conditions in force on the date of conclusion of the agreement. Amendments to the Terms and Conditions will take effect within 7 days of their publication on the website. If the Client/User does not accept the new Terms and Conditions, they are obligated to notify the Partner.</p>
-            <p>When using the Services, the User and the Client are prohibited from providing illegal content, including: a) information and data prepared in a way that poses a risk of violating IT security or System stability; b) information infringing intellectual property rights, including copyrights and trademark rights of the Partner Entity and the Processor or third parties; c) other information and data violating mandatory provisions of law.</p>
-            <p>The Partner Entity is liable for non-performance or improper performance of the contract, but in the case of contracts concluded with Customers/Users who are Entrepreneurs, the Partner Entity is liable only in the event of intentional damage and within the limits of the losses actually incurred by the Customer/User who is an Entrepreneur.</p>
-            <p>The Terms and Conditions do not exclude or limit, and are not intended to exclude or limit, any rights of the Customer who is a Consumer, which they are entitled to under mandatory provisions of law. In the event of a conflict between the provisions of the Terms and Conditions and mandatory provisions of law granting rights to Consumers, those provisions shall prevail.</p>
-            <p className="text-white font-bold">As of 2026-08-29</p>
+            <p>W sprawach nieuregulowanych Regulaminem zastosowanie mają przepisy powszechnie obowiązującego prawa polskiego.</p>
+            <p>Partner zastrzega sobie prawo do wprowadzania zmian w Regulaminie. Zmiany wchodzą w życie w terminie 7 dni od ich publikacji na stronie.</p>
+            <p className="text-white font-bold">Stan na dzień: 29.08.2026 r.</p>
           </div>
         </div>
-<div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
-          <h2 className="font-judson font-bold text-2xl text-white">Attachments</h2>
-<div className="space-y-3 border-b border-white/10 pb-6">
-            <h3 className="font-judson font-bold text-xl text-[#f26522]">ANNEX No. 1 — Instructions on the Right to Withdraw from the Contract</h3>
+
+        <div className="bg-[#161616] border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+          <h2 className="font-judson font-bold text-2xl text-white">Załączniki</h2>
+          <div className="space-y-3 border-b border-white/10 pb-6">
+            <h3 className="font-judson font-bold text-xl text-[#f26522]">ZAŁĄCZNIK Nr 1 — Pouczenie o prawie odstąpienia od umowy</h3>
             <div className="text-sm text-neutral-300 leading-relaxed space-y-3">
-              <p>Consumer buyers and sole proprietors making purchases unrelated to their business activities may withdraw from the contract within 14 days of receipt of the shipment without giving any reason. If you do so, we will refund all payments received from you.</p>
-              <p>To cancel your purchase, inform the Affiliate of your decision by completing the Withdrawal Form. You can use the withdrawal form template, which is attached to these Terms and Conditions. Please send the package to the Affiliate&apos;s address.</p>
-              <p className="text-white font-bold">ATTENTION! The right of withdrawal does not apply to contracts:</p>
-              <ul className="list-disc pl-6 space-y-1.5 text-neutral-400">
-                <li>For the provision of services, if the service was fully performed with your express consent;</li>
-                <li>In which the price of the goods depends on fluctuations in the financial market over which we have no control;</li>
-                <li>Where the subject of the service is a non-prefabricated item, manufactured according to your specifications or intended to meet your individual needs;</li>
-                <li>Where the subject of the performance is an item that spoils quickly or has a short shelf life;</li>
-                <li>Where the subject of the service is an item delivered in a sealed package which cannot be returned after opening the package for health protection or hygiene reasons if the package was opened after delivery;</li>
-                <li>In which the subject of the performance are things which, after delivery, due to their nature, are inseparably connected with other things;</li>
-                <li>Where the subject of the service are alcoholic beverages, the price of which was agreed upon at the conclusion of the sales contract, the delivery of which can only take place after 30 days;</li>
-                <li>Where the subject of the provision are sound or visual recordings or computer programs delivered in a sealed package, if the package was opened after delivery;</li>
-                <li>For the supply of digital content that is not recorded on a tangible medium, if the performance of the service has begun with your express consent, before the expiry of the withdrawal period.</li>
-              </ul>
+              <p>Konsument ma prawo odstąpić od umowy w terminie 14 dni bez podania przyczyny. W przypadku odstąpienia zwracane są wszystkie otrzymane płatności.</p>
+              <p className="text-white font-bold">UWAGA! Prawo odstąpienia nie przysługuje w przypadku umów na dostawę towarów szybko psujących się (ciepłe jedzenie).</p>
             </div>
           </div>
-<div className="space-y-3 border-b border-white/10 pb-6">
-            <h3 className="font-judson font-bold text-xl text-[#f26522]">ANNEX No. 2 — Withdrawal from the Contract and Return of Goods Form</h3>
+          <div className="space-y-3 border-b border-white/10 pb-6">
+            <h3 className="font-judson font-bold text-xl text-[#f26522]">ZAŁĄCZNIK Nr 2 — Wzór formularza odstąpienia od umowy i zwrotu towaru</h3>
             <div className="text-sm text-neutral-300 leading-relaxed space-y-3">
-              <p>Name and surname</p>
-              <p>Address</p>
-              <p>Email, phone</p>
-              <p>On my own behalf, I declare that: Pursuant to the Act of 30 May 2014 on Consumer Rights, I am withdrawing from the sales agreement concluded with the Partner Entity on __________________ and returning the goods listed below. I am familiar with the conditions for returning goods in this manner, specified in the Regulations and the aforementioned Act.</p>
-              <p>Date of receipt of goods: ____________________________________________</p>
-              <p>Sales document number (receipt or VAT invoice): _____________________________</p>
-              <p>Returned goods:</p>
-              <p>I declare that the returned goods are in unaltered condition and have not been used.</p>
-              <p>Date and legible signature of the Client</p>
-              <p className="text-neutral-400 italic">The return of goods (together with the form) should be made to the address of the Partner Entity.</p>
+              <p>Imię i nazwisko Klienta, adres, data odbioru towaru, numer paragonu/faktury oraz czytelny podpis.</p>
             </div>
           </div>
-<div className="space-y-3">
-            <h3 className="font-judson font-bold text-xl text-[#f26522]">Digital Services Act (DSA) Regulations</h3>
+          <div className="space-y-3">
+            <h3 className="font-judson font-bold text-xl text-[#f26522]">Regulacje dotyczące aktu o usługach cyfrowych (DSA)</h3>
             <div className="text-sm text-neutral-300 leading-relaxed space-y-3">
-              <h4 className="text-white font-bold text-base">Definitions</h4>
-              <p><strong className="text-white">&quot;Service Provider&quot;</strong> - the Partner Entity referred to in point II, item 2 of the Regulations of the website.</p>
-              <p><strong className="text-white">&quot;User&quot;</strong> - a natural person with at least limited legal capacity, a legal person or an entity with legal capacity who uses the IT System, including the website.</p>
-              <p><strong className="text-white">&quot;Contact Point&quot;</strong> - the e-mail address designated by the Service Provider, which enables the authorities of the Member States, the European Commission and the Digital Services Council, Users and other recipients of the service to communicate directly with the Service Provider.</p>
-              <p><strong className="text-white">&quot;Communication language&quot;</strong> - the languages indicated by the Service Provider for contact purposes, which are Polish and English.</p>
-              <p><strong className="text-white">&quot;Illegal content&quot;</strong> - information that, in itself or by reference to an activity, including the sale of products or the provision of services, does not comply with Union law or with the law of any Member State that complies with Union law.</p>
-              <p><strong className="text-white">&quot;Digital Services Act, DSA&quot;</strong> - Regulation (EU) 2022/2065 of the European Parliament and of the Council of 19 October 2022 on the single market for digital services and amending Directive 2000/31/EC.</p>
-
-              <h4 className="text-white font-bold text-base pt-4">II. Entry, Moderation, and Content Restrictions</h4>
-              <p>The Service Provider allows Users to submit content, including opinions about the service provided. Content submitted by Users is stored in connection with the operation of the Service Provider&apos;s website.</p>
-              <p>Users who post content are obligated to act in a manner consistent with these Terms and Conditions, the law, and good practice. In particular, the User is obligated to respect the personal rights, copyrights, intellectual property rights, and personal data of the Service Provider, other Users, and other third parties.</p>
-              <p>The User is prohibited from entering Illegal Content, which includes in particular: content that incites hatred, is terrorist or discriminatory in nature; images depicting child sexual abuse; private images that are unlawful to share; content constituting cyberstalking; copyrighted materials whose use is unauthorized.</p>
-              <p>Content entered by Users is moderated by the Service Provider in connection with reports, as well as on the Service Provider&apos;s own initiative. Content moderation can be done manually, by a human, or using automated or semi-automated tools.</p>
-              <p>Content that violates the provisions of these Regulations, violates the law or the principles of social coexistence will be removed, depositioned or access to it will be prevented by the Service Provider.</p>
-
-              <h4 className="text-white font-bold text-base pt-4">III. Reporting Illegal Content</h4>
-              <p>Anyone who believes that a website operated by the Service Provider contains Illegal Content may report the Illegal Content to the Service Provider. Reports regarding Illegal Content should be sent to the Contact Point.</p>
-              <p>The notification must include: a sufficiently substantiated explanation of why the individual or entity alleges that the relevant information constitutes Illegal Content; a clear indication of the exact electronic location of the information; the name and surname or business name and email address of the person or entity making the report; a statement confirming the good faith belief of the person or entity making the report.</p>
-              <p>The Service Provider will, without undue delay, inform the entity submitting the notification about the acceptance of the notification and will inform the reporting party about the decision and any actions taken in connection with the report.</p>
-
-              <h4 className="text-white font-bold text-base pt-4">IV. Complaints and Claims</h4>
-              <p>The Service Provider provides Users, as well as persons or entities who submitted a report – for a period of six months from the decision on the consideration of the report – with access to an internal complaint handling system, which enables electronic and free filing of complaints against a decision made by the Service Provider.</p>
-              <p>If the complaint contains sufficient reasons for the Service Provider to consider that its decision not to take action in response to the notification is unjustified, the Service Provider shall, without undue delay, revoke its decision or take other actions it deems necessary.</p>
+              <p>Zasady zgłaszania nielegalnych treści w serwisie oraz moderacji opinii zgodnie z unijnym rozporządzeniem DSA.</p>
             </div>
           </div>
         </div>
-<div className="text-center text-xs text-neutral-500">
+
+        <div className="text-center text-xs text-neutral-500">
           <a
             href="https://d2sv10hdj8sfwn.cloudfront.net/pendolino/license.html"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[#f26522] transition-colors"
           >
-            Licenses
+            Licencje
           </a>
         </div>
-
       </div>
     </div>
   );

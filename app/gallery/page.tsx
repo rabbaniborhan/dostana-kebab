@@ -4,10 +4,10 @@ import GalleryModal from "../components/GalleryModal";
 export default function GalleryPage() {
   return (
     <div>
-<SubpageHero
-        title="Food & Restaurant Gallery"
-        breadcrumb="Gallery"
-        subtitle="Take a look at our fresh ingredients, charcoal roasting, and delicious kebab creations!"
+      <SubpageHero
+        title="Galeria dań i restauracji"
+        breadcrumb="Galeria"
+        subtitle="Zobacz nasze świeże składniki, pieczenie na wglu i pyszne kebaby!"
       />
 
       <div className="">

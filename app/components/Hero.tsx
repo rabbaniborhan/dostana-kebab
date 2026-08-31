@@ -12,24 +12,24 @@ interface HeroProps {
 const SLIDES = [
   {
     id: 1,
-    supTitle: "Free Delivery",
-    title: "for orders from 150 PLN!",
-    description: "Enjoy hot & fresh charcoal roasted kebabs delivered directly to your home or office anywhere in Lublin!",
-    buttonText: "Order online",
+    supTitle: "Darmowa dostawa",
+    title: "dla zamówień od 150 zł!",
+    description: "Ciesz się świeżym i aromatycznym kebabem z węgla drzewnego dostarczonym prosto do Twoich drzwi w Lublinie!",
+    buttonText: "Zamów online",
   },
   {
     id: 2,
-    supTitle: "Special Promotion",
-    title: "5% OFF for new customers!",
-    description: "Receive 5% instant discount on your first online order. Simply select your items and enter coupon DOSTANA5 at checkout.",
-    buttonText: "Order online",
+    supTitle: "Promocja",
+    title: "dla nowych klientów!",
+    description: "Otrzymaj 5% rabatu na pierwsze zamówienie online za minimum 70 zł! Otrzymasz SMS z jednorazowym kodem rabatowym.",
+    buttonText: "Zamów online",
   },
   {
     id: 3,
-    supTitle: "Collect & Save",
-    title: "Collect stamps for FREE !",
-    description: "Earn 1 digital stamp with every order. Collect 5 stamps to unlock a FREE Small Rollo Kebab code!",
-    buttonText: "Order online",
+    supTitle: "Zbieraj pieczątki",
+    title: "i odbierz darmowy rollo!",
+    description: "Po każdym zamówieniu otrzymujesz pieczątkę. Uzbieraj 5 pieczątek i odbierz DARMOWY mały rollo kebab w 6. zamówieniu!",
+    buttonText: "Zamów online",
   },
 ];
 
