@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto, Judson } from "next/font/google";
 import "./globals.css";
-import LayoutWrapper from "./components/LayoutWrapper";
+import LayoutWrapper from "@/components/LayoutWrapper";
 
 const roboto = Roboto({
   subsets: ["latin"],

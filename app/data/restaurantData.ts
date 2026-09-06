@@ -29,6 +29,7 @@ export interface MenuItem {
   availableSizes?: { name: string; extraPrice: number }[];
   availableSauces?: string[];
   isVegetarian?: boolean;
+  isAvailable?: boolean;
 }
 
 export interface Promotion {

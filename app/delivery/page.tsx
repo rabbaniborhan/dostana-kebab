@@ -1,5 +1,5 @@
-import SubpageHero from "../components/SubpageHero";
-import DeliverySection from "../components/DeliverySection";
+import SubpageHero from "@/components/SubpageHero";
+import DeliverySection from "@/components/DeliverySection";
 
 export default function DeliveryPage() {
   return (

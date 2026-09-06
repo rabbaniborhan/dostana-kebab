@@ -1,5 +1,5 @@
-import SubpageHero from "../components/SubpageHero";
-import GalleryModal from "../components/GalleryModal";
+import SubpageHero from "@/components/SubpageHero";
+import GalleryModal from "@/components/GalleryModal";
 
 export default function GalleryPage() {
   return (

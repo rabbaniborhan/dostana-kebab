@@ -1,5 +1,5 @@
-import SubpageHero from "../components/SubpageHero";
-import ContactSection from "../components/ContactSection";
+import SubpageHero from "@/components/SubpageHero";
+import ContactSection from "@/components/ContactSection";
 
 export default function ContactPage() {
   

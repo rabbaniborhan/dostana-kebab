@@ -1,4 +1,4 @@
-import SubpageHero from "../components/SubpageHero";
+import SubpageHero from "@/components/SubpageHero";
 
 export default function PrivacyPolicyPage() {
   return (

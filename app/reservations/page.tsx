@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
-import SubpageHero from "../components/SubpageHero";
-import { useCart } from "../context/CartContext";
+import SubpageHero from "@/components/SubpageHero";
+import { useCart } from "@/context/CartContext";
 import { LOCATIONS } from "../data/restaurantData";
 import { CheckCircle2, Calendar, Clock, Users, MapPin, User, Phone, Mail, FileText } from "lucide-react";
 

@@ -2,11 +2,11 @@
 
 import React, { useState } from "react";
 import { useParams } from "next/navigation";
-import SubpageHero from "../../components/SubpageHero";
-import MenuSection from "../../components/MenuSection";
-import Promotions from "../../components/Promotions";
-import ItemCustomizerModal, { CustomizedCartItem } from "../../components/ItemCustomizerModal";
-import { useCart } from "../../context/CartContext";
+import SubpageHero from "@/components/SubpageHero";
+import MenuSection from "@/components/MenuSection";
+import Promotions from "@/components/Promotions";
+import ItemCustomizerModal, { CustomizedCartItem } from "@/components/ItemCustomizerModal";
+import { useCart } from "@/context/CartContext";
 import { LOCATIONS, MenuItem } from "../../data/restaurantData";
 import { MapPin, Phone, Truck, ShoppingBag, Clock, Store } from "lucide-react";
 

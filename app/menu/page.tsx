@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import SubpageHero from "../components/SubpageHero";
-import MenuSection from "../components/MenuSection";
-import { useCart } from "../context/CartContext";
+import SubpageHero from "@/components/SubpageHero";
+import MenuSection from "@/components/MenuSection";
+import { useCart } from "@/context/CartContext";
 import { LOCATIONS, Location } from "../data/restaurantData";
 import { MapPin, Search, Phone, Clock, ArrowRight, CheckCircle2, Store } from "lucide-react";
 

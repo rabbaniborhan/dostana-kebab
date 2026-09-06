@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import SubpageHero from "../components/SubpageHero";
+import SubpageHero from "@/components/SubpageHero";
 import { Check } from "lucide-react";
 
 export default function MarketingConsentsPage() {

@@ -1,5 +1,5 @@
-import SubpageHero from "../components/SubpageHero";
-import ReviewsSection from "../components/ReviewsSection";
+import SubpageHero from "@/components/SubpageHero";
+import ReviewsSection from "@/components/ReviewsSection";
 
 export default function OpinionsPage() {
   return (
