@@ -10,46 +10,38 @@ const INITIAL_CUSTOMERS = [
   {
     id: "CUST-001",
     name: "Jan Kowalski",
-    email: "jan.kowalski@example.com",
     phone: "+48 501 234 567",
-    totalOrders: 14,
-    totalSpent: 512,
-    favoriteItem: "Kebab Rollo Wołowina",
-    status: "VIP",
-    lastOrder: "Dzisiaj, 18:45"
+    email: "jan.kowalski@example.com",
+    phoneMarketing: true,
+    emailMarketing: true,
+    business: "Kowalski Sp. z o.o."
   },
   {
     id: "CUST-002",
     name: "Anna Nowak",
-    email: "anna.nowak@example.com",
     phone: "+48 602 987 654",
-    totalOrders: 8,
-    totalSpent: 340,
-    favoriteItem: "Dostana Box Specjalny",
-    status: "Stały Klient",
-    lastOrder: "Wczoraj, 14:20"
+    email: "anna.nowak@example.com",
+    phoneMarketing: true,
+    emailMarketing: false,
+    business: "Nowak Studio"
   },
   {
     id: "CUST-003",
     name: "Piotr Wiśniewski",
-    email: "piotr.w@example.com",
     phone: "+48 730 112 233",
-    totalOrders: 5,
-    totalSpent: 210,
-    favoriteItem: "Kebab Talerz Kurczak",
-    status: "Aktywny",
-    lastOrder: "2 dni temu"
+    email: "piotr.w@example.com",
+    phoneMarketing: false,
+    emailMarketing: true,
+    business: "-"
   },
   {
     id: "CUST-004",
     name: "Michał Zieliński",
-    email: "m.zielinski@example.com",
     phone: "+48 512 445 667",
-    totalOrders: 3,
-    totalSpent: 115,
-    favoriteItem: "Vege Falafel Rollo",
-    status: "Nowy",
-    lastOrder: "3 dni temu"
+    email: "m.zielinski@example.com",
+    phoneMarketing: false,
+    emailMarketing: false,
+    business: "Zieliński Tech"
   }
 ];
 
@@ -74,11 +66,11 @@ export default function AdminCustomersPage() {
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <h2 className="font-judson font-bold text-2xl text-white">
-                  {customerSubTab === "customers" ? "Baza Klientów & CRM" : "Opinie & Recenzje Klientów"}
+                  {customerSubTab === "customers" ? "Baza Klientów & CRM" : "Opinie Klientów"}
                 </h2>
                 <p className="text-xs text-neutral-400">
                   {customerSubTab === "customers"
-                    ? "Historia zamówień, wydatki i segmentacja klientów"
+                    ? "Zarządzanie danymi kontaktowymi i zgody marketingowe klientów"
                     : "Zarządzanie opiniami i ocenami wystawionymi przez klientów"}
                 </p>
               </div>
@@ -112,39 +104,40 @@ export default function AdminCustomersPage() {
 
             {/* SUB TAB 1: CUSTOMERS LIST */}
             {customerSubTab === "customers" && (
-              <div className="bg-[#151515] border border-white/10 rounded-3xl overflow-hidden">
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left text-xs text-neutral-300">
+              <div className="bg-[#151515] border border-white/10 rounded-3xl overflow-hidden p-6 space-y-4">
+                <div className="overflow-x-auto no-scrollbar">
+                  <table className="w-full text-left text-xs text-neutral-300 border-collapse">
                     <thead className="bg-[#0e0e0e] text-neutral-400 uppercase tracking-wider text-[10px] border-b border-white/10">
                       <tr>
-                        <th className="p-4">ID Klienta</th>
-                        <th className="p-4">Imię & Email</th>
-                        <th className="p-4">Telefon</th>
-                        <th className="p-4">Ulubione Danie</th>
-                        <th className="p-4">Zamówienia</th>
-                        <th className="p-4">Łączny Wydatek</th>
-                        <th className="p-4">Status</th>
+                        <th className="p-3.5 whitespace-nowrap">Name and surname</th>
+                        <th className="p-3.5 whitespace-nowrap">Telephone</th>
+                        <th className="p-3.5 whitespace-nowrap">Email</th>
+                        <th className="p-3.5 whitespace-nowrap">Telephone marketing</th>
+                        <th className="p-3.5 whitespace-nowrap">Marketing email</th>
+                        <th className="p-3.5 whitespace-nowrap">Business</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-white/5">
                       {INITIAL_CUSTOMERS.map((c) => (
-                        <tr key={c.id} className="hover:bg-white/[0.02]">
-                          <td className="p-4 font-bold text-white">{c.id}</td>
-                          <td className="p-4">
-                            <div className="font-semibold text-white">{c.name}</div>
-                            <div className="text-[11px] text-neutral-500">{c.email}</div>
-                          </td>
-                          <td className="p-4 text-neutral-300 font-mono">{c.phone}</td>
-                          <td className="p-4 text-[#f26522] font-medium">{c.favoriteItem}</td>
-                          <td className="p-4 font-bold text-white">{c.totalOrders} zamówień</td>
-                          <td className="p-4 font-bold text-emerald-400">{c.totalSpent}.00 PLN</td>
-                          <td className="p-4">
-                            <span className={`px-2.5 py-1 rounded-full text-xs font-bold ${
-                              c.status === "VIP" ? "bg-amber-500/20 text-amber-400 border border-amber-500/30" : "bg-blue-500/20 text-blue-400 border border-blue-500/30"
+                        <tr key={c.id} className="hover:bg-white/[0.02] transition-colors">
+                          <td className="p-3.5 font-bold text-white whitespace-nowrap">{c.name}</td>
+                          <td className="p-3.5 text-neutral-300 font-mono text-[11px] whitespace-nowrap">{c.phone}</td>
+                          <td className="p-3.5 text-neutral-300 font-mono text-[11px] whitespace-nowrap">{c.email}</td>
+                          <td className="p-3.5 whitespace-nowrap">
+                            <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold ${
+                              c.phoneMarketing ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30" : "bg-rose-500/20 text-rose-400 border border-rose-500/30"
                             }`}>
-                              {c.status}
+                              {c.phoneMarketing ? "Yes" : "No"}
                             </span>
                           </td>
+                          <td className="p-3.5 whitespace-nowrap">
+                            <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold ${
+                              c.emailMarketing ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30" : "bg-rose-500/20 text-rose-400 border border-rose-500/30"
+                            }`}>
+                              {c.emailMarketing ? "Yes" : "No"}
+                            </span>
+                          </td>
+                          <td className="p-3.5 text-neutral-300 font-medium whitespace-nowrap">{c.business}</td>
                         </tr>
                       ))}
                     </tbody>

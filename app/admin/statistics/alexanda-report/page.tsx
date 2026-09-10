@@ -7,7 +7,22 @@ import StatsFilterBar from "@/components/StatsFilterBar";
 import StatCard from "@/components/StatCard";
 import { ShoppingBag, PhoneCall, CalendarCheck, DollarSign } from "lucide-react";
 
+import { exportToCSV } from "@/utils/excelExport";
+
 export default function AlexandaReportPage() {
+  const alexandaRows = [
+    { metric: "Wartość w okresie", value: "3 062,80 zł" },
+    { metric: "Koszt minut", value: "- 396,00 zł" },
+    { metric: "Bilans po koszcie", value: "2 666,80 zł" },
+    { metric: "Zwrot z kosztu minut", value: "7x" },
+    { metric: "Ilość zamówień zrealizowanych", value: "67" },
+    { metric: "Uratowany przychód z zamówień", value: "3 062,80 zł" },
+    { metric: "Liczba połączeń", value: "210" },
+    { metric: "Liczba obsłużonych rezerwacji", value: "0" },
+    { metric: "Liczba połączeń przekierowanych", value: "49" },
+    { metric: "Koszt rozpoczętych minut", value: "396,00 zł" },
+  ];
+
   const [searchQuery, setSearchQuery] = useState("");
   const [activePreset, setActivePreset] = useState("poprzedni miesiąc");
   const [startDate, setStartDate] = useState("08/01/2026");
@@ -24,6 +39,8 @@ export default function AlexandaReportPage() {
         <AdminHeader
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
+          selectedVenue={selectedVenue}
+          setSelectedVenue={setSelectedVenue}
           activeTab="statistics"
           onRefresh={() => {}}
         />
@@ -49,6 +66,7 @@ export default function AlexandaReportPage() {
             onToggleFilters={() => setShowFilters(!showFilters)}
             selectedVenue={selectedVenue}
             onVenueChange={setSelectedVenue}
+            onExportCSV={() => exportToCSV(alexandaRows, "Alexanda_Report.csv")}
           />
 
           {/* Top Period Value Summary Bar */}

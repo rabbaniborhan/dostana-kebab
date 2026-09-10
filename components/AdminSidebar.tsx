@@ -62,21 +62,21 @@ export default function AdminSidebar({
     },
     {
       id: "statistics",
-      label: "Statistics",
+      label: "Statystyki",
       href: "/admin/statistics",
       icon: BarChart3,
       badge: null,
     },
     {
       id: "menu",
-      label: "Zarządzanie Menu",
+      label: "Menu",
       href: "/admin/menu",
       icon: UtensilsCrossed,
       badge: null,
     },
     {
       id: "locations",
-      label: "Lokale & Godziny",
+      label: "Lokale",
       href: "/admin/locations",
       icon: MapPin,
       badge: null,
@@ -106,7 +106,7 @@ export default function AdminSidebar({
       {/* Scrollable Navigation Section */}
       <div className="px-5 py-2 flex-1 overflow-y-auto no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden space-y-1">
         <p className="px-3 text-[10px] font-bold text-neutral-500 uppercase tracking-wider mb-2">
-          Nawigacja główne
+          Nawigacja główna
         </p>
 
           {menuItems.map((item) => {
@@ -155,7 +155,7 @@ export default function AdminSidebar({
                         }`}
                       >
                         <Users className="w-3.5 h-3.5 text-[#f26522]" />
-                        <span>Lista Klientów</span>
+                        <span>Klienci</span>
                       </Link>
 
                       <Link
@@ -167,7 +167,7 @@ export default function AdminSidebar({
                         }`}
                       >
                         <MessageSquare className="w-3.5 h-3.5 text-amber-400" />
-                        <span>Opinie & Recenzje</span>
+                        <span>Opinie</span>
                       </Link>
                     </div>
                   </div>
@@ -213,7 +213,31 @@ export default function AdminSidebar({
                         }`}
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                        <span>Total Sales</span>
+                        <span>Sprzedaż całkowita</span>
+                      </Link>
+
+                      <Link
+                        href="/admin/statistics/products-categories"
+                        className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
+                          pathname === "/admin/statistics/products-categories"
+                            ? "bg-white/10 text-white font-bold"
+                            : "text-neutral-400 hover:text-white hover:bg-white/5"
+                        }`}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-orange-400" />
+                        <span>Produkty i kategorie</span>
+                      </Link>
+
+                      <Link
+                        href="/admin/statistics/days-hours"
+                        className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
+                          pathname === "/admin/statistics/days-hours"
+                            ? "bg-white/10 text-white font-bold"
+                            : "text-neutral-400 hover:text-white hover:bg-white/5"
+                        }`}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+                        <span>W dniach i godzinach</span>
                       </Link>
 
                       <Link
@@ -225,7 +249,7 @@ export default function AdminSidebar({
                         }`}
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                        <span>In the delivery zone</span>
+                        <span>Strefy dostaw</span>
                       </Link>
 
                       <Link
@@ -237,7 +261,7 @@ export default function AdminSidebar({
                         }`}
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                        <span>Deposit packaging</span>
+                        <span>Opakowania kaucyjne</span>
                       </Link>
 
                       <Link
@@ -249,7 +273,7 @@ export default function AdminSidebar({
                         }`}
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
-                        <span>Alexanda Report</span>
+                        <span>Raport Alexandra</span>
                       </Link>
 
                       <Link
@@ -261,7 +285,7 @@ export default function AdminSidebar({
                         }`}
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-                        <span>Referring Site</span>
+                        <span>Witryna odsyłająca</span>
                       </Link>
 
                       <Link
@@ -273,7 +297,7 @@ export default function AdminSidebar({
                         }`}
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-rose-400" />
-                        <span>Source and Medium</span>
+                        <span>Źródło / Medium</span>
                       </Link>
                     </div>
                   </div>

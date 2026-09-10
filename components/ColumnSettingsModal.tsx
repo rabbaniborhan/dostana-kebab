@@ -26,7 +26,7 @@ export default function ColumnSettingsModal({
         <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
           <div className="flex items-center gap-2 text-white font-bold text-sm">
             <Settings className="w-4 h-4 text-[#f26522]" />
-            <span>Visible Columns</span>
+            <span>Widoczne kolumny</span>
           </div>
           <button
             type="button"
@@ -59,7 +59,7 @@ export default function ColumnSettingsModal({
           onClick={onClose}
           className="mt-5 w-full py-2 bg-[#f26522] text-white font-bold text-xs rounded-xl hover:bg-[#d85416] transition-colors shadow-lg shadow-[#f26522]/20"
         >
-          Done
+          Gotowe
         </button>
       </div>
     </div>

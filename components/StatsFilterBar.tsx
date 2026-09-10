@@ -37,36 +37,36 @@ export default function StatsFilterBar({
   endDate,
   onEndDateChange,
 
-  selectedCompareMode = "Compare with last year",
+  selectedCompareMode = "Porównaj z ubiegłym rokiem",
   onCompareModeChange,
-  compareOptions = ["Compare with last year", "Compare with previous period", "Do not compare"],
+  compareOptions = ["Porównaj z ubiegłym rokiem", "Porównaj z poprzednim okresem", "Nie porównuj"],
 
   showFilters = false,
   onToggleFilters,
-  selectedVenue = "All venues",
+  selectedVenue = "Wszystkie lokale",
   onVenueChange,
-  selectedSalesChannel = "All channels",
+  selectedSalesChannel = "Wszystkie kanały",
   onSalesChannelChange,
 
   onExportCSV,
 }: StatsFilterBarProps) {
-  const venueOptions = ["All venues", ...LOCATIONS.map((loc) => loc.name)];
+  const venueOptions = ["Wszystkie lokale", ...LOCATIONS.map((loc) => loc.name)];
   const channelOptions = [
-    "All channels",
-    "Website",
-    "Voice order",
-    "Telephone",
-    "Local",
-    "QR Waiter",
-    "Appetite",
-    "Android mobile applications",
-    "iOS mobile applications",
+    "Wszystkie kanały",
+    "Strona WWW",
+    "Zamówienie głosowe",
+    "Telefon",
+    "Na miejscu",
+    "QR Kelner",
+    "Aplikacja",
+    "Aplikacje Android",
+    "Aplikacje iOS",
     "Portal 1",
     "Uber Eats",
     "Glovo",
     "Wolt",
     "Bolt Food",
-    "Own",
+    "Własne",
     "POS"
   ];
 
@@ -91,7 +91,7 @@ export default function StatsFilterBar({
               options={compareOptions}
               selectedOption={selectedCompareMode}
               onSelect={onCompareModeChange}
-              className="w-48"
+              className="w-52"
             />
           )}
 
@@ -106,7 +106,7 @@ export default function StatsFilterBar({
               }`}
             >
               <Filter className="w-3.5 h-3.5" />
-              <span>Filters</span>
+              <span>Filtry</span>
             </button>
           )}
 
@@ -117,7 +117,7 @@ export default function StatsFilterBar({
               className="px-3 py-1.5 rounded-xl bg-[#0e0e0e] border border-white/10 text-xs font-semibold text-neutral-300 hover:text-white hover:border-[#f26522]/50 flex items-center gap-1.5 transition-colors"
             >
               <ExternalLink className="w-3.5 h-3.5 text-[#f26522]" />
-              <span>Export CSV</span>
+              <span>Eksportuj CSV</span>
             </button>
           )}
         </div>
@@ -128,7 +128,7 @@ export default function StatsFilterBar({
         <div className="pt-3 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 animate-fadeIn">
           {onVenueChange && (
             <CustomDropdown
-              label="Venue / Location"
+              label="Lokal"
               options={venueOptions}
               selectedOption={selectedVenue}
               onSelect={onVenueChange}
@@ -137,7 +137,7 @@ export default function StatsFilterBar({
 
           {onSalesChannelChange && (
             <CustomDropdown
-              label="Sales Channel"
+              label="Kanał sprzedaży"
               options={channelOptions}
               selectedOption={selectedSalesChannel}
               onSelect={onSalesChannelChange}

@@ -8,7 +8,21 @@ import ColumnSettingsModal from "@/components/ColumnSettingsModal";
 import StatCard from "@/components/StatCard";
 import { Package, RotateCcw, Wallet, ExternalLink, Download, Settings } from "lucide-react";
 
+import { exportToCSV } from "@/utils/excelExport";
+
 export default function DepositPackagingPage() {
+  const depositRows = [
+    {
+      packagingName: "Wszystkie opakowania kaucyjne",
+      issuedQty: 0,
+      returnedQty: 0,
+      balanceQty: 0,
+      issuedValue: "0,00 PLN",
+      returnedValue: "0,00 PLN",
+      balanceValue: "0,00 PLN",
+    },
+  ];
+
   const [searchQuery, setSearchQuery] = useState("");
   const [activePreset, setActivePreset] = useState("this month");
   const [startDate, setStartDate] = useState("09/01/2026");
@@ -29,18 +43,80 @@ export default function DepositPackagingPage() {
   });
 
   const columnLabels: Record<string, string> = {
-    packagingName: "Opakowanie (Packaging)",
-    issuedQty: "Liczba wydanych (Issued Qty)",
-    returnedQty: "Liczba zwróconych (Returned Qty)",
-    balanceQty: "Bilans (szt.) (Balance Qty)",
-    issuedValue: "Wartość wydanych (zł) (Issued Value)",
-    returnedValue: "Wartość zwróconych (zł) (Returned Value)",
-    balanceValue: "Bilans (zł) (Balance Value)",
+    packagingName: "Opakowanie",
+    issuedQty: "Liczba wydanych",
+    returnedQty: "Liczba zwróconych",
+    balanceQty: "Bilans (szt.)",
+    issuedValue: "Wartość wydanych (zł)",
+    returnedValue: "Wartość zwróconych (zł)",
+    balanceValue: "Bilans (zł)",
   };
 
   const handleToggleColumn = (key: string) => {
     setVisibleColumns((prev) => ({ ...prev, [key]: !prev[key] }));
   };
+
+  const VENUE_DEPOSITS: Record<string, {
+    issued: string;
+    returned: string;
+    balance: string;
+    rows: typeof depositRows;
+  }> = {
+    "Wszystkie lokale": {
+      issued: "125 szt.",
+      returned: "110 szt.",
+      balance: "30,00 zł",
+      rows: [
+        { packagingName: "Opakowanie kaucyjne Burger Box", issuedQty: 65, returnedQty: 60, balanceQty: 5, issuedValue: "130,00 PLN", returnedValue: "120,00 PLN", balanceValue: "10,00 PLN" },
+        { packagingName: "Opakowanie kaucyjne Rollo Box", issuedQty: 60, returnedQty: 50, balanceQty: 10, issuedValue: "120,00 PLN", returnedValue: "100,00 PLN", balanceValue: "20,00 PLN" },
+      ]
+    },
+    "Dostana Kebab Wróbla": {
+      issued: "45 szt.",
+      returned: "40 szt.",
+      balance: "10,00 zł",
+      rows: [
+        { packagingName: "Opakowanie kaucyjne Burger Box", issuedQty: 45, returnedQty: 40, balanceQty: 5, issuedValue: "90,00 PLN", returnedValue: "80,00 PLN", balanceValue: "10,00 PLN" }
+      ]
+    },
+    "Dostana Kebab Lipowa": {
+      issued: "35 szt.",
+      returned: "32 szt.",
+      balance: "6,00 zł",
+      rows: [
+        { packagingName: "Opakowanie kaucyjne Rollo Box", issuedQty: 35, returnedQty: 32, balanceQty: 3, issuedValue: "70,00 PLN", returnedValue: "64,00 PLN", balanceValue: "6,00 PLN" }
+      ]
+    },
+    "Dostana Kebab Krakowskie Przedmieście": {
+      issued: "45 szt.",
+      returned: "38 szt.",
+      balance: "14,00 zł",
+      rows: [
+        { packagingName: "Opakowanie kaucyjne Burger Box", issuedQty: 20, returnedQty: 18, balanceQty: 2, issuedValue: "40,00 PLN", returnedValue: "36,00 PLN", balanceValue: "4,00 PLN" },
+        { packagingName: "Opakowanie kaucyjne Rollo Box", issuedQty: 25, returnedQty: 20, balanceQty: 5, issuedValue: "50,00 PLN", returnedValue: "40,00 PLN", balanceValue: "10,00 PLN" },
+      ]
+    },
+    "Dostana Kebab Sympatyczna": {
+      issued: "0 szt.",
+      returned: "0 szt.",
+      balance: "0,00 zł",
+      rows: []
+    },
+    "Dostana Kebab Nadbystrzycka": {
+      issued: "0 szt.",
+      returned: "0 szt.",
+      balance: "0,00 zł",
+      rows: []
+    },
+    "Dostana Kebab Turystyczna": {
+      issued: "0 szt.",
+      returned: "0 szt.",
+      balance: "0,00 zł",
+      rows: []
+    }
+  };
+
+  const currentDeposit = VENUE_DEPOSITS[selectedVenue] || VENUE_DEPOSITS["Wszystkie lokale"];
 
   return (
     <div className="h-screen overflow-hidden bg-[#0e0e0e] text-white flex font-lato">
@@ -50,6 +126,8 @@ export default function DepositPackagingPage() {
         <AdminHeader
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
+          selectedVenue={selectedVenue}
+          setSelectedVenue={setSelectedVenue}
           activeTab="statistics"
           onRefresh={() => {}}
         />
@@ -57,10 +135,10 @@ export default function DepositPackagingPage() {
         <main className="p-6 sm:p-8 space-y-5 flex-1 overflow-y-auto bg-[#0e0e0e] text-neutral-200">
           {/* Header Title & Action */}
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-white tracking-tight">Opakowania kaucyjne (Deposit packaging)</h1>
+            <h1 className="text-2xl font-bold text-white tracking-tight">Opakowania kaucyjne</h1>
             <button className="flex items-center gap-1.5 px-3 py-1.5 bg-[#141414] hover:bg-[#1a1a1a] border border-white/10 rounded-lg text-xs font-semibold text-neutral-300 transition-colors">
               <ExternalLink className="w-3.5 h-3.5 text-[#f26522]" />
-              <span>Oceń raport (Rate report)</span>
+              <span>Oceń raport</span>
             </button>
           </div>
 
@@ -78,24 +156,24 @@ export default function DepositPackagingPage() {
             onVenueChange={setSelectedVenue}
             selectedSalesChannel={selectedSalesChannel}
             onSalesChannelChange={setSelectedSalesChannel}
-            onExportCSV={() => alert("Downloading deposit report...")}
+            onExportCSV={() => exportToCSV(currentDeposit.rows, "Opakowania_Kaucyjne_Raport.csv")}
           />
 
           {/* KPI Summary Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <StatCard
-              title="Liczba wydanych (Issued Qty)"
-              value="0 szt."
+              title="Liczba wydanych"
+              value={currentDeposit.issued}
               icon={<Package className="w-4.5 h-4.5" />}
             />
             <StatCard
-              title="Liczba zwróconych (Returned Qty)"
-              value="0 szt."
+              title="Liczba zwróconych"
+              value={currentDeposit.returned}
               icon={<RotateCcw className="w-4.5 h-4.5" />}
             />
             <StatCard
-              title="Bilans wartości (Value Balance)"
-              value="0,00 zł"
+              title="Bilans wartości"
+              value={currentDeposit.balance}
               icon={<Wallet className="w-4.5 h-4.5" />}
             />
           </div>
@@ -103,24 +181,24 @@ export default function DepositPackagingPage() {
           {/* Table */}
           <div className="bg-[#141414] border border-white/10 rounded-2xl relative shadow-xl">
             <div className="p-4 border-b border-white/10 flex items-center justify-between">
-              <h3 className="text-xs font-bold text-neutral-300 uppercase tracking-wider">Raport kaucyjny (Deposit Report)</h3>
+              <h3 className="text-xs font-bold text-neutral-300 uppercase tracking-wider">Raport kaucyjny</h3>
               <div className="flex items-center gap-2">
                 <button
                   type="button"
                   onClick={() => setIsColumnSettingsOpen(true)}
                   className="px-3 py-1.5 rounded-xl bg-[#0e0e0e] border border-white/10 hover:border-[#f26522]/50 text-neutral-300 hover:text-white transition-colors flex items-center gap-1.5 text-xs font-semibold"
-                  title="Configure Columns"
+                  title="Ustawienia kolumn"
                 >
                   <Settings className="w-3.5 h-3.5 text-[#f26522]" />
-                  <span>Column Settings</span>
+                  <span>Ustawienia kolumn</span>
                 </button>
                 <button
                   type="button"
-                  onClick={() => alert("Downloading report...")}
+                  onClick={() => exportToCSV(currentDeposit.rows, "Opakowania_Kaucyjne_Raport.csv")}
                   className="flex items-center gap-1.5 px-3 py-1.5 bg-[#0e0e0e] border border-white/10 hover:border-white/20 rounded-lg text-xs font-medium text-neutral-300 hover:text-white transition-colors"
                 >
                   <Download className="w-3.5 h-3.5 text-[#f26522]" />
-                  <span>Pobierz (Download)</span>
+                  <span>Pobierz</span>
                 </button>
               </div>
             </div>
@@ -139,23 +217,26 @@ export default function DepositPackagingPage() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5 text-neutral-300">
-                  <tr className="bg-white/5 font-bold hover:bg-white/10 transition-colors">
-                    {visibleColumns.packagingName && <td className="py-3.5 px-4 text-white">Wszystkie opakowania kaucyjne</td>}
-                    {visibleColumns.issuedQty && <td className="py-3.5 px-4 text-center">0</td>}
-                    {visibleColumns.returnedQty && <td className="py-3.5 px-4 text-center">0</td>}
-                    {visibleColumns.balanceQty && <td className="py-3.5 px-4 text-center">0</td>}
-                    {visibleColumns.issuedValue && <td className="py-3.5 px-4 text-right font-medium">0,00</td>}
-                    {visibleColumns.returnedValue && <td className="py-3.5 px-4 text-right font-medium">0,00</td>}
-                    {visibleColumns.balanceValue && <td className="py-3.5 px-4 text-right font-medium">0,00</td>}
-                  </tr>
+                  {currentDeposit.rows.map((row, idx) => (
+                    <tr key={idx} className="bg-white/5 font-medium hover:bg-white/10 transition-colors">
+                      {visibleColumns.packagingName && <td className="py-3.5 px-4 text-white">{row.packagingName}</td>}
+                      {visibleColumns.issuedQty && <td className="py-3.5 px-4 text-center">{row.issuedQty}</td>}
+                      {visibleColumns.returnedQty && <td className="py-3.5 px-4 text-center">{row.returnedQty}</td>}
+                      {visibleColumns.balanceQty && <td className="py-3.5 px-4 text-center">{row.balanceQty}</td>}
+                      {visibleColumns.issuedValue && <td className="py-3.5 px-4 text-right font-medium">{row.issuedValue}</td>}
+                      {visibleColumns.returnedValue && <td className="py-3.5 px-4 text-right font-medium">{row.returnedValue}</td>}
+                      {visibleColumns.balanceValue && <td className="py-3.5 px-4 text-right font-medium">{row.balanceValue}</td>}
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
-
-            <div className="p-8 text-center border-t border-white/5 bg-[#0e0e0e]/50">
-              <Package className="w-8 h-8 text-neutral-600 mx-auto mb-2 opacity-60" />
-              <p className="text-xs text-neutral-400 font-medium">Nie znaleziono opakowań kaucyjnych</p>
-            </div>
+            {currentDeposit.rows.length === 0 && (
+              <div className="p-8 text-center border-t border-white/5 bg-[#0e0e0e]/50">
+                <Package className="w-8 h-8 text-neutral-600 mx-auto mb-2 opacity-60" />
+                <p className="text-xs text-neutral-400 font-medium">Nie znaleziono opakowań kaucyjnych</p>
+              </div>
+            )}
           </div>
 
           <ColumnSettingsModal

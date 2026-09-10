@@ -30,17 +30,19 @@ const INITIAL_ORDERS = [
     customer: "Aneta Dziadosz",
     phone: "+48665768205",
     address: "20-283 Lublin, Zygmunta Augusta 39, m. 40",
-    location: "Dostana Kebab Krakowskie",
+    location: "Dostana Kebab Krakowskie Przedmieście",
     items: [
       { name: "Kebab Rollo Wołowina (Duży)", qty: 2, price: 32 },
       { name: "Frytki Belgijskie", qty: 1, price: 14 }
     ],
-    total: 76.99,
+    total: 78.00,
     status: "Delivered",
     statusText: "✓ 19:26 (19 minut)",
     payment: "Płatność online",
     source: "Strona WWW",
-    type: "Dostawa"
+    type: "Dostawa",
+    paragon: "PAR/2026/09/02",
+    invoice: "FV/2026/09/02"
   },
   {
     id: "76164876",
@@ -51,17 +53,19 @@ const INITIAL_ORDERS = [
     customer: "Jarosław Majek",
     phone: "+48505284867",
     address: "20-356 Lublin, Krańcowa 76B, lok 52",
-    location: "Dostana Kebab Krakowskie",
+    location: "Dostana Kebab Lipowa",
     items: [
       { name: "Dostana Box Specjalny", qty: 2, price: 38 },
       { name: "Sosy Dodatkowe", qty: 2, price: 5 }
     ],
-    total: 97.40,
+    total: 86.00,
     status: "Cancelled",
     statusText: "✕ Odrzucono: Przekroczono czas realizowania",
     payment: "Karta przy odbiorze",
     source: "Strona WWW",
-    type: "Dostawa"
+    type: "Dostawa",
+    paragon: "PAR/2026/09/01",
+    invoice: "-"
   },
   {
     id: "84467815",
@@ -77,12 +81,14 @@ const INITIAL_ORDERS = [
       { name: "Kebab Talerz Kurczak", qty: 1, price: 35 },
       { name: "Ayran Klasyczny", qty: 2, price: 7 }
     ],
-    total: 65.99,
+    total: 49.00,
     status: "Delivered",
     statusText: "✓ 18:44 (9 minut)",
     payment: "Płatność online",
     source: "Strona WWW",
-    type: "Dostawa"
+    type: "Dostawa",
+    paragon: "PAR/2026/08/34",
+    invoice: "FV/2026/08/34"
   },
   {
     id: "92314502",
@@ -93,7 +99,7 @@ const INITIAL_ORDERS = [
     customer: "Katarzyna Wójcik",
     phone: "+48602987654",
     address: "Odbiór osobisty w lokalu",
-    location: "Dostana Kebab Głuska",
+    location: "Dostana Kebab Sympatyczna",
     items: [
       { name: "Vege Falafel Rollo", qty: 2, price: 28 }
     ],
@@ -102,7 +108,54 @@ const INITIAL_ORDERS = [
     statusText: "⏳ W realizacji (w trakcie)",
     payment: "Gotówka w lokalu",
     source: "Strona WWW",
-    type: "Odbiór osobisty"
+    type: "Odbiór osobisty",
+    paragon: "PAR/2026/08/15",
+    invoice: "-"
+  },
+  {
+    id: "54210983",
+    orderNumber: 4,
+    startOrder: "03.09.2026 17:50",
+    placingOrder: "03.09.2026 17:50",
+    serviceTime: "12s",
+    customer: "Paweł Kamiński",
+    phone: "+48791633078",
+    address: "20-719 Lublin, Wróbla 66",
+    location: "Dostana Kebab Wróbla",
+    items: [
+      { name: "Kebab Rollo Gigant Wołowina", qty: 1, price: 42 },
+      { name: "Pepsi 0.5L", qty: 1, price: 8 }
+    ],
+    total: 50.00,
+    status: "Delivered",
+    statusText: "✓ 18:05 (15 minut)",
+    payment: "Płatność online",
+    source: "Aplikacja iOS",
+    type: "Dostawa",
+    paragon: "PAR/2026/08/50",
+    invoice: "FV/2026/08/50"
+  },
+  {
+    id: "31098472",
+    orderNumber: 5,
+    startOrder: "03.09.2026 17:30",
+    placingOrder: "03.09.2026 17:30",
+    serviceTime: "19s",
+    customer: "Ewa Lewandowska",
+    phone: "+48512922942",
+    address: "20-207 Lublin, Turystyczna 9b",
+    location: "Dostana Kebab Turystyczna",
+    items: [
+      { name: "Kebab Box Serowy", qty: 2, price: 34 }
+    ],
+    total: 68.00,
+    status: "Delivered",
+    statusText: "✓ 17:48 (18 minut)",
+    payment: "Gotówka przy odbiorze",
+    source: "Aplikacja Android",
+    type: "Dostawa",
+    paragon: "PAR/2026/08/30",
+    invoice: "-"
   }
 ];
 
@@ -158,6 +211,8 @@ export default function AdminOrdersPage() {
     local: true,
     source: true,
     together: true,
+    paragon: true,
+    invoice: true,
   });
 
   const getDaysInMonth = (year: number, month: number) => new Date(year, month + 1, 0).getDate();
@@ -181,8 +236,19 @@ export default function AdminOrdersPage() {
       local: show,
       source: show,
       together: show,
+      paragon: show,
+      invoice: show,
     });
   };
+
+  const filteredOrders = orders.filter((order) => {
+    if (!searchQuery || searchQuery.startsWith("Wszystkie")) return true;
+    const q = searchQuery.toLowerCase();
+    const loc = order.location.toLowerCase();
+    return loc.includes(q) || q.includes(loc);
+  });
+
+  const totalSum = filteredOrders.reduce((acc, o) => acc + o.total, 0);
 
   return (
     <div className="min-h-screen bg-[#0e0e0e] text-white flex font-lato">
@@ -561,7 +627,9 @@ export default function AdminOrdersPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="font-judson font-bold text-xl text-white">Orders</h3>
-                  <p className="text-xs text-neutral-400">Wszystkie zamówienia online (Suma: <span className="font-bold text-[#f26522]">12,787.23 PLN</span>)</p>
+                  <p className="text-xs text-neutral-400">
+                    Zamówienia dla: <span className="font-bold text-white">{searchQuery || "Wszystkie lokale"}</span> (Suma: <span className="font-bold text-[#f26522]">{totalSum.toFixed(2)} PLN</span>)
+                  </p>
                 </div>
                 
                 {/* Column Settings Gear Button & Dropdown Menu */}
@@ -601,7 +669,7 @@ export default function AdminOrdersPage() {
                           { key: "id", label: "ID" },
                           { key: "number", label: "Number" },
                           { key: "startOrder", label: "Start order" },
-                          { key: "placingOrder", label: "Placing an order" },
+                          { key: "placingOrder", label: "Pricing an order" },
                           { key: "serviceTime", label: "Service time" },
                           { key: "status", label: "Status" },
                           { key: "client", label: "Client" },
@@ -610,6 +678,8 @@ export default function AdminOrdersPage() {
                           { key: "local", label: "Local" },
                           { key: "source", label: "Source" },
                           { key: "together", label: "Together" },
+                          { key: "paragon", label: "Paragon" },
+                          { key: "invoice", label: "Invoice" },
                         ].map((col) => {
                           const isChecked = visibleColumns[col.key as keyof typeof visibleColumns];
                           return (
@@ -635,26 +705,28 @@ export default function AdminOrdersPage() {
                 </div>
               </div>
 
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto no-scrollbar">
                 <table className="w-full text-left text-xs text-neutral-300 border-collapse">
                   <thead className="bg-[#0e0e0e] text-neutral-400 uppercase tracking-wider text-[10px] border-b border-white/10">
                     <tr>
-                      {visibleColumns.id && <th className="p-3.5">ID ↑↓</th>}
-                      {visibleColumns.number && <th className="p-3.5 text-center">Number ↑↓</th>}
-                      {visibleColumns.startOrder && <th className="p-3.5">Start order ↓</th>}
-                      {visibleColumns.placingOrder && <th className="p-3.5">Placing an order ↑↓</th>}
-                      {visibleColumns.serviceTime && <th className="p-3.5">Service time</th>}
-                      {visibleColumns.status && <th className="p-3.5">Status ↑↓</th>}
-                      {visibleColumns.client && <th className="p-3.5">Client ↑↓</th>}
-                      {visibleColumns.address && <th className="p-3.5">Delivery address ↑↓</th>}
-                      {visibleColumns.payment && <th className="p-3.5">Payment</th>}
-                      {visibleColumns.local && <th className="p-3.5">Local ↑↓</th>}
-                      {visibleColumns.source && <th className="p-3.5">Source ↑↓</th>}
-                      {visibleColumns.together && <th className="p-3.5 text-right">Together ↑↓</th>}
+                      {visibleColumns.id && <th className="p-3.5 whitespace-nowrap">ID ↑↓</th>}
+                      {visibleColumns.number && <th className="p-3.5 text-center whitespace-nowrap">Number ↑↓</th>}
+                      {visibleColumns.startOrder && <th className="p-3.5 whitespace-nowrap">Start order ↓</th>}
+                      {visibleColumns.placingOrder && <th className="p-3.5 whitespace-nowrap">Pricing an order ↑↓</th>}
+                      {visibleColumns.serviceTime && <th className="p-3.5 whitespace-nowrap">Service time</th>}
+                      {visibleColumns.status && <th className="p-3.5 whitespace-nowrap">Status ↑↓</th>}
+                      {visibleColumns.client && <th className="p-3.5 whitespace-nowrap">Client ↑↓</th>}
+                      {visibleColumns.address && <th className="p-3.5 whitespace-nowrap">Delivery address ↑↓</th>}
+                      {visibleColumns.payment && <th className="p-3.5 whitespace-nowrap">Payment</th>}
+                      {visibleColumns.local && <th className="p-3.5 whitespace-nowrap">Local ↑↓</th>}
+                      {visibleColumns.source && <th className="p-3.5 whitespace-nowrap">Source ↑↓</th>}
+                      {visibleColumns.together && <th className="p-3.5 text-right whitespace-nowrap">Together ↑↓</th>}
+                      {visibleColumns.paragon && <th className="p-3.5 whitespace-nowrap">Paragon ↑↓</th>}
+                      {visibleColumns.invoice && <th className="p-3.5 whitespace-nowrap">Invoice ↑↓</th>}
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-white/5">
-                    {orders.map((order) => (
+                    {filteredOrders.map((order) => (
                       <tr key={order.id} className="hover:bg-white/[0.02] transition-colors">
                         {visibleColumns.id && (
                           <td className="p-3.5">
@@ -709,6 +781,12 @@ export default function AdminOrdersPage() {
                         )}
                         {visibleColumns.together && (
                           <td className="p-3.5 font-bold text-white text-right text-sm">{order.total.toFixed(2)} PLN</td>
+                        )}
+                        {visibleColumns.paragon && (
+                          <td className="p-3.5 text-neutral-300 font-mono text-[11px] whitespace-nowrap">{order.paragon}</td>
+                        )}
+                        {visibleColumns.invoice && (
+                          <td className="p-3.5 text-neutral-300 font-mono text-[11px] whitespace-nowrap">{order.invoice}</td>
                         )}
                       </tr>
                     ))}

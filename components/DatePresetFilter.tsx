@@ -15,13 +15,13 @@ interface DatePresetFilterProps {
 }
 
 const DEFAULT_PRESETS = [
-  "Today",
-  "Yesterday",
-  "this week",
-  "last week",
-  "this month",
-  "previous month",
-  "own compartment",
+  "Dzisiaj",
+  "Wczoraj",
+  "ten tydzień",
+  "ubiegły tydzień",
+  "ten miesiąc",
+  "poprzedni miesiąc",
+  "własny przedział",
 ];
 
 export default function DatePresetFilter({
@@ -45,23 +45,24 @@ export default function DatePresetFilter({
       return `${mm}/${dd}/${yyyy}`;
     };
 
-    if (preset === "Today") {
+    const lower = preset.toLowerCase();
+    if (lower === "dzisiaj" || lower === "today") {
       const formatted = formatDateStr(today);
       onStartDateChange(formatted);
       onEndDateChange(formatted);
-    } else if (preset === "Yesterday") {
+    } else if (lower === "wczoraj" || lower === "yesterday") {
       const yest = new Date(today);
       yest.setDate(yest.getDate() - 1);
       const formatted = formatDateStr(yest);
       onStartDateChange(formatted);
       onEndDateChange(formatted);
-    } else if (preset === "this week") {
+    } else if (lower === "ten tydzień" || lower === "this week") {
       const day = today.getDay();
       const diffToMon = today.getDate() - day + (day === 0 ? -6 : 1);
       const mon = new Date(today.setDate(diffToMon));
       onStartDateChange(formatDateStr(mon));
       onEndDateChange(formatDateStr(new Date()));
-    } else if (preset === "last week") {
+    } else if (lower === "ubiegły tydzień" || lower === "last week") {
       const mon = new Date();
       const day = mon.getDay();
       const diffToMon = mon.getDate() - day + (day === 0 ? -6 : 1) - 7;
@@ -70,11 +71,11 @@ export default function DatePresetFilter({
       sun.setDate(sun.getDate() + 6);
       onStartDateChange(formatDateStr(mon));
       onEndDateChange(formatDateStr(sun));
-    } else if (preset === "this month") {
+    } else if (lower === "ten miesiąc" || lower === "this month") {
       const start = new Date(today.getFullYear(), today.getMonth(), 1);
       onStartDateChange(formatDateStr(start));
       onEndDateChange(formatDateStr(new Date()));
-    } else if (preset === "previous month") {
+    } else if (lower === "poprzedni miesiąc" || lower === "previous month") {
       const start = new Date(today.getFullYear(), today.getMonth() - 1, 1);
       const end = new Date(today.getFullYear(), today.getMonth(), 0);
       onStartDateChange(formatDateStr(start));
@@ -106,13 +107,13 @@ export default function DatePresetFilter({
           <CustomDatePicker
             value={startDate}
             onChange={onStartDateChange}
-            prefixText="From:"
+            prefixText="Od:"
           />
           <span className="text-neutral-500 font-bold">-</span>
           <CustomDatePicker
             value={endDate}
             onChange={onEndDateChange}
-            prefixText="To:"
+            prefixText="Do:"
           />
         </div>
       )}

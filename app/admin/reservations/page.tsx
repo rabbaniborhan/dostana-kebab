@@ -13,7 +13,7 @@ const INITIAL_RESERVATIONS = [
     guests: 4,
     date: "2026-09-05",
     time: "18:30",
-    location: "Krakowskie Przedmieście 8",
+    location: "Dostana Kebab Krakowskie Przedmieście",
     status: "Pending",
     notes: "Prośba o stolik przy oknie"
   },
@@ -24,7 +24,7 @@ const INITIAL_RESERVATIONS = [
     guests: 2,
     date: "2026-09-04",
     time: "19:00",
-    location: "Nadbystrzycka 25",
+    location: "Dostana Kebab Nadbystrzycka",
     status: "Confirmed",
     notes: "Urodziny"
   },
@@ -35,9 +35,42 @@ const INITIAL_RESERVATIONS = [
     guests: 6,
     date: "2026-09-04",
     time: "20:15",
-    location: "Krakowskie Przedmieście 8",
+    location: "Dostana Kebab Lipowa",
     status: "Confirmed",
     notes: "Spotkanie firmowe"
+  },
+  {
+    id: "RES-101",
+    name: "Agata Kowalczyk",
+    phone: "+48 791 633 078",
+    guests: 3,
+    date: "2026-09-06",
+    time: "17:00",
+    location: "Dostana Kebab Wróbla",
+    status: "Confirmed",
+    notes: "Stolik na zewnątrz"
+  },
+  {
+    id: "RES-100",
+    name: "Krzysztof Wójcik",
+    phone: "+48 512 922 942",
+    guests: 5,
+    date: "2026-09-06",
+    time: "19:30",
+    location: "Dostana Kebab Turystyczna",
+    status: "Pending",
+    notes: "Rezerwacja rodzinna"
+  },
+  {
+    id: "RES-099",
+    name: "Joanna Szymańska",
+    phone: "+48 729 202 173",
+    guests: 2,
+    date: "2026-09-07",
+    time: "18:00",
+    location: "Dostana Kebab Sympatyczna",
+    status: "Confirmed",
+    notes: "Kolacja"
   }
 ];
 
@@ -71,7 +104,14 @@ export default function AdminReservationsPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {reservations.map((res) => (
+              {reservations
+                .filter((res) => {
+                  if (!searchQuery || searchQuery.startsWith("Wszystkie")) return true;
+                  const q = searchQuery.toLowerCase();
+                  const loc = res.location.toLowerCase();
+                  return loc.includes(q) || q.includes(loc);
+                })
+                .map((res) => (
                 <div key={res.id} className="bg-[#151515] border border-white/10 rounded-2xl p-5 space-y-4 relative">
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-white text-sm">{res.id}</span>

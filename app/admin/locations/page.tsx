@@ -66,9 +66,11 @@ export default function AdminLocationsPage() {
 
   const filteredLocations = locations.filter(
     (loc) =>
+      !searchQuery ||
+      searchQuery.startsWith("Wszystkie") ||
       loc.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      loc.street.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      loc.city.toLowerCase().includes(searchQuery.toLowerCase())
+      searchQuery.toLowerCase().includes(loc.name.toLowerCase()) ||
+      loc.street.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (

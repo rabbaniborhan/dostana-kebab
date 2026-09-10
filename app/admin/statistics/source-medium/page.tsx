@@ -6,6 +6,8 @@ import AdminHeader from "@/components/AdminHeader";
 import StatsFilterBar from "@/components/StatsFilterBar";
 import { Share2, ExternalLink, ArrowUpRight } from "lucide-react";
 
+import { exportToCSV } from "@/utils/excelExport";
+
 export default function SourceMediumPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activePreset, setActivePreset] = useState("this month");
@@ -27,7 +29,40 @@ export default function SourceMediumPage() {
     { sourceMedium: "copilot.com /", visits: 1, pct: "0.6%" },
   ];
 
-  const totalVisits = sourceMediumData.reduce((acc, item) => acc + item.visits, 0);
+  const VENUE_SOURCE_MEDIUM: Record<string, typeof sourceMediumData> = {
+    "Wszystkie lokale": sourceMediumData,
+    "Dostana Kebab Wróbla": [
+      { sourceMedium: "ig / social", visits: 45, pct: "56.3%" },
+      { sourceMedium: "chatgpt.com /", visits: 18, pct: "22.5%" },
+      { sourceMedium: "fb / paid", visits: 12, pct: "15.0%" },
+      { sourceMedium: "google / organic", visits: 5, pct: "6.2%" },
+    ],
+    "Dostana Kebab Lipowa": [
+      { sourceMedium: "ig / social", visits: 30, pct: "60.0%" },
+      { sourceMedium: "chatgpt.com /", visits: 10, pct: "20.0%" },
+      { sourceMedium: "fb / paid", visits: 8, pct: "16.0%" },
+      { sourceMedium: "google / organic", visits: 2, pct: "4.0%" },
+    ],
+    "Dostana Kebab Krakowskie Przedmieście": [
+      { sourceMedium: "ig / social", visits: 20, pct: "57.1%" },
+      { sourceMedium: "chatgpt.com /", visits: 8, pct: "22.8%" },
+      { sourceMedium: "fb / paid", visits: 5, pct: "14.3%" },
+      { sourceMedium: "google / organic", visits: 2, pct: "5.8%" },
+    ],
+    "Dostana Kebab Sympatyczna": [
+      { sourceMedium: "ig / social", visits: 5, pct: "50.0%" },
+      { sourceMedium: "chatgpt.com /", visits: 3, pct: "30.0%" },
+      { sourceMedium: "fb / paid", visits: 2, pct: "20.0%" },
+    ],
+    "Dostana Kebab Nadbystrzycka": [
+      { sourceMedium: "ig / social", visits: 2, pct: "66.7%" },
+      { sourceMedium: "chatgpt.com /", visits: 1, pct: "33.3%" },
+    ],
+    "Dostana Kebab Turystyczna": []
+  };
+
+  const currentSourceMediumData = VENUE_SOURCE_MEDIUM[selectedVenue] || VENUE_SOURCE_MEDIUM["Wszystkie lokale"];
+  const totalVisits = currentSourceMediumData.reduce((acc, item) => acc + item.visits, 0);
 
   return (
     <div className="h-screen overflow-hidden bg-[#0e0e0e] text-white flex font-lato">
@@ -37,6 +72,8 @@ export default function SourceMediumPage() {
         <AdminHeader
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
+          selectedVenue={selectedVenue}
+          setSelectedVenue={setSelectedVenue}
           activeTab="statistics"
           onRefresh={() => {}}
         />
@@ -45,13 +82,13 @@ export default function SourceMediumPage() {
           {/* Header Title */}
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-white tracking-tight">Odwiedziny ze źródła/medium (Source / Medium)</h1>
+              <h1 className="text-2xl font-bold text-white tracking-tight">Odwiedziny ze źródła / medium</h1>
               <p className="text-xs text-neutral-400 mt-0.5 font-semibold text-[#f26522]">Dostana Kebab</p>
             </div>
 
             <button className="flex items-center gap-1.5 px-3 py-1.5 bg-[#141414] hover:bg-[#1a1a1a] border border-white/10 rounded-lg text-xs font-semibold text-neutral-300 transition-colors">
               <ExternalLink className="w-3.5 h-3.5 text-[#f26522]" />
-              <span>Oceń raport (Rate report)</span>
+              <span>Oceń raport</span>
             </button>
           </div>
 
@@ -67,6 +104,7 @@ export default function SourceMediumPage() {
             onToggleFilters={() => setShowFilters(!showFilters)}
             selectedVenue={selectedVenue}
             onVenueChange={setSelectedVenue}
+            onExportCSV={() => exportToCSV(currentSourceMediumData, "Zrodlo_Medium_Raport.csv")}
           />
 
           {/* Table Card */}
@@ -85,12 +123,12 @@ export default function SourceMediumPage() {
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
                   <tr className="bg-[#0e0e0e] border-b border-white/10 text-neutral-400 text-[11px]">
-                    <th className="py-3 px-6 font-bold text-neutral-300">Źródło / medium (Source / Medium)</th>
-                    <th className="py-3 px-6 font-bold text-right text-neutral-300">Liczba odwiedzin (Visits)</th>
+                    <th className="py-3 px-6 font-bold text-neutral-300">Źródło / medium</th>
+                    <th className="py-3 px-6 font-bold text-right text-neutral-300">Liczba odwiedzin</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5 text-neutral-200">
-                  {sourceMediumData.map((row, idx) => (
+                  {currentSourceMediumData.map((row, idx) => (
                     <tr key={idx} className="hover:bg-white/5 transition-colors">
                       <td className="py-3 px-6 font-medium text-white flex items-center gap-2">
                         <span className="text-neutral-400 font-mono text-[11px] w-5 text-right">{idx + 1}.</span>

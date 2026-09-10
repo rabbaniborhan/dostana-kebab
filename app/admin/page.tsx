@@ -44,12 +44,12 @@ const INITIAL_ORDERS = [
     customer: "Aneta Dziadosz",
     phone: "+48665768205",
     address: "20-283 Lublin, Zygmunta Augusta 39, m. 40",
-    location: "Dostana Kebab Krakowskie",
+    location: "Dostana Kebab Krakowskie Przedmieście",
     items: [
       { name: "Kebab Rollo Wołowina (Duży)", qty: 2, price: 32 },
       { name: "Frytki Belgijskie", qty: 1, price: 14 }
     ],
-    total: 76.99,
+    total: 78.00,
     status: "Delivered",
     statusText: "✓ 19:26 (19 minut)",
     payment: "Płatność online",
@@ -65,12 +65,12 @@ const INITIAL_ORDERS = [
     customer: "Jarosław Majek",
     phone: "+48505284867",
     address: "20-356 Lublin, Krańcowa 76B, lok 52",
-    location: "Dostana Kebab Krakowskie",
+    location: "Dostana Kebab Lipowa",
     items: [
       { name: "Dostana Box Specjalny", qty: 2, price: 38 },
       { name: "Sosy Dodatkowe", qty: 2, price: 5 }
     ],
-    total: 97.40,
+    total: 86.00,
     status: "Cancelled",
     statusText: "✕ Odrzucono: Przekroczono czas realizowania",
     payment: "Karta przy odbiorze",
@@ -91,7 +91,7 @@ const INITIAL_ORDERS = [
       { name: "Kebab Talerz Kurczak", qty: 1, price: 35 },
       { name: "Ayran Klasyczny", qty: 2, price: 7 }
     ],
-    total: 65.99,
+    total: 49.00,
     status: "Delivered",
     statusText: "✓ 18:44 (9 minut)",
     payment: "Płatność online",
@@ -107,7 +107,7 @@ const INITIAL_ORDERS = [
     customer: "Katarzyna Wójcik",
     phone: "+48602987654",
     address: "Odbiór osobisty w lokalu",
-    location: "Dostana Kebab Głuska",
+    location: "Dostana Kebab Sympatyczna",
     items: [
       { name: "Vege Falafel Rollo", qty: 2, price: 28 }
     ],
@@ -117,6 +117,47 @@ const INITIAL_ORDERS = [
     payment: "Gotówka w lokalu",
     source: "Strona WWW",
     type: "Odbiór osobisty"
+  },
+  {
+    id: "54210983",
+    orderNumber: 4,
+    startOrder: "03.09.2026 17:50",
+    placingOrder: "03.09.2026 17:50",
+    serviceTime: "12s",
+    customer: "Paweł Kamiński",
+    phone: "+48791633078",
+    address: "20-719 Lublin, Wróbla 66",
+    location: "Dostana Kebab Wróbla",
+    items: [
+      { name: "Kebab Rollo Gigant Wołowina", qty: 1, price: 42 },
+      { name: "Pepsi 0.5L", qty: 1, price: 8 }
+    ],
+    total: 50.00,
+    status: "Delivered",
+    statusText: "✓ 18:05 (15 minut)",
+    payment: "Płatność online",
+    source: "Aplikacja iOS",
+    type: "Dostawa"
+  },
+  {
+    id: "31098472",
+    orderNumber: 5,
+    startOrder: "03.09.2026 17:30",
+    placingOrder: "03.09.2026 17:30",
+    serviceTime: "19s",
+    customer: "Ewa Lewandowska",
+    phone: "+48512922942",
+    address: "20-207 Lublin, Turystyczna 9b",
+    location: "Dostana Kebab Turystyczna",
+    items: [
+      { name: "Kebab Box Serowy", qty: 2, price: 34 }
+    ],
+    total: 68.00,
+    status: "Delivered",
+    statusText: "✓ 17:48 (18 minut)",
+    payment: "Gotówka przy odbiorze",
+    source: "Aplikacja Android",
+    type: "Dostawa"
   }
 ];
 
@@ -129,7 +170,7 @@ const INITIAL_RESERVATIONS = [
     guests: 4,
     date: "2026-09-05",
     time: "18:30",
-    location: "Krakowskie Przedmieście 8",
+    location: "Dostana Kebab Krakowskie Przedmieście",
     status: "Pending",
     notes: "Prośba o stolik przy oknie"
   },
@@ -140,7 +181,7 @@ const INITIAL_RESERVATIONS = [
     guests: 2,
     date: "2026-09-04",
     time: "19:00",
-    location: "Nadbystrzycka 25",
+    location: "Dostana Kebab Nadbystrzycka",
     status: "Confirmed",
     notes: "Urodziny"
   },
@@ -151,9 +192,42 @@ const INITIAL_RESERVATIONS = [
     guests: 6,
     date: "2026-09-04",
     time: "20:15",
-    location: "Krakowskie Przedmieście 8",
+    location: "Dostana Kebab Lipowa",
     status: "Confirmed",
     notes: "Spotkanie firmowe"
+  },
+  {
+    id: "RES-101",
+    name: "Agata Kowalczyk",
+    phone: "+48 791 633 078",
+    guests: 3,
+    date: "2026-09-06",
+    time: "17:00",
+    location: "Dostana Kebab Wróbla",
+    status: "Confirmed",
+    notes: "Stolik na zewnątrz"
+  },
+  {
+    id: "RES-100",
+    name: "Krzysztof Wójcik",
+    phone: "+48 512 922 942",
+    guests: 5,
+    date: "2026-09-06",
+    time: "19:30",
+    location: "Dostana Kebab Turystyczna",
+    status: "Pending",
+    notes: "Rezerwacja rodzinna"
+  },
+  {
+    id: "RES-099",
+    name: "Joanna Szymańska",
+    phone: "+48 729 202 173",
+    guests: 2,
+    date: "2026-09-07",
+    time: "18:00",
+    location: "Dostana Kebab Sympatyczna",
+    status: "Confirmed",
+    notes: "Kolacja"
   }
 ];
 
@@ -593,7 +667,15 @@ export default function AdminDashboardPage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-white/5">
-                    {orders.slice(0, 5).map((order) => (
+                    {orders
+                      .filter((o) => {
+                        if (!searchQuery || searchQuery.startsWith("Wszystkie")) return true;
+                        const q = searchQuery.toLowerCase();
+                        const loc = o.location.toLowerCase();
+                        return loc.includes(q) || q.includes(loc);
+                      })
+                      .slice(0, 5)
+                      .map((order) => (
                       <tr key={order.id} className="hover:bg-white/[0.02] transition-colors">
                         <td className="p-3.5 font-bold text-white font-mono">#{order.id}</td>
                         <td className="p-3.5">

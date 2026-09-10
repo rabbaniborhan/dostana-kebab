@@ -6,6 +6,8 @@ import AdminHeader from "@/components/AdminHeader";
 import StatsFilterBar from "@/components/StatsFilterBar";
 import { Globe, ExternalLink, ArrowUpRight } from "lucide-react";
 
+import { exportToCSV } from "@/utils/excelExport";
+
 export default function ReferringSitePage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activePreset, setActivePreset] = useState("this month");
@@ -33,7 +35,41 @@ export default function ReferringSitePage() {
     { site: "com.google.android.googlequicksearchbox", visits: 13, pct: "<0.1%" },
   ];
 
-  const totalVisits = referralData.reduce((acc, item) => acc + item.visits, 0);
+  const VENUE_REFERRALS: Record<string, typeof referralData> = {
+    "Wszystkie lokale": referralData,
+    "Dostana Kebab Wróbla": [
+      { site: "www.google.com", visits: 5210, pct: "72.5%" },
+      { site: "www.dostanakebab.com", visits: 850, pct: "11.8%" },
+      { site: "m.facebook.com", visits: 180, pct: "2.5%" },
+      { site: "www.google.pl", visits: 140, pct: "1.9%" },
+      { site: "l.instagram.com", visits: 95, pct: "1.3%" },
+    ],
+    "Dostana Kebab Lipowa": [
+      { site: "www.google.com", visits: 4120, pct: "74.1%" },
+      { site: "www.dostanakebab.com", visits: 620, pct: "11.1%" },
+      { site: "www.google.pl", visits: 110, pct: "2.0%" },
+      { site: "l.facebook.com", visits: 90, pct: "1.6%" },
+    ],
+    "Dostana Kebab Krakowskie Przedmieście": [
+      { site: "www.google.com", visits: 6890, pct: "78.2%" },
+      { site: "www.dostanakebab.com", visits: 980, pct: "11.1%" },
+      { site: "m.facebook.com", visits: 150, pct: "1.7%" },
+      { site: "www.bing.com", visits: 85, pct: "1.0%" },
+    ],
+    "Dostana Kebab Sympatyczna": [
+      { site: "www.google.com", visits: 2310, pct: "70.5%" },
+      { site: "www.dostanakebab.com", visits: 340, pct: "10.4%" },
+      { site: "l.facebook.com", visits: 70, pct: "2.1%" },
+    ],
+    "Dostana Kebab Nadbystrzycka": [
+      { site: "www.google.com", visits: 1840, pct: "76.0%" },
+      { site: "www.dostanakebab.com", visits: 260, pct: "10.7%" },
+    ],
+    "Dostana Kebab Turystyczna": []
+  };
+
+  const currentReferralData = VENUE_REFERRALS[selectedVenue] || VENUE_REFERRALS["Wszystkie lokale"];
+  const totalVisits = currentReferralData.reduce((acc, item) => acc + item.visits, 0);
 
   return (
     <div className="h-screen overflow-hidden bg-[#0e0e0e] text-white flex font-lato">
@@ -43,6 +79,8 @@ export default function ReferringSitePage() {
         <AdminHeader
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
+          selectedVenue={selectedVenue}
+          setSelectedVenue={setSelectedVenue}
           activeTab="statistics"
           onRefresh={() => {}}
         />
@@ -51,13 +89,13 @@ export default function ReferringSitePage() {
           {/* Header Title */}
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-white tracking-tight">Witryny odsyłające (Referring sites)</h1>
+              <h1 className="text-2xl font-bold text-white tracking-tight">Witryny odsyłające</h1>
               <p className="text-xs text-neutral-400 mt-0.5 font-semibold text-[#f26522]">Dostana Kebab</p>
             </div>
 
             <button className="flex items-center gap-1.5 px-3 py-1.5 bg-[#141414] hover:bg-[#1a1a1a] border border-white/10 rounded-lg text-xs font-semibold text-neutral-300 transition-colors">
               <ExternalLink className="w-3.5 h-3.5 text-[#f26522]" />
-              <span>Oceń raport (Rate report)</span>
+              <span>Oceń raport</span>
             </button>
           </div>
 
@@ -73,6 +111,7 @@ export default function ReferringSitePage() {
             onToggleFilters={() => setShowFilters(!showFilters)}
             selectedVenue={selectedVenue}
             onVenueChange={setSelectedVenue}
+            onExportCSV={() => exportToCSV(currentReferralData, "Witryny_Odsylajace_Raport.csv")}
           />
 
           {/* Table Card */}
@@ -91,12 +130,12 @@ export default function ReferringSitePage() {
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
                   <tr className="bg-[#0e0e0e] border-b border-white/10 text-neutral-400 text-[11px]">
-                    <th className="py-3 px-6 font-bold text-neutral-300">Witryna (Referring site)</th>
-                    <th className="py-3 px-6 font-bold text-right text-neutral-300">Liczba odwiedzin (Visits)</th>
+                    <th className="py-3 px-6 font-bold text-neutral-300">Witryna</th>
+                    <th className="py-3 px-6 font-bold text-right text-neutral-300">Liczba odwiedzin</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5 text-neutral-200">
-                  {referralData.map((row, idx) => (
+                  {currentReferralData.map((row, idx) => (
                     <tr key={idx} className="hover:bg-white/5 transition-colors">
                       <td className="py-3 px-6 font-medium text-white flex items-center gap-2">
                         <span className="text-neutral-400 font-mono text-[11px] w-5 text-right">{idx + 1}.</span>
