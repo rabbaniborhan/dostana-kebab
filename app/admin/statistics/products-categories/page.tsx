@@ -56,10 +56,10 @@ export default function ProductsCategoriesPage() {
   const donutRevenueData = currentDataset.donutRevenueData;
 
   return (
-    <div className="h-screen overflow-hidden bg-[#0e0e0e] text-white flex font-lato">
+    <div className="min-h-screen bg-[#0e0e0e] text-white flex font-lato">
       <AdminSidebar pendingOrdersCount={1} pendingReservationsCount={1} />
 
-      <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
+      <div className="flex-1 flex flex-col min-w-0">
         <AdminHeader
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
@@ -69,7 +69,7 @@ export default function ProductsCategoriesPage() {
           onRefresh={() => {}}
         />
 
-        <main className="p-6 sm:p-8 space-y-6 flex-1 overflow-y-auto bg-[#0e0e0e] text-neutral-200">
+        <main className="p-4 sm:p-6 lg:p-8 space-y-6 flex-1 overflow-y-auto bg-[#0e0e0e] text-neutral-200">
           <AdminPageHeader
             title="Produkty i kategorie"
             actionText="Oceń raport"
@@ -210,34 +210,34 @@ export default function ProductsCategoriesPage() {
             </div>
 
             <div className="overflow-x-auto overflow-y-auto max-h-[380px] no-scrollbar">
-              <table className="w-full text-left border-collapse text-xs">
+              <table className="w-full text-left border-collapse text-[11px] sm:text-xs">
                 <thead className="sticky top-0 z-10 bg-[#0e0e0e]">
-                  <tr className="bg-[#0e0e0e] border-b border-white/10 text-neutral-400 text-[11px]">
-                    {visibleColumns.category && <th className="py-3 px-4 font-semibold text-neutral-300">Kategoria ↑</th>}
-                    {visibleColumns.numberSold && <th className="py-3 px-4 font-semibold text-neutral-300 text-right">Liczba sprzedanych ↑↓</th>}
-                    {visibleColumns.shareUnitsSold && <th className="py-3 px-4 font-semibold text-neutral-300 text-right">Udział w liczbie sprzedanych jednostek ↑↓</th>}
-                    {visibleColumns.income && <th className="py-3 px-4 font-semibold text-neutral-300 text-right">Przychód ↑↓</th>}
-                    {visibleColumns.revenueShare && <th className="py-3 px-4 font-semibold text-neutral-300 text-right">Udział w przychodzie ↑↓</th>}
+                  <tr className="bg-[#0e0e0e] border-b border-white/10 text-neutral-400 text-[10px] sm:text-[11px]">
+                    {visibleColumns.category && <th className="py-2.5 px-2.5 sm:px-4 font-semibold text-neutral-300 whitespace-nowrap">Kategoria ↑</th>}
+                    {visibleColumns.numberSold && <th className="py-2.5 px-2.5 sm:px-4 font-semibold text-neutral-300 text-right whitespace-nowrap">Liczba sprzedanych ↑↓</th>}
+                    {visibleColumns.shareUnitsSold && <th className="py-2.5 px-2.5 sm:px-4 font-semibold text-neutral-300 text-right whitespace-nowrap">Udział w liczbie sprzedanych jednostek ↑↓</th>}
+                    {visibleColumns.income && <th className="py-2.5 px-2.5 sm:px-4 font-semibold text-neutral-300 text-right whitespace-nowrap">Przychód ↑↓</th>}
+                    {visibleColumns.revenueShare && <th className="py-2.5 px-2.5 sm:px-4 font-semibold text-neutral-300 text-right whitespace-nowrap">Udział w przychodzie ↑↓</th>}
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5 text-neutral-300 font-sans">
                   {/* Total Row */}
                   <tr className="bg-white/5 font-bold text-white border-b border-white/10 sticky top-[37px] z-10">
-                    {visibleColumns.category && <td className="py-3.5 px-4 text-white font-bold bg-[#141414]">Wszystkie kategorie</td>}
-                    {visibleColumns.numberSold && <td className="py-3.5 px-4 text-right font-bold text-white bg-[#141414]">59</td>}
-                    {visibleColumns.shareUnitsSold && <td className="py-3.5 px-4 text-right font-bold text-white bg-[#141414]">100%</td>}
-                    {visibleColumns.income && <td className="py-3.5 px-4 text-right font-bold text-[#f26522] bg-[#141414]">1,459.00 PLN</td>}
-                    {visibleColumns.revenueShare && <td className="py-3.5 px-4 text-right font-bold text-white bg-[#141414]">100%</td>}
+                    {visibleColumns.category && <td className="py-2.5 px-2.5 sm:px-4 text-white font-bold bg-[#141414] whitespace-nowrap">Wszystkie kategorie</td>}
+                    {visibleColumns.numberSold && <td className="py-2.5 px-2.5 sm:px-4 text-right font-bold text-white bg-[#141414] whitespace-nowrap">59</td>}
+                    {visibleColumns.shareUnitsSold && <td className="py-2.5 px-2.5 sm:px-4 text-right font-bold text-white bg-[#141414] whitespace-nowrap">100%</td>}
+                    {visibleColumns.income && <td className="py-2.5 px-2.5 sm:px-4 text-right font-bold text-[#f26522] bg-[#141414] whitespace-nowrap">1,459.00 PLN</td>}
+                    {visibleColumns.revenueShare && <td className="py-2.5 px-2.5 sm:px-4 text-right font-bold text-white bg-[#141414] whitespace-nowrap">100%</td>}
                   </tr>
 
                   {/* Category Data Rows matching current dataset */}
                   {currentDataset.categories.map((row) => (
                     <tr key={row.id} className="hover:bg-white/[0.03] transition-colors border-b border-white/5">
-                      {visibleColumns.category && <td className="py-3 px-4 text-neutral-200 font-medium">{row.category}</td>}
-                      {visibleColumns.numberSold && <td className="py-3 px-4 text-right text-neutral-300 font-mono">{row.sold}</td>}
-                      {visibleColumns.shareUnitsSold && <td className="py-3 px-4 text-right text-neutral-300 font-mono">{row.shareUnits}</td>}
-                      {visibleColumns.income && <td className="py-3 px-4 text-right text-neutral-200 font-mono font-medium">{row.income}</td>}
-                      {visibleColumns.revenueShare && <td className="py-3 px-4 text-right text-neutral-300 font-mono">{row.revenueShare}</td>}
+                      {visibleColumns.category && <td className="py-2 px-2.5 sm:px-4 text-neutral-200 font-medium whitespace-nowrap">{row.category}</td>}
+                      {visibleColumns.numberSold && <td className="py-2 px-2.5 sm:px-4 text-right text-neutral-300 font-mono whitespace-nowrap">{row.sold}</td>}
+                      {visibleColumns.shareUnitsSold && <td className="py-2 px-2.5 sm:px-4 text-right text-neutral-300 font-mono whitespace-nowrap">{row.shareUnits}</td>}
+                      {visibleColumns.income && <td className="py-2 px-2.5 sm:px-4 text-right text-neutral-200 font-mono font-medium whitespace-nowrap">{row.income}</td>}
+                      {visibleColumns.revenueShare && <td className="py-2 px-2.5 sm:px-4 text-right text-neutral-300 font-mono whitespace-nowrap">{row.revenueShare}</td>}
                     </tr>
                   ))}
                 </tbody>
@@ -290,40 +290,40 @@ export default function ProductsCategoriesPage() {
             </div>
 
             <div className="overflow-x-auto overflow-y-auto max-h-[380px] no-scrollbar">
-              <table className="w-full text-left border-collapse text-xs">
+              <table className="w-full text-left border-collapse text-[11px] sm:text-xs">
                 <thead className="sticky top-0 z-10 bg-[#0e0e0e]">
-                  <tr className="bg-[#0e0e0e] border-b border-white/10 text-neutral-400 text-[11px]">
-                    <th className="py-3 px-4 font-semibold text-neutral-300">Produkt ↑</th>
-                    {!isSummarySummaryToggle && <th className="py-3 px-4 font-semibold text-neutral-300">Kategoria ↑</th>}
-                    {!isSummarySummaryToggle && <th className="py-3 px-4 font-semibold text-neutral-300">Parametr ↑</th>}
-                    <th className="py-3 px-4 font-semibold text-neutral-300 text-right">Liczba sprzedanych ↑</th>
-                    <th className="py-3 px-4 font-semibold text-neutral-300 text-right">Udział w liczbie sprzedanych ↑</th>
-                    <th className="py-3 px-4 font-semibold text-neutral-300 text-right">Udział w przychodzie ↑</th>
-                    <th className="py-3 px-4 font-semibold text-neutral-300 text-right">Przychód (zł) ↑</th>
+                  <tr className="bg-[#0e0e0e] border-b border-white/10 text-neutral-400 text-[10px] sm:text-[11px]">
+                    <th className="py-2.5 px-2.5 sm:px-4 font-semibold text-neutral-300 whitespace-nowrap">Produkt ↑</th>
+                    {!isSummarySummaryToggle && <th className="py-2.5 px-2.5 sm:px-4 font-semibold text-neutral-300 whitespace-nowrap">Kategoria ↑</th>}
+                    {!isSummarySummaryToggle && <th className="py-2.5 px-2.5 sm:px-4 font-semibold text-neutral-300 whitespace-nowrap">Parametr ↑</th>}
+                    <th className="py-2.5 px-2.5 sm:px-4 font-semibold text-neutral-300 text-right whitespace-nowrap">Liczba sprzedanych ↑</th>
+                    <th className="py-2.5 px-2.5 sm:px-4 font-semibold text-neutral-300 text-right whitespace-nowrap">Udział w liczbie sprzedanych ↑</th>
+                    <th className="py-2.5 px-2.5 sm:px-4 font-semibold text-neutral-300 text-right whitespace-nowrap">Udział w przychodzie ↑</th>
+                    <th className="py-2.5 px-2.5 sm:px-4 font-semibold text-neutral-300 text-right whitespace-nowrap">Przychód (zł) ↑</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5 text-neutral-300 font-sans">
                   {/* Total Row */}
                   <tr className="bg-white/5 font-bold text-white border-b border-white/10 sticky top-[37px] z-10">
-                    <td className="py-3.5 px-4 text-white font-bold bg-[#141414]">Wszystkie produkty</td>
-                    {!isSummarySummaryToggle && <td className="py-3.5 px-4 text-neutral-400 bg-[#141414]">wszystkie</td>}
-                    {!isSummarySummaryToggle && <td className="py-3.5 px-4 text-neutral-500 bg-[#141414]">-</td>}
-                    <td className="py-3.5 px-4 text-right font-bold text-white bg-[#141414]">{currentDataset.soldQty}</td>
-                    <td className="py-3.5 px-4 text-right font-bold text-white bg-[#141414]">100%</td>
-                    <td className="py-3.5 px-4 text-right font-bold text-white bg-[#141414]">100%</td>
-                    <td className="py-3.5 px-4 text-right font-bold text-[#f26522] bg-[#141414]">{currentDataset.revenue} PLN</td>
+                    <td className="py-2.5 px-2.5 sm:px-4 text-white font-bold bg-[#141414] whitespace-nowrap">Wszystkie produkty</td>
+                    {!isSummarySummaryToggle && <td className="py-2.5 px-2.5 sm:px-4 text-neutral-400 bg-[#141414] whitespace-nowrap">wszystkie</td>}
+                    {!isSummarySummaryToggle && <td className="py-2.5 px-2.5 sm:px-4 text-neutral-500 bg-[#141414] whitespace-nowrap">-</td>}
+                    <td className="py-2.5 px-2.5 sm:px-4 text-right font-bold text-white bg-[#141414] whitespace-nowrap">{currentDataset.soldQty}</td>
+                    <td className="py-2.5 px-2.5 sm:px-4 text-right font-bold text-white bg-[#141414] whitespace-nowrap">100%</td>
+                    <td className="py-2.5 px-2.5 sm:px-4 text-right font-bold text-white bg-[#141414] whitespace-nowrap">100%</td>
+                    <td className="py-2.5 px-2.5 sm:px-4 text-right font-bold text-[#f26522] bg-[#141414] whitespace-nowrap">{currentDataset.revenue} PLN</td>
                   </tr>
 
                   {/* Product Sales Rows */}
                   {currentDataset.products.map((row) => (
                     <tr key={row.id} className="hover:bg-white/[0.03] transition-colors border-b border-white/5">
-                      <td className="py-3 px-4 text-neutral-200 font-medium">{row.product}</td>
-                      {!isSummarySummaryToggle && <td className="py-3 px-4 text-neutral-400">{row.category}</td>}
-                      {!isSummarySummaryToggle && <td className="py-3 px-4 text-neutral-500">{row.parameter || "-"}</td>}
-                      <td className="py-3 px-4 text-right text-neutral-300 font-mono">{row.sold}</td>
-                      <td className="py-3 px-4 text-right text-neutral-300 font-mono">{row.shareSold}</td>
-                      <td className="py-3 px-4 text-right text-neutral-300 font-mono">{row.revenueShare}</td>
-                      <td className="py-3 px-4 text-right text-neutral-200 font-mono font-medium">{row.revenue}</td>
+                      <td className="py-2 px-2.5 sm:px-4 text-neutral-200 font-medium whitespace-nowrap">{row.product}</td>
+                      {!isSummarySummaryToggle && <td className="py-2 px-2.5 sm:px-4 text-neutral-400 whitespace-nowrap">{row.category}</td>}
+                      {!isSummarySummaryToggle && <td className="py-2 px-2.5 sm:px-4 text-neutral-500 whitespace-nowrap">{row.parameter || "-"}</td>}
+                      <td className="py-2 px-2.5 sm:px-4 text-right text-neutral-300 font-mono whitespace-nowrap">{row.sold}</td>
+                      <td className="py-2 px-2.5 sm:px-4 text-right text-neutral-300 font-mono whitespace-nowrap">{row.shareSold}</td>
+                      <td className="py-2 px-2.5 sm:px-4 text-right text-neutral-300 font-mono whitespace-nowrap">{row.revenueShare}</td>
+                      <td className="py-2 px-2.5 sm:px-4 text-right text-neutral-200 font-mono font-medium whitespace-nowrap">{row.revenue}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -356,34 +356,34 @@ export default function ProductsCategoriesPage() {
             </div>
 
             <div className="overflow-x-auto overflow-y-auto max-h-[380px] no-scrollbar">
-              <table className="w-full text-left border-collapse text-xs">
+              <table className="w-full text-left border-collapse text-[11px] sm:text-xs">
                 <thead className="sticky top-0 z-10 bg-[#0e0e0e]">
-                  <tr className="bg-[#0e0e0e] border-b border-white/10 text-neutral-400 text-[11px]">
-                    <th className="py-3 px-4 font-semibold text-neutral-300">Produkt ↑</th>
-                    <th className="py-3 px-4 font-semibold text-neutral-300 text-right">Liczba sprzedanych ↑↓</th>
-                    <th className="py-3 px-4 font-semibold text-neutral-300 text-right">Udział ↑↓</th>
-                    <th className="py-3 px-4 font-semibold text-neutral-300 text-right">Przychód (zł) ↑↓</th>
-                    <th className="py-3 px-4 font-semibold text-neutral-300 text-right">Udział w przychodzie ↑↓</th>
+                  <tr className="bg-[#0e0e0e] border-b border-white/10 text-neutral-400 text-[10px] sm:text-[11px]">
+                    <th className="py-2.5 px-2.5 sm:px-4 font-semibold text-neutral-300 whitespace-nowrap">Produkt ↑</th>
+                    <th className="py-2.5 px-2.5 sm:px-4 font-semibold text-neutral-300 text-right whitespace-nowrap">Liczba sprzedanych ↑↓</th>
+                    <th className="py-2.5 px-2.5 sm:px-4 font-semibold text-neutral-300 text-right whitespace-nowrap">Udział ↑↓</th>
+                    <th className="py-2.5 px-2.5 sm:px-4 font-semibold text-neutral-300 text-right whitespace-nowrap">Przychód (zł) ↑↓</th>
+                    <th className="py-2.5 px-2.5 sm:px-4 font-semibold text-neutral-300 text-right whitespace-nowrap">Udział w przychodzie ↑↓</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5 text-neutral-300 font-sans">
                   {/* Total Row */}
                   <tr className="bg-white/5 font-bold text-white border-b border-white/10 sticky top-[37px] z-10">
-                    <td className="py-3.5 px-4 text-white font-bold bg-[#141414]">Wszystkie</td>
-                    <td className="py-3.5 px-4 text-right font-bold text-white bg-[#141414]">108</td>
-                    <td className="py-3.5 px-4 text-right font-bold text-white bg-[#141414]">100%</td>
-                    <td className="py-3.5 px-4 text-right font-bold text-[#f26522] bg-[#141414]">79.00 PLN</td>
-                    <td className="py-3.5 px-4 text-right font-bold text-white bg-[#141414]">100%</td>
+                    <td className="py-2.5 px-2.5 sm:px-4 text-white font-bold bg-[#141414] whitespace-nowrap">Wszystkie</td>
+                    <td className="py-2.5 px-2.5 sm:px-4 text-right font-bold text-white bg-[#141414] whitespace-nowrap">108</td>
+                    <td className="py-2.5 px-2.5 sm:px-4 text-right font-bold text-white bg-[#141414] whitespace-nowrap">100%</td>
+                    <td className="py-2.5 px-2.5 sm:px-4 text-right font-bold text-[#f26522] bg-[#141414] whitespace-nowrap">79.00 PLN</td>
+                    <td className="py-2.5 px-2.5 sm:px-4 text-right font-bold text-white bg-[#141414] whitespace-nowrap">100%</td>
                   </tr>
 
                   {/* Extras Rows */}
                   {extrasSummaryRows.map((row) => (
                     <tr key={row.id} className="hover:bg-white/[0.03] transition-colors border-b border-white/5">
-                      <td className="py-3 px-4 text-neutral-200 font-medium">{row.product}</td>
-                      <td className="py-3 px-4 text-right text-neutral-300 font-mono">{row.sold}</td>
-                      <td className="py-3 px-4 text-right text-neutral-300 font-mono">{row.participation}</td>
-                      <td className="py-3 px-4 text-right text-neutral-200 font-mono font-medium">{row.revenue}</td>
-                      <td className="py-3 px-4 text-right text-neutral-300 font-mono">{row.revenueShare}</td>
+                      <td className="py-2 px-2.5 sm:px-4 text-neutral-200 font-medium whitespace-nowrap">{row.product}</td>
+                      <td className="py-2 px-2.5 sm:px-4 text-right text-neutral-300 font-mono whitespace-nowrap">{row.sold}</td>
+                      <td className="py-2 px-2.5 sm:px-4 text-right text-neutral-300 font-mono whitespace-nowrap">{row.participation}</td>
+                      <td className="py-2 px-2.5 sm:px-4 text-right text-neutral-200 font-mono font-medium whitespace-nowrap">{row.revenue}</td>
+                      <td className="py-2 px-2.5 sm:px-4 text-right text-neutral-300 font-mono whitespace-nowrap">{row.revenueShare}</td>
                     </tr>
                   ))}
                 </tbody>

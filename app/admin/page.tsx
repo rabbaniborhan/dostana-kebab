@@ -397,13 +397,13 @@ export default function AdminDashboardPage() {
         <main className="p-4 sm:p-6 lg:p-8 space-y-8 flex-1 overflow-y-auto bg-[#0e0e0e]">
           <div className="space-y-8 animate-fadeIn">
             {/* Top Welcome Banner & Quick Action Buttons */}
-            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 bg-[#141414] border border-white/10 p-6 rounded-3xl shadow-xl relative overflow-hidden">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 bg-[#141414] border border-white/10 p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-[#f26522]/10 rounded-full blur-3xl pointer-events-none" />
               <div>
-                <span className="text-xs font-bold text-[#f26522] uppercase tracking-wider flex items-center gap-1.5">
+                <span className="text-[11px] sm:text-xs font-bold text-[#f26522] uppercase tracking-wider flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5" /> Dostana Kebab Dashboard Overview
                 </span>
-                <h1 className="font-judson font-bold text-3xl text-white mt-1">
+                <h1 className="font-judson font-bold text-2xl sm:text-3xl text-white mt-1">
                   Witaj z powrotem, Menedżerze! 👋
                 </h1>
                 <p className="text-xs text-neutral-400 mt-1 max-w-xl">
@@ -487,35 +487,37 @@ export default function AdminDashboardPage() {
                 </div>
 
                 {/* Visual Bar Chart */}
-                <div className="h-52 flex items-end justify-between gap-2 pt-6 px-2 border-b border-white/10 pb-2">
-                  {[
-                    { hour: "11:00", val: 35, pln: "1,575 zł" },
-                    { hour: "12:00", val: 65, pln: "2,925 zł" },
-                    { hour: "13:00", val: 95, pln: "4,275 zł" },
-                    { hour: "14:00", val: 80, pln: "3,600 zł" },
-                    { hour: "15:00", val: 50, pln: "2,250 zł" },
-                    { hour: "16:00", val: 40, pln: "1,800 zł" },
-                    { hour: "17:00", val: 75, pln: "3,375 zł" },
-                    { hour: "18:00", val: 100, pln: "4,820 zł" },
-                    { hour: "19:00", val: 90, pln: "4,050 zł" },
-                    { hour: "20:00", val: 60, pln: "2,700 zł" },
-                    { hour: "21:00", val: 30, pln: "1,350 zł" },
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex-1 flex flex-col items-center gap-2 group h-full justify-end">
-                      <div
-                        style={{ height: `${item.val}%` }}
-                        className="w-full max-w-[28px] bg-gradient-to-t from-[#d9531e] to-[#f26522] rounded-t-lg group-hover:brightness-125 transition-all relative cursor-pointer"
-                      >
-                        <div className="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-[#1a1a1a] text-white text-[10px] py-1 px-2 rounded-lg border border-[#f26522]/40 shadow-xl whitespace-nowrap pointer-events-none transition-opacity font-bold">
-                          {item.pln}
+                <div className="overflow-x-auto no-scrollbar pb-2">
+                  <div className="h-52 min-w-[500px] flex items-end justify-between gap-2 pt-6 px-2 border-b border-white/10 pb-2">
+                    {[
+                      { hour: "11:00", val: 35, pln: "1,575 zł" },
+                      { hour: "12:00", val: 65, pln: "2,925 zł" },
+                      { hour: "13:00", val: 95, pln: "4,275 zł" },
+                      { hour: "14:00", val: 80, pln: "3,600 zł" },
+                      { hour: "15:00", val: 50, pln: "2,250 zł" },
+                      { hour: "16:00", val: 40, pln: "1,800 zł" },
+                      { hour: "17:00", val: 75, pln: "3,375 zł" },
+                      { hour: "18:00", val: 100, pln: "4,820 zł" },
+                      { hour: "19:00", val: 90, pln: "4,050 zł" },
+                      { hour: "20:00", val: 60, pln: "2,700 zł" },
+                      { hour: "21:00", val: 30, pln: "1,350 zł" },
+                    ].map((item, idx) => (
+                      <div key={idx} className="flex-1 flex flex-col items-center gap-2 group h-full justify-end">
+                        <div
+                          style={{ height: `${item.val}%` }}
+                          className="w-full max-w-[28px] bg-gradient-to-t from-[#d9531e] to-[#f26522] rounded-t-lg group-hover:brightness-125 transition-all relative cursor-pointer"
+                        >
+                          <div className="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-[#1a1a1a] text-white text-[10px] py-1 px-2 rounded-lg border border-[#f26522]/40 shadow-xl whitespace-nowrap pointer-events-none transition-opacity font-bold">
+                            {item.pln}
+                          </div>
                         </div>
+                        <span className="text-[10px] text-neutral-400 font-mono">{item.hour}</span>
                       </div>
-                      <span className="text-[10px] text-neutral-400 font-mono">{item.hour}</span>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
 
-                <div className="flex items-center justify-between text-xs text-neutral-400">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-neutral-400">
                   <span className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-[#f26522]" />
                     <span>Szczyt zamówień: <strong className="text-white">18:00 - 19:00</strong></span>

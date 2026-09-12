@@ -73,8 +73,8 @@ export default function StatsFilterBar({
   return (
     <div className="bg-[#141414] border border-white/10 rounded-2xl p-4 shadow-xl mb-6 space-y-4 relative z-30">
       {/* Top Filter Control Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        {/* Date Presets and Pickers */}
+      <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
+        {/* Date Presets & Custom Pickers Side-by-Side */}
         <DatePresetFilter
           activePreset={activePreset}
           onPresetChange={onPresetChange}
@@ -84,14 +84,14 @@ export default function StatsFilterBar({
           onEndDateChange={onEndDateChange}
         />
 
-        {/* Right Actions */}
+        {/* Right Actions (Compare, Filter, Export) Side-by-Side */}
         <div className="flex flex-wrap items-center gap-2">
           {onCompareModeChange && (
             <CustomDropdown
               options={compareOptions}
               selectedOption={selectedCompareMode}
               onSelect={onCompareModeChange}
-              className="w-52"
+              className="w-48 sm:w-56"
             />
           )}
 
@@ -99,7 +99,7 @@ export default function StatsFilterBar({
             <button
               type="button"
               onClick={onToggleFilters}
-              className={`px-3 py-1.5 rounded-xl border text-xs font-semibold flex items-center gap-1.5 transition-colors ${
+              className={`px-3 py-2 rounded-xl border text-xs font-semibold flex items-center gap-1.5 transition-colors ${
                 showFilters
                   ? "border-[#f26522] bg-[#f26522]/10 text-[#f26522]"
                   : "border-white/10 text-neutral-300 hover:border-white/20 bg-[#0e0e0e]"
@@ -114,7 +114,7 @@ export default function StatsFilterBar({
             <button
               type="button"
               onClick={onExportCSV}
-              className="px-3 py-1.5 rounded-xl bg-[#0e0e0e] border border-white/10 text-xs font-semibold text-neutral-300 hover:text-white hover:border-[#f26522]/50 flex items-center gap-1.5 transition-colors"
+              className="px-3.5 py-2 rounded-xl bg-[#0e0e0e] border border-white/10 text-xs font-semibold text-neutral-300 hover:text-white hover:border-[#f26522]/50 flex items-center gap-1.5 transition-colors"
             >
               <ExternalLink className="w-3.5 h-3.5 text-[#f26522]" />
               <span>Eksportuj CSV</span>

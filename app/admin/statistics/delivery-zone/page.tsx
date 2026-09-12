@@ -142,10 +142,10 @@ export default function DeliveryZonePage() {
     : "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d79948.33777553335!2d22.476483569502694!3d51.24647318021021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47234759a2341435%3A0x500d07525380590!2sLublin%2C%20Poland!5e0!3m2!1sen!2spl!4v1700000000000!5m2!1sen!2spl";
 
   return (
-    <div className="h-screen overflow-hidden bg-[#0e0e0e] text-white flex font-lato">
+    <div className="min-h-screen bg-[#0e0e0e] text-white flex font-lato">
       <AdminSidebar pendingOrdersCount={1} pendingReservationsCount={1} />
 
-      <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
+      <div className="flex-1 flex flex-col min-w-0">
         <AdminHeader
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
@@ -155,7 +155,7 @@ export default function DeliveryZonePage() {
           onRefresh={() => {}}
         />
 
-        <main className="p-6 sm:p-8 space-y-5 flex-1 overflow-y-auto bg-[#0e0e0e] text-neutral-200">
+        <main className="p-4 sm:p-6 lg:p-8 space-y-5 flex-1 overflow-y-auto bg-[#0e0e0e] text-neutral-200">
           {/* Header Title & Action */}
           <AdminPageHeader
             title="Strefy dostaw"
@@ -182,7 +182,7 @@ export default function DeliveryZonePage() {
           />
 
           {/* KPI Summary Stat Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <StatCard
               title="Dostawy zrealizowane"
               value={totalDeliveries.toString()}
@@ -218,7 +218,7 @@ export default function DeliveryZonePage() {
               </button>
             </div>
 
-            <div className="relative h-[480px] bg-[#eef1f3] overflow-hidden flex items-center justify-center">
+            <div className="relative h-[320px] sm:h-[480px] bg-[#eef1f3] overflow-hidden flex items-center justify-center">
               <iframe
                 key={mapSrcUrl}
                 title="Delivery Zone Google Map"
@@ -259,13 +259,13 @@ export default function DeliveryZonePage() {
                 <circle cx="695" cy="305" r="4.5" fill="#2563eb" stroke="#ffffff" strokeWidth="2" />
               </svg>
 
-              <div className="absolute left-3 bottom-8 bg-white/95 backdrop-blur-sm border border-neutral-300 rounded-lg p-3 text-[11px] space-y-2 shadow-lg z-20 text-neutral-800 min-w-[210px]">
+              <div className="absolute left-3 bottom-4 sm:bottom-8 bg-white/95 backdrop-blur-sm border border-neutral-300 rounded-lg p-2.5 sm:p-3 text-[10px] sm:text-[11px] space-y-1.5 shadow-lg z-20 text-neutral-800 max-w-[85%] sm:min-w-[210px]">
                 {filteredZoneData.map((item) => (
                   <div key={item.id}>
-                    <div className="font-bold text-neutral-900">{item.local}</div>
+                    <div className="font-bold text-neutral-900 truncate">{item.local}</div>
                     <div className="flex items-center gap-1.5 text-neutral-600 mt-0.5">
-                      <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: item.color }} />
-                      <span>{item.zone} ({item.deliveries} dostaw)</span>
+                      <span className="w-2.5 h-2.5 rounded-sm shrink-0" style={{ backgroundColor: item.color }} />
+                      <span className="truncate">{item.zone} ({item.deliveries} dostaw)</span>
                     </div>
                   </div>
                 ))}
@@ -289,53 +289,53 @@ export default function DeliveryZonePage() {
             </div>
 
             <div className="overflow-x-auto no-scrollbar">
-              <table className="w-full text-left border-collapse text-xs">
+              <table className="w-full text-left border-collapse text-[11px] sm:text-xs">
                 <thead>
-                  <tr className="bg-[#0e0e0e] border-b border-white/10 text-neutral-400 text-[11px]">
-                    {visibleColumns.deliveryZone && <th className="py-2.5 px-4 font-normal">Strefa dostawy ↕</th>}
-                    {visibleColumns.local && <th className="py-2.5 px-4 font-normal">Lokal ↕</th>}
-                    {visibleColumns.deliveriesCompleted && <th className="py-2.5 px-4 font-normal">Dostawy zrealizowane ↕</th>}
-                    {visibleColumns.deliveriesCompletedPct && <th className="py-2.5 px-4 font-normal">Dostawy zrealizowane (%) ↕</th>}
-                    {visibleColumns.revenue && <th className="py-2.5 px-4 font-normal">Przychód z dostaw (zł) ↓</th>}
-                    {visibleColumns.revenueSharePct && <th className="py-2.5 px-4 font-normal">Udział w przychodzie z dostaw (%) ↕</th>}
-                    {visibleColumns.avgOrderValue && <th className="py-2.5 px-4 font-normal">Średnia wartość zamówienia (zł) ↕</th>}
+                  <tr className="bg-[#0e0e0e] border-b border-white/10 text-neutral-400 text-[10px] sm:text-[11px]">
+                    {visibleColumns.deliveryZone && <th className="py-2.5 px-2.5 sm:px-4 font-normal whitespace-nowrap">Strefa dostawy ↕</th>}
+                    {visibleColumns.local && <th className="py-2.5 px-2.5 sm:px-4 font-normal whitespace-nowrap">Lokal ↕</th>}
+                    {visibleColumns.deliveriesCompleted && <th className="py-2.5 px-2.5 sm:px-4 font-normal whitespace-nowrap">Dostawy zrealizowane ↕</th>}
+                    {visibleColumns.deliveriesCompletedPct && <th className="py-2.5 px-2.5 sm:px-4 font-normal whitespace-nowrap">Dostawy zrealizowane (%) ↕</th>}
+                    {visibleColumns.revenue && <th className="py-2.5 px-2.5 sm:px-4 font-normal whitespace-nowrap">Przychód z dostaw (zł) ↓</th>}
+                    {visibleColumns.revenueSharePct && <th className="py-2.5 px-2.5 sm:px-4 font-normal whitespace-nowrap">Udział w przychodzie z dostaw (%) ↕</th>}
+                    {visibleColumns.avgOrderValue && <th className="py-2.5 px-2.5 sm:px-4 font-normal whitespace-nowrap">Średnia wartość zamówienia (zł) ↕</th>}
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5 text-neutral-300">
                   <tr className="bg-white/5 font-medium">
-                    {visibleColumns.deliveryZone && <td className="py-3 px-4 text-white">Suma (Łącznie)</td>}
-                    {visibleColumns.local && <td className="py-3 px-4 text-neutral-500">-</td>}
+                    {visibleColumns.deliveryZone && <td className="py-2 px-2.5 sm:px-4 text-white whitespace-nowrap">Suma (Łącznie)</td>}
+                    {visibleColumns.local && <td className="py-2 px-2.5 sm:px-4 text-neutral-500 whitespace-nowrap">-</td>}
                     {visibleColumns.deliveriesCompleted && (
-                      <td className="py-3 px-4">
+                      <td className="py-2 px-2.5 sm:px-4 whitespace-nowrap">
                         <div>{totalDeliveries}</div>
                         <div className="text-[10px] text-neutral-400">100.0%</div>
                       </td>
                     )}
                     {visibleColumns.deliveriesCompletedPct && (
-                      <td className="py-3 px-4">
+                      <td className="py-2 px-2.5 sm:px-4 whitespace-nowrap">
                         <div>100.0%</div>
                         <div className="text-[10px] text-neutral-400">0.00 p.p.</div>
                       </td>
                     )}
                     {visibleColumns.revenue && (
-                      <td className="py-3 px-4 font-semibold text-white">
+                      <td className="py-2 px-2.5 sm:px-4 font-semibold text-white whitespace-nowrap">
                         <div>{totalRevenueNum.toFixed(2)}</div>
                         <div className="text-[10px] text-neutral-400">100.0%</div>
                       </td>
                     )}
-                    {visibleColumns.revenueSharePct && <td className="py-3 px-4">100.0%</td>}
-                    {visibleColumns.avgOrderValue && <td className="py-3 px-4">{(totalRevenueNum / (totalDeliveries || 1)).toFixed(2)}</td>}
+                    {visibleColumns.revenueSharePct && <td className="py-2 px-2.5 sm:px-4 whitespace-nowrap">100.0%</td>}
+                    {visibleColumns.avgOrderValue && <td className="py-2 px-2.5 sm:px-4 whitespace-nowrap">{(totalRevenueNum / (totalDeliveries || 1)).toFixed(2)}</td>}
                   </tr>
 
                   {filteredZoneData.map((item) => (
                     <tr key={item.id}>
-                      {visibleColumns.deliveryZone && <td className="py-3 px-4 text-neutral-200">{item.zone}</td>}
-                      {visibleColumns.local && <td className="py-3 px-4 text-neutral-400">{item.local}</td>}
-                      {visibleColumns.deliveriesCompleted && <td className="py-3 px-4">{item.deliveries}</td>}
-                      {visibleColumns.deliveriesCompletedPct && <td className="py-3 px-4">{item.deliveriesPct}</td>}
-                      {visibleColumns.revenue && <td className="py-3 px-4 font-semibold text-neutral-200">{item.revenue} PLN</td>}
-                      {visibleColumns.revenueSharePct && <td className="py-3 px-4">{item.revenueSharePct}</td>}
-                      {visibleColumns.avgOrderValue && <td className="py-3 px-4">{item.avgOrder} PLN</td>}
+                      {visibleColumns.deliveryZone && <td className="py-2 px-2.5 sm:px-4 text-neutral-200 whitespace-nowrap">{item.zone}</td>}
+                      {visibleColumns.local && <td className="py-2 px-2.5 sm:px-4 text-neutral-400 whitespace-nowrap">{item.local}</td>}
+                      {visibleColumns.deliveriesCompleted && <td className="py-2 px-2.5 sm:px-4 whitespace-nowrap">{item.deliveries}</td>}
+                      {visibleColumns.deliveriesCompletedPct && <td className="py-2 px-2.5 sm:px-4 whitespace-nowrap">{item.deliveriesPct}</td>}
+                      {visibleColumns.revenue && <td className="py-2 px-2.5 sm:px-4 font-semibold text-neutral-200 whitespace-nowrap">{item.revenue} PLN</td>}
+                      {visibleColumns.revenueSharePct && <td className="py-2 px-2.5 sm:px-4 whitespace-nowrap">{item.revenueSharePct}</td>}
+                      {visibleColumns.avgOrderValue && <td className="py-2 px-2.5 sm:px-4 whitespace-nowrap">{item.avgOrder} PLN</td>}
                     </tr>
                   ))}
                 </tbody>

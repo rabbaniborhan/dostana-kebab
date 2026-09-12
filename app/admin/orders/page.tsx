@@ -706,30 +706,30 @@ export default function AdminOrdersPage() {
               </div>
 
               <div className="overflow-x-auto no-scrollbar">
-                <table className="w-full text-left text-xs text-neutral-300 border-collapse">
+                <table className="w-full text-left text-[11px] sm:text-xs text-neutral-300 border-collapse">
                   <thead className="bg-[#0e0e0e] text-neutral-400 uppercase tracking-wider text-[10px] border-b border-white/10">
                     <tr>
-                      {visibleColumns.id && <th className="p-3.5 whitespace-nowrap">ID ↑↓</th>}
-                      {visibleColumns.number && <th className="p-3.5 text-center whitespace-nowrap">Number ↑↓</th>}
-                      {visibleColumns.startOrder && <th className="p-3.5 whitespace-nowrap">Start order ↓</th>}
-                      {visibleColumns.placingOrder && <th className="p-3.5 whitespace-nowrap">Pricing an order ↑↓</th>}
-                      {visibleColumns.serviceTime && <th className="p-3.5 whitespace-nowrap">Service time</th>}
-                      {visibleColumns.status && <th className="p-3.5 whitespace-nowrap">Status ↑↓</th>}
-                      {visibleColumns.client && <th className="p-3.5 whitespace-nowrap">Client ↑↓</th>}
-                      {visibleColumns.address && <th className="p-3.5 whitespace-nowrap">Delivery address ↑↓</th>}
-                      {visibleColumns.payment && <th className="p-3.5 whitespace-nowrap">Payment</th>}
-                      {visibleColumns.local && <th className="p-3.5 whitespace-nowrap">Local ↑↓</th>}
-                      {visibleColumns.source && <th className="p-3.5 whitespace-nowrap">Source ↑↓</th>}
-                      {visibleColumns.together && <th className="p-3.5 text-right whitespace-nowrap">Together ↑↓</th>}
-                      {visibleColumns.paragon && <th className="p-3.5 whitespace-nowrap">Paragon ↑↓</th>}
-                      {visibleColumns.invoice && <th className="p-3.5 whitespace-nowrap">Invoice ↑↓</th>}
+                      {visibleColumns.id && <th className="p-2.5 sm:p-3.5 whitespace-nowrap">ID ↑↓</th>}
+                      {visibleColumns.number && <th className="p-2.5 sm:p-3.5 text-center whitespace-nowrap">Number ↑↓</th>}
+                      {visibleColumns.startOrder && <th className="p-2.5 sm:p-3.5 whitespace-nowrap">Start order ↓</th>}
+                      {visibleColumns.placingOrder && <th className="p-2.5 sm:p-3.5 whitespace-nowrap">Pricing an order ↑↓</th>}
+                      {visibleColumns.serviceTime && <th className="p-2.5 sm:p-3.5 whitespace-nowrap">Service time</th>}
+                      {visibleColumns.status && <th className="p-2.5 sm:p-3.5 whitespace-nowrap">Status ↑↓</th>}
+                      {visibleColumns.client && <th className="p-2.5 sm:p-3.5 whitespace-nowrap">Client ↑↓</th>}
+                      {visibleColumns.address && <th className="p-2.5 sm:p-3.5 whitespace-nowrap">Delivery address ↑↓</th>}
+                      {visibleColumns.payment && <th className="p-2.5 sm:p-3.5 whitespace-nowrap">Payment</th>}
+                      {visibleColumns.local && <th className="p-2.5 sm:p-3.5 whitespace-nowrap">Local ↑↓</th>}
+                      {visibleColumns.source && <th className="p-2.5 sm:p-3.5 whitespace-nowrap">Source ↑↓</th>}
+                      {visibleColumns.together && <th className="p-2.5 sm:p-3.5 text-right whitespace-nowrap">Together ↑↓</th>}
+                      {visibleColumns.paragon && <th className="p-2.5 sm:p-3.5 whitespace-nowrap">Paragon ↑↓</th>}
+                      {visibleColumns.invoice && <th className="p-2.5 sm:p-3.5 whitespace-nowrap">Invoice ↑↓</th>}
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-white/5">
                     {filteredOrders.map((order) => (
                       <tr key={order.id} className="hover:bg-white/[0.02] transition-colors">
                         {visibleColumns.id && (
-                          <td className="p-3.5">
+                          <td className="p-2.5 sm:p-3.5 whitespace-nowrap">
                             <button
                               onClick={() => setSelectedOrder(order)}
                               className="font-bold text-[#f26522] hover:underline"
@@ -739,20 +739,20 @@ export default function AdminOrdersPage() {
                           </td>
                         )}
                         {visibleColumns.number && (
-                          <td className="p-3.5 font-bold text-white text-center">{order.orderNumber}</td>
+                          <td className="p-2.5 sm:p-3.5 font-bold text-white text-center whitespace-nowrap">{order.orderNumber}</td>
                         )}
                         {visibleColumns.startOrder && (
-                          <td className="p-3.5 text-neutral-300 font-mono text-[11px] whitespace-pre-line">{order.startOrder.replace(" ", "\n")}</td>
+                          <td className="p-2.5 sm:p-3.5 text-neutral-300 font-mono text-[10px] sm:text-[11px] whitespace-pre-line">{order.startOrder.replace(" ", "\n")}</td>
                         )}
                         {visibleColumns.placingOrder && (
-                          <td className="p-3.5 text-neutral-300 font-mono text-[11px] whitespace-pre-line">{order.placingOrder.replace(" ", "\n")}</td>
+                          <td className="p-2.5 sm:p-3.5 text-neutral-300 font-mono text-[10px] sm:text-[11px] whitespace-pre-line">{order.placingOrder.replace(" ", "\n")}</td>
                         )}
                         {visibleColumns.serviceTime && (
-                          <td className="p-3.5 text-neutral-400 font-medium">{order.serviceTime}</td>
+                          <td className="p-2.5 sm:p-3.5 text-neutral-400 font-medium whitespace-nowrap">{order.serviceTime}</td>
                         )}
                         {visibleColumns.status && (
-                          <td className="p-3.5">
-                            <span className={`text-xs font-semibold ${
+                          <td className="p-2.5 sm:p-3.5 whitespace-nowrap">
+                            <span className={`text-[11px] sm:text-xs font-semibold ${
                               order.status === "Cancelled" ? "text-red-400" : "text-emerald-400"
                             }`}>
                               {order.statusText}
@@ -760,33 +760,33 @@ export default function AdminOrdersPage() {
                           </td>
                         )}
                         {visibleColumns.client && (
-                          <td className="p-3.5">
+                          <td className="p-2.5 sm:p-3.5 whitespace-nowrap">
                             <div className="font-bold text-[#f26522] hover:underline cursor-pointer">{order.customer}</div>
-                            <div className="text-[11px] text-neutral-400 font-mono">{order.phone}</div>
+                            <div className="text-[10px] sm:text-[11px] text-neutral-400 font-mono">{order.phone}</div>
                           </td>
                         )}
                         {visibleColumns.address && (
-                          <td className="p-3.5 text-neutral-300 max-w-[180px] leading-relaxed text-[11px]">
+                          <td className="p-2.5 sm:p-3.5 text-neutral-300 max-w-[180px] leading-relaxed text-[10px] sm:text-[11px]">
                             {order.address}
                           </td>
                         )}
                         {visibleColumns.payment && (
-                          <td className="p-3.5 text-neutral-300">{order.payment}</td>
+                          <td className="p-2.5 sm:p-3.5 text-neutral-300 whitespace-nowrap">{order.payment}</td>
                         )}
                         {visibleColumns.local && (
-                          <td className="p-3.5 text-neutral-300">{order.location}</td>
+                          <td className="p-2.5 sm:p-3.5 text-neutral-300 whitespace-nowrap">{order.location}</td>
                         )}
                         {visibleColumns.source && (
-                          <td className="p-3.5 text-neutral-400">{order.source}</td>
+                          <td className="p-2.5 sm:p-3.5 text-neutral-400 whitespace-nowrap">{order.source}</td>
                         )}
                         {visibleColumns.together && (
-                          <td className="p-3.5 font-bold text-white text-right text-sm">{order.total.toFixed(2)} PLN</td>
+                          <td className="p-2.5 sm:p-3.5 font-bold text-white text-right text-xs sm:text-sm whitespace-nowrap">{order.total.toFixed(2)} PLN</td>
                         )}
                         {visibleColumns.paragon && (
-                          <td className="p-3.5 text-neutral-300 font-mono text-[11px] whitespace-nowrap">{order.paragon}</td>
+                          <td className="p-2.5 sm:p-3.5 text-neutral-300 font-mono text-[10px] sm:text-[11px] whitespace-nowrap">{order.paragon}</td>
                         )}
                         {visibleColumns.invoice && (
-                          <td className="p-3.5 text-neutral-300 font-mono text-[11px] whitespace-nowrap">{order.invoice}</td>
+                          <td className="p-2.5 sm:p-3.5 text-neutral-300 font-mono text-[10px] sm:text-[11px] whitespace-nowrap">{order.invoice}</td>
                         )}
                       </tr>
                     ))}

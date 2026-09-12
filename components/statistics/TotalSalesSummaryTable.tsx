@@ -43,19 +43,19 @@ export default function TotalSalesSummaryTable({
       </div>
 
       <div className="overflow-x-auto no-scrollbar">
-        <table className="w-full text-left border-collapse text-xs">
+        <table className="w-full text-left border-collapse text-[11px] sm:text-xs">
           <thead>
-            <tr className="bg-[#0e0e0e] border-b border-white/10 text-neutral-400 text-[11px]">
-              {visibleColumns.salesChannel && <th className="py-2.5 px-4 font-normal">Kanał sprzedaży ↕</th>}
-              {visibleColumns.ordersCompleted && <th className="py-2.5 px-4 font-normal">Zamówienia zrealizowane ↕</th>}
-              {visibleColumns.shareOfOrders && <th className="py-2.5 px-4 font-normal">Udział w zamówieniach ↕</th>}
-              {visibleColumns.cash && <th className="py-2.5 px-4 font-normal">Gotówka ↕</th>}
-              {visibleColumns.card && <th className="py-2.5 px-4 font-normal">Karta ↕</th>}
-              {visibleColumns.transfer && <th className="py-2.5 px-4 font-normal">Przelew ↕</th>}
-              {visibleColumns.onlinePayment && <th className="py-2.5 px-4 font-normal">Płatność online ↕</th>}
-              {visibleColumns.revenue && <th className="py-2.5 px-4 font-normal">Przychód (zł) ↓</th>}
-              {visibleColumns.revenueShare && <th className="py-2.5 px-4 font-normal">Udział w przychodzie ↕</th>}
-              {visibleColumns.avgOrderValue && <th className="py-2.5 px-4 font-normal">Średnia wartość zamówienia ↕</th>}
+            <tr className="bg-[#0e0e0e] border-b border-white/10 text-neutral-400 text-[10px] sm:text-[11px]">
+              {visibleColumns.salesChannel && <th className="py-2.5 px-2.5 sm:px-4 font-normal whitespace-nowrap">Kanał sprzedaży ↕</th>}
+              {visibleColumns.ordersCompleted && <th className="py-2.5 px-2.5 sm:px-4 font-normal whitespace-nowrap">Zamówienia zrealizowane ↕</th>}
+              {visibleColumns.shareOfOrders && <th className="py-2.5 px-2.5 sm:px-4 font-normal whitespace-nowrap">Udział w zamówieniach ↕</th>}
+              {visibleColumns.cash && <th className="py-2.5 px-2.5 sm:px-4 font-normal whitespace-nowrap">Gotówka ↕</th>}
+              {visibleColumns.card && <th className="py-2.5 px-2.5 sm:px-4 font-normal whitespace-nowrap">Karta ↕</th>}
+              {visibleColumns.transfer && <th className="py-2.5 px-2.5 sm:px-4 font-normal whitespace-nowrap">Przelew ↕</th>}
+              {visibleColumns.onlinePayment && <th className="py-2.5 px-2.5 sm:px-4 font-normal whitespace-nowrap">Płatność online ↕</th>}
+              {visibleColumns.revenue && <th className="py-2.5 px-2.5 sm:px-4 font-normal whitespace-nowrap">Przychód (zł) ↓</th>}
+              {visibleColumns.revenueShare && <th className="py-2.5 px-2.5 sm:px-4 font-normal whitespace-nowrap">Udział w przychodzie ↕</th>}
+              {visibleColumns.avgOrderValue && <th className="py-2.5 px-2.5 sm:px-4 font-normal whitespace-nowrap">Średnia wartość zamówienia ↕</th>}
             </tr>
           </thead>
           <tbody className="divide-y divide-white/5 text-neutral-300">
@@ -65,33 +65,33 @@ export default function TotalSalesSummaryTable({
                 className={idx === 0 ? "bg-white/5 font-medium" : "hover:bg-white/[0.02] transition-colors"}
               >
                 {visibleColumns.salesChannel && (
-                  <td className={`py-3 px-4 ${idx === 0 ? "text-white" : "text-neutral-200"}`}>
+                  <td className={`py-2 px-2.5 sm:px-4 whitespace-nowrap ${idx === 0 ? "text-white font-bold" : "text-neutral-200"}`}>
                     {row.channel}
                   </td>
                 )}
                 {visibleColumns.ordersCompleted && (
-                  <td className="py-3 px-4">
+                  <td className="py-2 px-2.5 sm:px-4 whitespace-nowrap">
                     <div>{row.orders}</div>
                     {idx === 0 && <div className="text-[10px] text-emerald-400">288.87%</div>}
                   </td>
                 )}
                 {visibleColumns.shareOfOrders && (
-                  <td className="py-3 px-4">
+                  <td className="py-2 px-2.5 sm:px-4 whitespace-nowrap">
                     <div>{row.shareOrders}</div>
                     {idx === 0 && <div className="text-[10px] text-neutral-500">0.00 p.p.</div>}
                   </td>
                 )}
-                {visibleColumns.cash && <td className="py-3 px-4">{row.cash}</td>}
-                {visibleColumns.card && <td className="py-3 px-4">{row.card}</td>}
-                {visibleColumns.transfer && <td className="py-3 px-4">{row.transfer}</td>}
-                {visibleColumns.onlinePayment && <td className="py-3 px-4">{row.onlinePayment}</td>}
+                {visibleColumns.cash && <td className="py-2 px-2.5 sm:px-4 whitespace-nowrap">{row.cash}</td>}
+                {visibleColumns.card && <td className="py-2 px-2.5 sm:px-4 whitespace-nowrap">{row.card}</td>}
+                {visibleColumns.transfer && <td className="py-2 px-2.5 sm:px-4 whitespace-nowrap">{row.transfer}</td>}
+                {visibleColumns.onlinePayment && <td className="py-2 px-2.5 sm:px-4 whitespace-nowrap">{row.onlinePayment}</td>}
                 {visibleColumns.revenue && (
-                  <td className={`py-3 px-4 font-semibold ${idx === 0 ? "text-white" : "text-neutral-200"}`}>
+                  <td className={`py-2 px-2.5 sm:px-4 whitespace-nowrap font-semibold ${idx === 0 ? "text-white" : "text-neutral-200"}`}>
                     {row.revenue}
                   </td>
                 )}
-                {visibleColumns.revenueShare && <td className="py-3 px-4">{row.revenueShare}</td>}
-                {visibleColumns.avgOrderValue && <td className="py-3 px-4">{row.avgOrderValue}</td>}
+                {visibleColumns.revenueShare && <td className="py-2 px-2.5 sm:px-4 whitespace-nowrap">{row.revenueShare}</td>}
+                {visibleColumns.avgOrderValue && <td className="py-2 px-2.5 sm:px-4 whitespace-nowrap">{row.avgOrderValue}</td>}
               </tr>
             ))}
           </tbody>

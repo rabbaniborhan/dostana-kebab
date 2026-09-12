@@ -65,10 +65,10 @@ export default function SourceMediumPage() {
   const totalVisits = currentSourceMediumData.reduce((acc, item) => acc + item.visits, 0);
 
   return (
-    <div className="h-screen overflow-hidden bg-[#0e0e0e] text-white flex font-lato">
+    <div className="min-h-screen bg-[#0e0e0e] text-white flex font-lato">
       <AdminSidebar pendingOrdersCount={1} pendingReservationsCount={1} />
 
-      <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
+      <div className="flex-1 flex flex-col min-w-0">
         <AdminHeader
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
@@ -78,7 +78,7 @@ export default function SourceMediumPage() {
           onRefresh={() => {}}
         />
 
-        <main className="p-6 sm:p-8 space-y-5 flex-1 overflow-y-auto bg-[#0e0e0e] text-neutral-200">
+        <main className="p-4 sm:p-6 lg:p-8 space-y-5 flex-1 overflow-y-auto bg-[#0e0e0e] text-neutral-200">
           {/* Header Title */}
           <div className="flex items-center justify-between">
             <div>
@@ -120,21 +120,21 @@ export default function SourceMediumPage() {
             </div>
 
             <div className="overflow-x-auto no-scrollbar">
-              <table className="w-full text-left border-collapse text-xs">
+              <table className="w-full text-left border-collapse text-[11px] sm:text-xs">
                 <thead>
-                  <tr className="bg-[#0e0e0e] border-b border-white/10 text-neutral-400 text-[11px]">
-                    <th className="py-3 px-6 font-bold text-neutral-300">Źródło / medium</th>
-                    <th className="py-3 px-6 font-bold text-right text-neutral-300">Liczba odwiedzin</th>
+                  <tr className="bg-[#0e0e0e] border-b border-white/10 text-neutral-400 text-[10px] sm:text-[11px]">
+                    <th className="py-2.5 px-3 sm:px-6 font-bold text-neutral-300 whitespace-nowrap">Źródło / medium</th>
+                    <th className="py-2.5 px-3 sm:px-6 font-bold text-right text-neutral-300 whitespace-nowrap">Liczba odwiedzin</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5 text-neutral-200">
                   {currentSourceMediumData.map((row, idx) => (
                     <tr key={idx} className="hover:bg-white/5 transition-colors">
-                      <td className="py-3 px-6 font-medium text-white flex items-center gap-2">
+                      <td className="py-2.5 px-3 sm:px-6 font-medium text-white flex items-center gap-2 whitespace-nowrap">
                         <span className="text-neutral-400 font-mono text-[11px] w-5 text-right">{idx + 1}.</span>
                         <span className="font-semibold text-neutral-200">{row.sourceMedium}</span>
                       </td>
-                      <td className="py-3 px-6 text-right font-bold text-white font-mono">
+                      <td className="py-2.5 px-3 sm:px-6 text-right font-bold text-white font-mono whitespace-nowrap">
                         {row.visits.toLocaleString()} <span className="text-[10px] text-neutral-500 font-sans font-normal ml-1">({row.pct})</span>
                       </td>
                     </tr>

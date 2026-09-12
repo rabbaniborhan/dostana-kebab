@@ -52,13 +52,13 @@ export default function AdminTable({
       )}
 
       <div className="overflow-x-auto no-scrollbar">
-        <table className="w-full text-left border-collapse text-xs">
+        <table className="w-full text-left border-collapse text-[11px] sm:text-xs">
           <thead>
-            <tr className="bg-[#0e0e0e] border-b border-white/10 text-neutral-400 text-[11px]">
+            <tr className="bg-[#0e0e0e] border-b border-white/10 text-neutral-400 text-[10px] sm:text-[11px]">
               {visibleCols.map((col) => (
                 <th
                   key={col.key}
-                  className={`py-3 px-4 font-semibold ${
+                  className={`py-2.5 px-2.5 sm:px-4 font-semibold whitespace-nowrap ${
                     col.align === "center"
                       ? "text-center"
                       : col.align === "right"

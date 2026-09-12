@@ -32,10 +32,10 @@ export default function AlexandaReportPage() {
   const [selectedVenue, setSelectedVenue] = useState("All venues");
 
   return (
-    <div className="h-screen overflow-hidden bg-[#0e0e0e] text-white flex font-lato">
+    <div className="min-h-screen bg-[#0e0e0e] text-white flex font-lato">
       <AdminSidebar pendingOrdersCount={1} pendingReservationsCount={1} />
 
-      <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
+      <div className="flex-1 flex flex-col min-w-0">
         <AdminHeader
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
@@ -45,7 +45,7 @@ export default function AlexandaReportPage() {
           onRefresh={() => {}}
         />
 
-        <main className="p-6 sm:p-8 space-y-5 flex-1 overflow-y-auto bg-[#0e0e0e] text-neutral-200">
+        <main className="p-4 sm:p-6 lg:p-8 space-y-5 flex-1 overflow-y-auto bg-[#0e0e0e] text-neutral-200">
           {/* Top Title */}
           <div className="flex items-center justify-between">
             <div>

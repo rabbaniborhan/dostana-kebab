@@ -84,14 +84,15 @@ export default function DatePresetFilter({
   };
 
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <div className="flex flex-wrap items-center bg-[#0e0e0e] p-1 rounded-xl border border-white/10 gap-1">
+    <div className="flex flex-col lg:flex-row lg:items-center gap-3 max-w-full">
+      {/* Preset Pill Buttons Row */}
+      <div className="flex items-center bg-[#0e0e0e] p-1 rounded-xl border border-white/10 gap-1 overflow-x-auto no-scrollbar max-w-full">
         {presets.map((preset) => (
           <button
             key={preset}
             type="button"
             onClick={() => handlePresetSelect(preset)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
               activePreset.toLowerCase() === preset.toLowerCase()
                 ? "bg-[#f26522] text-white shadow-md shadow-[#f26522]/20"
                 : "text-neutral-400 hover:text-white hover:bg-white/5"
@@ -102,14 +103,17 @@ export default function DatePresetFilter({
         ))}
       </div>
 
+      {/* Side-by-Side Horizontal Custom Date Pickers Container */}
       {showCustomDates && (
-        <div className="flex items-center gap-2 bg-[#0e0e0e] px-3 py-1 rounded-xl border border-white/10">
+        <div className="flex items-center gap-2 bg-[#0e0e0e] p-1.5 px-2.5 rounded-xl border border-white/10 shrink-0">
           <CustomDatePicker
             value={startDate}
             onChange={onStartDateChange}
             prefixText="Od:"
           />
-          <span className="text-neutral-500 font-bold">-</span>
+          <div className="flex items-center justify-center text-neutral-500 font-bold text-xs px-0.5">
+            ➔
+          </div>
           <CustomDatePicker
             value={endDate}
             onChange={onEndDateChange}
